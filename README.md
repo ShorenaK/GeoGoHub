@@ -88,3 +88,9 @@ I will not use Mongoose, Axios, CORS, or other prohibited libraries unless appro
 
 Implementation:
 Since I am working alone, I will implement the full stack for all user stories, including the React frontend, Express routes, MongoDB database operations, Passport authentication, and deployment.
+
+
+---- 
+git add . 
+git commit -m "files added"
+git push origin main 
