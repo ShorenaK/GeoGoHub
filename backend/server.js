@@ -18,8 +18,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
+// Load environment variables from the .env file.
 dotenv.config();
 
+// All middleware and API routes will be attached to this object.
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -30,6 +32,7 @@ app.get('/', (req, res) => {
   });
 });
 
+// Start the Express server and listen for incoming requests.
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
