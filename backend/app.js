@@ -24,4 +24,14 @@ const app = express();
 // This allows the backend to read data sent from React forms.
 app.use(express.json());
 
+// This confirms that the Express app is responding correctly.
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'success',
+    message: 'GeoGoHub API is healthy',
+  });
+});
+
+export default app;
+
 

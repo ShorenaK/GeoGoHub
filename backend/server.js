@@ -15,24 +15,24 @@
   Project: GeoGoHub
 */
 
-import express from 'express';
 import dotenv from 'dotenv';
+import app from './app.js';
+// import { connectDatabase } from './db/database.js';
 
 // Load environment variables from the .env file.
 dotenv.config();
 
-// All middleware and API routes will be attached to this object.
-const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'GeoGoHub backend is running',
-  });
-});
-
-// Start the Express server and listen for incoming requests.
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// Connect to MongoDB first, then start the server.
+// This prevents the app from running without a database connection.
+// connectDatabase()
+//   .then(() => {
+//     app.listen(PORT, () => {
+//       console.log(`Server running on http://localhost:${PORT}`);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error('Failed to start server:', error);
+//   });
