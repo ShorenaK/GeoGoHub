@@ -18,6 +18,10 @@
 import express from 'express';
 
 // Create the Express application.
-// Server startup happens in server.js, not here.
 const app = express();
+
+// Parse incoming JSON request bodies.
+// This allows the backend to read data sent from React forms.
+app.use(express.json());
+
 
