@@ -57,7 +57,11 @@ export async function getAllApplications() {
   return applications;
 }
 
-// getApplicationById()
+// Retrieves one membership application by MongoDB _id.
+export async function getApplicationById(applicationId) {
+  const db = getDatabase();
+
+}
 
 // updateApplication()
 
