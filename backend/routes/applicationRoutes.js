@@ -24,3 +24,9 @@ import {
   getApplicationByIdController,
   updateApplicationController,
 } from '../controllers/applicationController.js';
+
+const router = express.Router();
+
+
+
+export default router;
