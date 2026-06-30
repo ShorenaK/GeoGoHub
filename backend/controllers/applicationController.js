@@ -12,3 +12,5 @@
   Course: CS 5610 Web Development
   Project: GeoGoHub
 */
+
+import { createApplication } from '../models/applicationModel.js';
