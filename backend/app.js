@@ -16,6 +16,7 @@
 */
 
 import express from 'express';
+import applicationRoutes from './routes/applicationRoutes.js';
 
 // Create the Express application.
 const app = express();
@@ -23,6 +24,9 @@ const app = express();
 // Parse incoming JSON request bodies.
 // This allows the backend to read data sent from React forms.
 app.use(express.json());
+
+// Register application routes.
+app.use('/api/applications', applicationRoutes);
 
 app.get('/', (req, res) => {
   res.json({

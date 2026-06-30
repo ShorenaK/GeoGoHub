@@ -15,7 +15,12 @@ GeoGo Hub will be a full-stack web application for a curated private members clu
 
 Unlike open event platforms, GeoGo Hub will not allow every user to create public events. Membership will be application based, and events will be curated by the club admin. Approved members will be able to discover private gatherings such as founder dinners, golf networking events, card nights, cultural gatherings, private discussions, and business roundtables. Members will be able to RSVP to events and manage their attendance.
 
-The application will use MongoDB collections including:
+The application GeoGoHub will use four MongoDB collections:
+
+users
+applications
+events
+rsvps
 
 Users Collection:
 Stores user account information, role, profile details, membership status, and login-related information.
@@ -87,10 +92,12 @@ Data Requests: Fetch API
 I will not use Mongoose, Axios, CORS, or other prohibited libraries unless approved.
 
 Implementation:
-Since I am working alone, I will implement the full stack for all user stories, including the React frontend, Express routes, MongoDB database operations, Passport authentication, and deployment.
+I will implement the full stack for all user stories, including the React frontend, Express routes, MongoDB database operations, Passport authentication, and deployment.
 
 
 ---- 
 git add . 
 git commit -m "files added"
 git push origin main 
+
+
