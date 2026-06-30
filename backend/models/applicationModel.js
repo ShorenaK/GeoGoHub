@@ -16,6 +16,7 @@
   Project: GeoGoHub
 */
 
+import { ObjectId } from 'mongodb';
 import { getDatabase } from '../db/database.js';
 
 const APPLICATIONS_COLLECTION = 'applications';
