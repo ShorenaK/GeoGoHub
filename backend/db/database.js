@@ -20,14 +20,12 @@
 import dotenv from 'dotenv';
 import { MongoClient } from 'mongodb';
 
-// connect envrimont
 dotenv.config();
 
 // Read MongoDB configuration from the .env file.
 const mongoUri = process.env.MONGODB_URI;
 const databaseName = process.env.DB_NAME;
 
-// For debugging 
 if (!mongoUri) {
   throw new Error('MONGODB_URI is missing from backend/.env');
 }
