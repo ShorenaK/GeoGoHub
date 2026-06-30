@@ -73,7 +73,22 @@ export async function getApplicationById(applicationId) {
 
 // Updates an existing membership application.
 export async function updateApplication(applicationId, updatedData) {
- 
+  const db = getDatabase();
+
+  // Convert the string id into a MongoDB ObjectId.
+  const objectId = new ObjectId(applicationId);
+
+  // Update the modified date.
+  updatedData.updatedAt = new Date();
+
+  const result = await db.collection(APPLICATIONS_COLLECTION).updateOne(
+    { _id: objectId },
+    {
+      $set: updatedData,
+    },
+  );
+
+  return result;
 }
 
 // deleteApplication()
