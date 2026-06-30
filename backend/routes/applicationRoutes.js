@@ -27,6 +27,12 @@ import {
 
 const router = express.Router();
 
+// Create a new membership application.
+router.post('/', createApplicationController);
+
+// Get all membership applications.
+router.get('/', getAllApplicationsController);
+
 
 
 export default router;
