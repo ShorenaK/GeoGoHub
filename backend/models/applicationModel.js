@@ -61,6 +61,14 @@ export async function getAllApplications() {
 export async function getApplicationById(applicationId) {
   const db = getDatabase();
 
+  // Convert the string id from the URL into a MongoDB ObjectId.
+  const objectId = new ObjectId(applicationId);
+
+  const application = await db
+    .collection(APPLICATIONS_COLLECTION)
+    .findOne({ _id: objectId });
+
+  return application;
 }
 
 // updateApplication()
