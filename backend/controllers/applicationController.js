@@ -35,19 +35,44 @@ try {
 
 // Handles retrieving all membership applications.
 export async function getAllApplicationsController(req, res) {
-  try {
+try {
+    const applications = await getAllApplications();
 
+    res.status(200).json({
+      success: true,
+      data: applications,
+    });
   } catch (error) {
-
+    res.status(500).json({
+      success: false,
+      message: 'Failed to get applications.',
+      error: error.message,
+    });
   }
 }
 
 // Handles retrieving one membership application by ID.
 export async function getApplicationByIdController(req, res) {
-  try {
+try {
+    const application = await getApplicationById(req.params.id);
 
+    if (!application) {
+      return res.status(404).json({
+        success: false,
+        message: 'Application not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: application,
+    });
   } catch (error) {
-
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to get application.',
+      error: error.message,
+    });
   }
 }
 
