@@ -14,3 +14,21 @@
 */
 
 import { createApplication } from '../models/applicationModel.js';
+
+// Handles creating a new membership application.
+export async function createApplicationController(req, res) {
+  try {
+
+  } catch (error) {
+
+  }
+}
+
+// Handles retrieving all membership applications.
+export async function getAllApplicationsController(req, res) {
+  try {
+
+  } catch (error) {
+
+  }
+}
