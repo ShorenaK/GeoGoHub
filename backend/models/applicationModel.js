@@ -91,5 +91,17 @@ export async function updateApplication(applicationId, updatedData) {
   return result;
 }
 
-// deleteApplication()
 
+// Deletes a membership application by MongoDB _id.
+export async function deleteApplication(applicationId) {
+  const db = getDatabase();
+
+  // Convert the string id into a MongoDB ObjectId.
+  const objectId = new ObjectId(applicationId);
+
+  const result = await db.collection(APPLICATIONS_COLLECTION).deleteOne({
+    _id: objectId,
+  });
+
+ 
+}
