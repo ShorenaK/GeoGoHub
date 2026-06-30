@@ -17,7 +17,7 @@
 
 import dotenv from 'dotenv';
 import app from './app.js';
-// import { connectDatabase } from './db/database.js';
+import { connectDatabase } from './db/database.js';
 
 // Load environment variables from the .env file.
 dotenv.config();
@@ -27,12 +27,12 @@ const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB first, then start the server.
 // This prevents the app from running without a database connection.
-// connectDatabase()
-//   .then(() => {
-//     app.listen(PORT, () => {
-//       console.log(`Server running on http://localhost:${PORT}`);
-//     });
-//   })
-//   .catch((error) => {
-//     console.error('Failed to start server:', error);
-//   });
+connectDatabase()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Failed to start server:', error);
+  });
