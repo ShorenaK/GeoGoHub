@@ -17,10 +17,19 @@ import { createApplication, getAllApplications, getApplicationById, updateApplic
 
 // Handles creating a new membership application.
 export async function createApplicationController(req, res) {
-  try {
+try {
+    const application = await createApplication(req.body);
 
+    res.status(201).json({
+      success: true,
+      data: application,
+    });
   } catch (error) {
-
+    res.status(500).json({
+      success: false,
+      message: 'Failed to create application.',
+      error: error.message,
+    });
   }
 }
 
