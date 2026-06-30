@@ -33,6 +33,13 @@ router.post('/', createApplicationController);
 // Get all membership applications.
 router.get('/', getAllApplicationsController);
 
+// Get one membership application by id.
+router.get('/:id', getApplicationByIdController);
 
+// Update one membership application by id.
+router.put('/:id', updateApplicationController);
+
+// Delete one membership application by id.
+router.delete('/:id', deleteApplicationController);
 
 export default router;
