@@ -71,7 +71,10 @@ export async function getApplicationById(applicationId) {
   return application;
 }
 
-// updateApplication()
+// Updates an existing membership application.
+export async function updateApplication(applicationId, updatedData) {
+ 
+}
 
 // deleteApplication()
 
