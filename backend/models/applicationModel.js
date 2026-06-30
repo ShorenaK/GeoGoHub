@@ -42,10 +42,19 @@ export async function createApplication(applicationData) {
   };
 }
 
+// Retrieves all membership applications from MongoDB. 
+export async function getAllApplications() {
+  const db = getDatabase();
 
+  // Find all documents in the applications collection.
+  const applications = await db
+    .collection(APPLICATIONS_COLLECTION)
+    .find()
+    // Note to my self --> Replace with pagination if the applications collection grows significantly in the future.
+    .toArray();
 
-
-// getAllApplications()
+  return applications;
+}
 
 // getApplicationById()
 
