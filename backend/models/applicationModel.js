@@ -103,5 +103,5 @@ export async function deleteApplication(applicationId) {
     _id: objectId,
   });
 
- 
+  return result;
 }
