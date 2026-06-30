@@ -16,3 +16,11 @@
 */
 
 import express from 'express';
+
+import {
+  createApplicationController,
+  deleteApplicationController,
+  getAllApplicationsController,
+  getApplicationByIdController,
+  updateApplicationController,
+} from '../controllers/applicationController.js';
