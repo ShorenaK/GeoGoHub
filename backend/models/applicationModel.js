@@ -43,7 +43,7 @@ export async function createApplication(applicationData) {
   };
 }
 
-// Retrieves all membership applications from MongoDB. 
+// Retrieves all membership applications from MongoDB.
 export async function getAllApplications() {
   const db = getDatabase();
 
@@ -64,9 +64,7 @@ export async function getApplicationById(applicationId) {
   // Convert the string id from the URL into a MongoDB ObjectId.
   const objectId = new ObjectId(applicationId);
 
-  const application = await db
-    .collection(APPLICATIONS_COLLECTION)
-    .findOne({ _id: objectId });
+  const application = await db.collection(APPLICATIONS_COLLECTION).findOne({ _id: objectId });
 
   return application;
 }
@@ -90,7 +88,6 @@ export async function updateApplication(applicationId, updatedData) {
 
   return result;
 }
-
 
 // Deletes a membership application by MongoDB _id.
 export async function deleteApplication(applicationId) {

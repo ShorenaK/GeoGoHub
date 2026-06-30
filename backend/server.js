@@ -22,7 +22,6 @@ import { connectDatabase } from './db/database.js';
 // Load environment variables from the .env file.
 dotenv.config();
 
-
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB first, then start the server.
