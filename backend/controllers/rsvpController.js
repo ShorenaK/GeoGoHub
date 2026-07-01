@@ -41,7 +41,20 @@ export async function createRsvpController(req, res) {
 
 // Handles retrieving all RSVPs.
 export async function getAllRsvpsController(req, res) {
- 
+  try {
+    const rsvps = await getAllRsvps();
+
+    res.status(200).json({
+      success: true,
+      data: rsvps,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Failed to get RSVPs.',
+      error: error.message,
+    });
+  }
 }
 
 // Handles retrieving one RSVP by ID.
