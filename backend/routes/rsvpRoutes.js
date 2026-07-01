@@ -14,3 +14,23 @@
   Course: CS 5610 Web Development
   Project: GeoGoHub
 */
+
+import express from 'express';
+
+import {
+  createRsvpController,
+  deleteRsvpController,
+  getAllRsvpsController,
+  getRsvpByIdController,
+  updateRsvpController,
+} from '../controllers/rsvpController.js';
+
+const router = express.Router();
+
+router.post('/', createRsvpController);
+router.get('/', getAllRsvpsController);
+router.get('/:id', getRsvpByIdController);
+router.put('/:id', updateRsvpController);
+router.delete('/:id', deleteRsvpController);
+
+export default router;

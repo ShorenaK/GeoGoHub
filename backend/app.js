@@ -18,6 +18,7 @@
 import express from 'express';
 import applicationRoutes from './routes/applicationRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
+import rsvpRoutes from './routes/rsvpRoutes.js';
 
 // Create the Express application.
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.json());
 // Register application routes.
 app.use('/api/applications', applicationRoutes);
 app.use('/api/events', eventRoutes);
+app.use('/api/rsvps', rsvpRoutes);
 
 app.get('/', (req, res) => {
   res.json({
