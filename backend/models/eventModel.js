@@ -62,3 +62,34 @@ export async function getEventById(eventId) {
 
   return event;
 }
+
+// Updates an existing curated event.
+export async function updateEvent(eventId, updatedData) {
+  const db = getDatabase();
+
+  const objectId = new ObjectId(eventId);
+
+  updatedData.updatedAt = new Date();
+
+  const result = await db.collection(EVENTS_COLLECTION).updateOne(
+    { _id: objectId },
+    {
+      $set: updatedData,
+    },
+  );
+
+  return result;
+}
+
+// Deletes a curated event by MongoDB _id.
+export async function deleteEvent(eventId) {
+  const db = getDatabase();
+
+  const objectId = new ObjectId(eventId);
+
+  const result = await db.collection(EVENTS_COLLECTION).deleteOne({
+    _id: objectId,
+  });
+
+  return result;
+}
