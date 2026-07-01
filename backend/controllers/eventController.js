@@ -59,15 +59,75 @@ export async function getAllEventsController(req, res) {
 
 // Handles retrieving one curated event by ID.
 export async function getEventByIdController(req, res) {
- 
+  try {
+    const event = await getEventById(req.params.id);
+
+    if (!event) {
+      return res.status(404).json({
+        success: false,
+        message: 'Event not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: event,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to get event.',
+      error: error.message,
+    });
+  }
 }
 
 // Handles updating an existing curated event.
 export async function updateEventController(req, res) {
- 
+  try {
+    const result = await updateEvent(req.params.id, req.body);
+
+    if (result.matchedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Event not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Event updated successfully.',
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to update event.',
+      error: error.message,
+    });
+  }
 }
 
 // Handles deleting a curated event.
 export async function deleteEventController(req, res) {
+  try {
+    const result = await deleteEvent(req.params.id);
 
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'Event not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Event deleted successfully.',
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to delete event.',
+      error: error.message,
+    });
+  }
 }
