@@ -59,7 +59,27 @@ export async function getAllRsvpsController(req, res) {
 
 // Handles retrieving one RSVP by ID.
 export async function getRsvpByIdController(req, res) {
+  try {
+    const rsvp = await getRsvpById(req.params.id);
 
+    if (!rsvp) {
+      return res.status(404).json({
+        success: false,
+        message: 'RSVP not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: rsvp,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to get RSVP.',
+      error: error.message,
+    });
+  }
 }
 
 // Handles updating an existing RSVP.
