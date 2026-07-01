@@ -84,7 +84,27 @@ export async function getRsvpByIdController(req, res) {
 
 // Handles updating an existing RSVP.
 export async function updateRsvpController(req, res) {
+  try {
+    const result = await updateRsvp(req.params.id, req.body);
 
+    if (result.matchedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'RSVP not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'RSVP updated successfully.',
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to update RSVP.',
+      error: error.message,
+    });
+  }
 }
 
 // Handles deleting an RSVP.
