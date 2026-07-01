@@ -41,5 +41,33 @@ export async function createEventController(req, res) {
 
 // Handles retrieving all curated events.
 export async function getAllEventsController(req, res) {
+  try {
+    const events = await getAllEvents();
+
+    res.status(200).json({
+      success: true,
+      data: events,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Failed to get events.',
+      error: error.message,
+    });
+  }
+}
+
+// Handles retrieving one curated event by ID.
+export async function getEventByIdController(req, res) {
+ 
+}
+
+// Handles updating an existing curated event.
+export async function updateEventController(req, res) {
+ 
+}
+
+// Handles deleting a curated event.
+export async function deleteEventController(req, res) {
 
 }
