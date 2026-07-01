@@ -44,7 +44,12 @@ export async function createUser(userData) {
 
 // Retrieves all users from MongoDB.
 export async function getAllUsers() {
+  const db = getDatabase();
 
+  // Replace with pagination if the users collection grows significantly.
+  const users = await db.collection(USERS_COLLECTION).find().toArray();
+
+  return users;
 }
 
 // Retrieves one user by MongoDB _id.
