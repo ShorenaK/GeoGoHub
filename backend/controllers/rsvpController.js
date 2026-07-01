@@ -23,7 +23,20 @@ import {
 
 // Handles creating a new RSVP.
 export async function createRsvpController(req, res) {
+  try {
+    const rsvp = await createRsvp(req.body);
 
+    res.status(201).json({
+      success: true,
+      data: rsvp,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Failed to create RSVP.',
+      error: error.message,
+    });
+  }
 }
 
 // Handles retrieving all RSVPs.
