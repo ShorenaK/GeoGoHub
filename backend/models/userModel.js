@@ -26,6 +26,20 @@ const USERS_COLLECTION = 'users';
 export async function createUser(userData) {
   const db = getDatabase();
 
+  const newUser = {
+    ...userData,
+    role: userData.role || 'member',
+    membershipStatus: userData.membershipStatus || 'pending',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  const result = await db.collection(USERS_COLLECTION).insertOne(newUser);
+
+  return {
+    _id: result.insertedId,
+    ...newUser,
+  };
 }
 
 // Retrieves all users from MongoDB.
