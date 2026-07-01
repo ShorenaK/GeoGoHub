@@ -101,3 +101,5 @@ git commit -m "files added"
 git push origin main 
 
 
+npm run format
+npm run lint
