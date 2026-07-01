@@ -38,3 +38,8 @@ export async function createEventController(req, res) {
     });
   }
 }
+
+// Handles retrieving all curated events.
+export async function getAllEventsController(req, res) {
+
+}
