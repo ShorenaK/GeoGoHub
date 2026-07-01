@@ -12,3 +12,11 @@
   Course: CS 5610 Web Development
   Project: GeoGoHub
 */
+
+import {
+  createEvent,
+  deleteEvent,
+  getAllEvents,
+  getEventById,
+  updateEvent,
+} from '../models/eventModel.js';
