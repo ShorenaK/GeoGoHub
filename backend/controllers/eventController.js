@@ -20,3 +20,21 @@ import {
   getEventById,
   updateEvent,
 } from '../models/eventModel.js';
+
+// Handles creating a new curated event.
+export async function createEventController(req, res) {
+  try {
+    const event = await createEvent(req.body);
+
+    res.status(201).json({
+      success: true,
+      data: event,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Failed to create event.',
+      error: error.message,
+    });
+  }
+}
