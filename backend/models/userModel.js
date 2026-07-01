@@ -46,7 +46,7 @@ export async function createUser(userData) {
 export async function getAllUsers() {
   const db = getDatabase();
 
-  // Replace with pagination if the users collection grows significantly.
+  // TODO: Replace with pagination if the users collection grows significantly.
   const users = await db.collection(USERS_COLLECTION).find().toArray();
 
   return users;
@@ -54,15 +54,44 @@ export async function getAllUsers() {
 
 // Retrieves one user by MongoDB _id.
 export async function getUserById(userId) {
+  const db = getDatabase();
 
+  const objectId = new ObjectId(userId);
+
+  const user = await db.collection(USERS_COLLECTION).findOne({
+    _id: objectId,
+  });
+
+  return user;
 }
 
 // Updates an existing user.
 export async function updateUser(userId, updatedData) {
- 
+  const db = getDatabase();
+
+  const objectId = new ObjectId(userId);
+
+  updatedData.updatedAt = new Date();
+
+  const result = await db.collection(USERS_COLLECTION).updateOne(
+    { _id: objectId },
+    {
+      $set: updatedData,
+    },
+  );
+
+  return result;
 }
 
 // Deletes a user by MongoDB _id.
 export async function deleteUser(userId) {
+  const db = getDatabase();
 
+  const objectId = new ObjectId(userId);
+
+  const result = await db.collection(USERS_COLLECTION).deleteOne({
+    _id: objectId,
+  });
+
+  return result;
 }
