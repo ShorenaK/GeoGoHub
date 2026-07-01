@@ -40,7 +40,6 @@ import { getDatabase } from '../db/database.js';
 
 const RSVPS_COLLECTION = 'rsvps';
 
-
 // Creates a new RSVP in MongoDB.
 export async function createRsvp(rsvpData) {
   const db = getDatabase();
