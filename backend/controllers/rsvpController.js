@@ -109,5 +109,25 @@ export async function updateRsvpController(req, res) {
 
 // Handles deleting an RSVP.
 export async function deleteRsvpController(req, res) {
+  try {
+    const result = await deleteRsvp(req.params.id);
 
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'RSVP not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'RSVP deleted successfully.',
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to delete RSVP.',
+      error: error.message,
+    });
+  }
 }
