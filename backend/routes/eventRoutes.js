@@ -26,3 +26,11 @@ import {
 } from '../controllers/eventController.js';
 
 const router = express.Router();
+
+router.post('/', createEventController);
+router.get('/', getAllEventsController);
+router.get('/:id', getEventByIdController);
+router.put('/:id', updateEventController);
+router.delete('/:id', deleteEventController);
+
+export default router;
