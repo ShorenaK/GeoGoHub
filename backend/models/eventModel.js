@@ -16,3 +16,8 @@
   Course: CS 5610 Web Development
   Project: GeoGoHub
 */
+
+import { ObjectId } from 'mongodb';
+import { getDatabase } from '../db/database.js';
+
+const EVENTS_COLLECTION = 'events';
