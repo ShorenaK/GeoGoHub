@@ -18,7 +18,6 @@ import passport from '../config/passport.js';
 
 const router = express.Router();
 
-
 // Log in a user with email and password.
 router.post('/login', passport.authenticate('local'), (req, res) => {
   res.status(200).json({
@@ -41,3 +40,20 @@ router.post('/logout', (req, res, next) => {
     });
   });
 });
+
+// Return the currently logged-in user.
+router.get('/profile', (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({
+      success: false,
+      message: 'Not authenticated.',
+    });
+  }
+
+  return res.status(200).json({
+    success: true,
+    data: req.user,
+  });
+});
+
+export default router;

@@ -4,16 +4,16 @@
   This file configures the GeoGoHub Express application.
 
   Responsibilities:
-Responsibilities:
-- Create the Express application.
-- Register global middleware.
-- Parse incoming JSON requests.
-- Configure user sessions.
-- Initialize Passport authentication.
-- Register API routes.
-- Provide application and health check routes.
-- Handle unknown routes and server errors.
-- Export the configured app for server.js.
+  - Create the Express application.
+  - Register global middleware.
+  - Parse incoming JSON requests.
+  - Configure user sessions.
+  - Initialize Passport authentication.
+  - Register API routes.
+  - Register authentication routes.
+  - Provide application and health check routes.
+  - Handle unknown routes and server errors.
+  - Export the configured app for server.js.
 
   Author: Shorena K. Anzhilov
   Course: CS 5610 Web Development
@@ -29,6 +29,7 @@ import rsvpRoutes from './routes/rsvpRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
 import passport from './config/passport.js';
+import authRoutes from './routes/authRoutes.js';
 
 import { errorHandler } from './middleware/errorHandler.js';
 import { notFound } from './middleware/notFound.js';
@@ -62,6 +63,7 @@ app.use('/api/applications', applicationRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/rsvps', rsvpRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
 
 // Root route.
 app.get('/', (req, res) => {
