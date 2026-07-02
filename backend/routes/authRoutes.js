@@ -15,6 +15,7 @@
 
 import express from 'express';
 import passport from '../config/passport.js';
+import { requireLogin } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
@@ -42,15 +43,8 @@ router.post('/logout', (req, res, next) => {
 });
 
 // Return the currently logged-in user.
-router.get('/profile', (req, res) => {
-  if (!req.isAuthenticated()) {
-    return res.status(401).json({
-      success: false,
-      message: 'Not authenticated.',
-    });
-  }
-
-  return res.status(200).json({
+router.get('/profile', requireLogin, (req, res) => {
+  res.status(200).json({
     success: true,
     data: req.user,
   });
