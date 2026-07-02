@@ -43,3 +43,22 @@ export function requireAdmin(req, res, next) {
 
   return next();
 }
+
+// Requires logged-in users with approved membership.
+export function requireMember(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({
+      success: false,
+      message: 'Authentication required.',
+    });
+  }
+
+  if (req.user.membershipStatus !== 'approved') {
+    return res.status(403).json({
+      success: false,
+      message: 'Approved membership required.',
+    });
+  }
+
+  return next();
+}

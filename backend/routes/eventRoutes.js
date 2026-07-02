@@ -28,11 +28,11 @@ import { requireAdmin } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.post('/', createEventController);
-router.get('/', getAllEventsController);
-router.get('/:id', getEventByIdController);
-router.put('/:id', updateEventController);
-router.delete('/:id', deleteEventController);
+// router.post('/', createEventController);
+// router.get('/', getAllEventsController);
+// router.get('/:id', getEventByIdController);
+// router.put('/:id', updateEventController);
+// router.delete('/:id', deleteEventController);
 
 // Anyone can view events.
 router.get('/', getAllEventsController);
