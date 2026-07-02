@@ -52,3 +52,8 @@ passport.use(
     },
   ),
 );
+
+// Store only the user id in the session.
+passport.serializeUser((user, done) => {
+  done(null, user._id.toString());
+});
