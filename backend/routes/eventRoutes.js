@@ -24,6 +24,7 @@ import {
   getEventByIdController,
   updateEventController,
 } from '../controllers/eventController.js';
+import { requireAdmin } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
@@ -32,5 +33,14 @@ router.get('/', getAllEventsController);
 router.get('/:id', getEventByIdController);
 router.put('/:id', updateEventController);
 router.delete('/:id', deleteEventController);
+
+// Anyone can view events.
+router.get('/', getAllEventsController);
+router.get('/:id', getEventByIdController);
+
+// Only admins can modify events.
+router.post('/', requireAdmin, createEventController);
+router.put('/:id', requireAdmin, updateEventController);
+router.delete('/:id', requireAdmin, deleteEventController);
 
 export default router;
