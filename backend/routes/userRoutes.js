@@ -25,21 +25,17 @@ import {
   updateUserController,
 } from '../controllers/userController.js';
 
+import { requireAdmin } from '../middleware/authMiddleware.js';
+
 const router = express.Router();
 
 // Create a new user.
 router.post('/', createUserController);
 
-// Get all users.
-router.get('/', getAllUsersController);
-
-// Get one user by ID.
-router.get('/:id', getUserByIdController);
-
-// Update one user by ID.
-router.put('/:id', updateUserController);
-
-// Delete one user by ID.
-router.delete('/:id', deleteUserController);
+// Only administrators can manage users.
+router.get('/', requireAdmin, getAllUsersController);
+router.get('/:id', requireAdmin, getUserByIdController);
+router.put('/:id', requireAdmin, updateUserController);
+router.delete('/:id', requireAdmin, deleteUserController);
 
 export default router;

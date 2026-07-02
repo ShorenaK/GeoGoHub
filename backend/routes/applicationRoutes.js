@@ -25,21 +25,16 @@ import {
   updateApplicationController,
 } from '../controllers/applicationController.js';
 
+import { requireAdmin } from '../middleware/authMiddleware.js';
+
 const router = express.Router();
 
 // Create a new membership application.
 router.post('/', createApplicationController);
 
-// Get all membership applications.
-router.get('/', getAllApplicationsController);
-
-// Get one membership application by id.
-router.get('/:id', getApplicationByIdController);
-
-// Update one membership application by id.
-router.put('/:id', updateApplicationController);
-
-// Delete one membership application by id.
-router.delete('/:id', deleteApplicationController);
+router.get('/', requireAdmin, getAllApplicationsController);
+router.get('/:id', requireAdmin, getApplicationByIdController);
+router.put('/:id', requireAdmin, updateApplicationController);
+router.delete('/:id', requireAdmin, deleteApplicationController);
 
 export default router;
