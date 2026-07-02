@@ -57,3 +57,20 @@ passport.use(
 passport.serializeUser((user, done) => {
   done(null, user._id.toString());
 });
+
+// Use the session user id to find the full user.
+passport.deserializeUser(async (id, done) => {
+  try {
+    const db = getDatabase();
+
+    const user = await db.collection(USERS_COLLECTION).findOne({
+      _id: new ObjectId(id),
+    });
+
+    done(null, user);
+  } catch (error) {
+    done(error);
+  }
+});
+
+export default passport;
