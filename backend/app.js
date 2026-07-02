@@ -18,11 +18,14 @@
 */
 
 import express from 'express';
+import session from 'express-session';
 
 import applicationRoutes from './routes/applicationRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import rsvpRoutes from './routes/rsvpRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+
+import passport from './config/passport.js';
 
 import { errorHandler } from './middleware/errorHandler.js';
 import { notFound } from './middleware/notFound.js';
@@ -32,6 +35,24 @@ const app = express();
 
 // Parse incoming JSON request bodies.
 app.use(express.json());
+
+// Configure user sessions.
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    },
+  }),
+);
+
+// Initialize Passport authentication.
+app.use(passport.initialize());
+
+// Enable persistent login sessions.
+app.use(passport.session());
 
 // Register API routes.
 app.use('/api/applications', applicationRoutes);
