@@ -107,3 +107,35 @@ npm run lint
 
 
 https://mockaroo.com/
+
+
+
+Your current RSVP model for the project is  accepts:
+
+{
+  "status": "maybe"
+}
+
+but In a real application, an RSVP should know which user submitted it
+which event it's for
+
+So eventually I need to change it making the notes for my self 
+
+{
+  "userId": "...",
+  "eventId": "...",
+  "status": "going",
+  "createdAt": "...",
+  "updatedAt": "..."
+}
+
+this is only to satisfy the rubric assignment. I need to add add userId and eventId later
+
+
+https://cloud.mongodb.com/v2/6a43ef87fb29f13e7077db6e#/explorer/6a43efb740ce35b86cdc28ee/geogohub/users/find
+
+my Mangoos Atlas 
+
+
+git add . && git commit -m "Set up React frontend structure" && git push origin main
+
