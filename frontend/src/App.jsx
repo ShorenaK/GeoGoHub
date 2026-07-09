@@ -1,25 +1,30 @@
 /*
   App.jsx
 
-  This is the root React component for GeoGoHub.
+  This file defines the root React component for GeoGoHub.
 
   Responsibilities:
   - Render the main application layout.
-  - Display the top-level pages and components.
-  - Serve as the entry point for the frontend UI.
+  - Display the header, page content, and footer.
+  - Serve as the starting point for the frontend.
 
   Author: Shorena K. Anzhilov
   Course: CS 5610 Web Development
   Project: GeoGoHub
 */
 
-// Render the main application.
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import HomePage from './pages/HomePage.jsx';
+
+// Render the main application layout.
 function App() {
   return (
-    <main>
-      <h1>GeoGo Hub</h1>
-      <p>Curated private members club platform for Georgia.</p>
-    </main>
+    <>
+      <Header />
+      <HomePage />
+      <Footer />
+    </>
   );
 }
 
