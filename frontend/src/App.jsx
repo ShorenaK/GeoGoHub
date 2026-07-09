@@ -13,8 +13,7 @@
   Project: GeoGoHub
 */
 
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+
 import HomePage from './pages/HomePage.jsx';
 
 // Render the main application layout.
