@@ -1,0 +1,26 @@
+/*
+  Header.css
+
+  This file styles the GeoGoHub header component.
+
+  Responsibilities:
+  - Arrange the application title and navigation.
+  - Add spacing around the header.
+  - Separate the header from the page content.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoGoHub
+*/
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #cccccc;
+}
+
+header h1 {
+  margin: 0;
+}
