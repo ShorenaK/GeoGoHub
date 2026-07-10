@@ -16,7 +16,25 @@
 // Render the main navigation.
 function Navbar() {
   return (
-
+    <nav aria-label="Main navigation">
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/events">Events</a>
+        </li>
+        <li>
+          <a href="/application">Membership</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <li>
+          <a href="/dashboard">Dashboard</a>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
