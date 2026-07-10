@@ -13,6 +13,8 @@
   Project: GeoGoHub
 */
 
+import '../styles/Footer.css';
+
 // Render the application footer.
 function Footer() {
   return (

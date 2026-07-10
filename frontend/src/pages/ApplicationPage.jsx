@@ -12,6 +12,8 @@
   Project: GeoGoHub
 */
 
+import '../styles/ApplicationPage.css';
+
 // Render the membership application page.
 function ApplicationPage() {
   return <h2>Membership Application Page</h2>;

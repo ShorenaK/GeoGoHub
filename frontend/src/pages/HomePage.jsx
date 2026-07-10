@@ -13,6 +13,8 @@
   Project: GeoGoHub
 */
 
+import '../styles/HomePage.css';
+
 // Render the home page.
 function HomePage() {
   return (

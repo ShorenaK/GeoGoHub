@@ -12,6 +12,8 @@
   Project: GeoGoHub
 */
 
+import '../styles/EventsPage.css';
+
 // Render the events page.
 function EventsPage() {
   return <h2>Events Page</h2>;

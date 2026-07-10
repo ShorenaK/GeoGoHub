@@ -13,6 +13,8 @@
   Project: GeoGoHub
 */
 
+import '../styles/Navbar.css';
+
 // Render the main navigation.
 function Navbar() {
   return (

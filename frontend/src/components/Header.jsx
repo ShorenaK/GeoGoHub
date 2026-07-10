@@ -14,6 +14,7 @@
 */
 
 import Navbar from './Navbar.jsx';
+import '../styles/Header.css';
 
 // Render the application header.
 function Header() {

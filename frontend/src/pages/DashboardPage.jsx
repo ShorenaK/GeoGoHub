@@ -12,6 +12,8 @@
   Project: GeoGoHub
 */
 
+import '../styles/DashboardPage.css';
+
 // Render the dashboard page.
 function DashboardPage() {
   return <h2>Dashboard Page</h2>;
