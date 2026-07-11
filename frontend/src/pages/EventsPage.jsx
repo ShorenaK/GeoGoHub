@@ -14,7 +14,7 @@
 */
 
 import { useEffect, useState } from 'react';
-
+import EventList from '../components/EventList.jsx';
 import EventCard from '../components/EventCard.jsx';
 import { getEvents } from '../services/api.js';
 import '../styles/EventsPage.css';
