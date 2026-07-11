@@ -45,7 +45,7 @@ function App() {
 
       case 'home':
       default:
-        return <HomePage />;
+        return <HomePage onNavigate={setCurrentPage} />;
     }
   }
 
