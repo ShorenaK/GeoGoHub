@@ -54,5 +54,26 @@ if (isLoading) {
     loadEvents();
   }, []);
 
-  
+  return (
+    <main>
+      <section>
+        <h2>Upcoming Events</h2>
+
+        {events.length === 0 ? (
+          <p>No events are currently available.</p>
+        ) : (
+          <ul>
+            {events.map((event) => (
+              <li key={event._id}>
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+                <p>{event.location}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    </main>
+  );
+}
 export default EventsPage;
