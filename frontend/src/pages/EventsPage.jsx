@@ -64,7 +64,7 @@ function EventsPage() {
         {events.length === 0 ? (
           <p>No events are currently available.</p>
         ) : (
-       <EventList events={events} />
+          <EventList events={events} />
         )}
       </section>
     </main>
