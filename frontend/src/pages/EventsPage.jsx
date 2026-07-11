@@ -24,8 +24,7 @@ function EventsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
-}
-useEffect(() => {
+  useEffect(() => {
     async function loadEvents() {
       try {
         const response = await getEvents();
@@ -36,7 +35,11 @@ useEffect(() => {
         setIsLoading(false);
       }
     }
-if (isLoading) {
+
+    loadEvents();
+  }, []);
+
+  if (isLoading) {
     return (
       <main>
         <p>Loading events...</p>
@@ -51,8 +54,6 @@ if (isLoading) {
       </main>
     );
   }
-    loadEvents();
-  }, []);
 
   return (
     <main>
@@ -76,4 +77,5 @@ if (isLoading) {
     </main>
   );
 }
+
 export default EventsPage;

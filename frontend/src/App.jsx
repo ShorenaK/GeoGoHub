@@ -15,14 +15,19 @@
 
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import HomePage from './pages/HomePage.jsx';
+// import HomePage from './pages/HomePage.jsx';
+import EventsPage from './pages/EventsPage.jsx';
+
+
+/* <HomePage /> */
 
 // Render the main application layout.
 function App() {
   return (
     <>
       <Header />
-      <HomePage />
+  
+      <EventsPage />
       <Footer />
     </>
   );
