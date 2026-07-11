@@ -20,6 +20,9 @@ import '../styles/EventsPage.css';
 
 // Render the events page.
 function EventsPage() {
+  const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
 
 }
 
