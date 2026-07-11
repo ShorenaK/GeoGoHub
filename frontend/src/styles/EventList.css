@@ -1,0 +1,20 @@
+/*
+  EventList.css
+
+  This file styles the GeoGoHub event list component.
+
+  Responsibilities:
+  - Arrange event cards in a responsive grid.
+  - Maintain consistent spacing between events.
+  - Adapt the event layout to different screen sizes.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoGoHub
+*/
+
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}

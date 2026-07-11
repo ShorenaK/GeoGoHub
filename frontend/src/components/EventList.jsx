@@ -16,16 +16,14 @@
 import PropTypes from 'prop-types';
 
 import EventCard from './EventCard.jsx';
+import '../styles/EventList.css';
 
 // Render a collection of events.
 function EventList({ events }) {
   return (
-    <div>
+    <div className="event-list">
       {events.map((event) => (
-        <EventCard
-          key={event._id}
-          event={event}
-        />
+        <EventCard key={event._id} event={event} />
       ))}
     </div>
   );
