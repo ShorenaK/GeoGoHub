@@ -12,3 +12,7 @@
   Course: CS 5610 Web Development
   Project: GeoGoHub
 */
+
+import PropTypes from 'prop-types';
+
+import '../styles/EventCard.css';
