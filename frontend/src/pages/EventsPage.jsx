@@ -4,19 +4,23 @@
   This file defines the events page for GeoGoHub.
 
   Responsibilities:
-  - Display curated club events.
-  - Allow members to browse upcoming events.
+  - Retrieve events from the backend API.
+  - Display loading and error messages.
+  - Render the available club events.
 
   Author: Shorena K. Anzhilov
   Course: CS 5610 Web Development
   Project: GeoGoHub
 */
 
+import { useEffect, useState } from 'react';
+
+import { getEvents } from '../services/api.js';
 import '../styles/EventsPage.css';
 
 // Render the events page.
 function EventsPage() {
-  return <h2>Events Page</h2>;
+
 }
 
 export default EventsPage;
