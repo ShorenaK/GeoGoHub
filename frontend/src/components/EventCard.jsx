@@ -16,3 +16,14 @@
 import PropTypes from 'prop-types';
 
 import '../styles/EventCard.css';
+
+// Render one event.
+function EventCard({ event }) {
+  return (
+  
+  );
+}
+
+EventCard.propTypes = {
+
+};
