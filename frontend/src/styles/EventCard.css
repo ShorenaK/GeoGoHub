@@ -13,18 +13,78 @@
   Project: GeoGoHub
 */
 
-article {
+.event-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
   padding: 1.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #cccccc;
-  border-radius: 0.5rem;
+  border: 1px solid #d8d8d8;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: left;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-article h3 {
-  margin-top: 0;
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-article p {
-  margin: 0.5rem 0;
+.event-card__header {
+  margin-bottom: 1rem;
+}
+
+.event-card__category {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background-color: #edf3ee;
+  color: #30573a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.event-card h3 {
+  margin: 0;
+  color: #1f2a22;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.event-card__description {
+  flex-grow: 1;
+  margin: 0 0 1.25rem;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.event-card__details {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.event-card__details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.event-card__details dt {
+  color: #333333;
+  font-weight: 700;
+}
+
+.event-card__details dd {
+  margin: 0;
+  color: #666666;
+  text-align: right;
 }

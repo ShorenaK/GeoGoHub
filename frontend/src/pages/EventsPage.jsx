@@ -14,8 +14,8 @@
 */
 
 import { useEffect, useState } from 'react';
+
 import EventList from '../components/EventList.jsx';
-import EventCard from '../components/EventCard.jsx';
 import { getEvents } from '../services/api.js';
 import '../styles/EventsPage.css';
 
@@ -42,27 +42,36 @@ function EventsPage() {
 
   if (isLoading) {
     return (
-      <main>
-        <p>Loading events...</p>
+      <main className="events-page">
+        <p className="events-page__message">Loading events...</p>
       </main>
     );
   }
 
   if (errorMessage) {
     return (
-      <main>
-        <p>{errorMessage}</p>
+      <main className="events-page">
+        <p className="events-page__error">{errorMessage}</p>
       </main>
     );
   }
 
   return (
-    <main>
-      <section>
-        <h2>Upcoming Events</h2>
+    <main className="events-page">
+      <section className="events-page__content">
+        <div className="events-page__heading">
+          <p className="events-page__eyebrow">GeoGoHub Experiences</p>
+          <h2>Upcoming Events</h2>
+          <p>
+            Explore curated gatherings created for members to connect, share
+            ideas, and build meaningful relationships.
+          </p>
+        </div>
 
         {events.length === 0 ? (
-          <p>No events are currently available.</p>
+          <p className="events-page__message">
+            No events are currently available.
+          </p>
         ) : (
           <EventList events={events} />
         )}

@@ -1,0 +1,75 @@
+/*
+  EventsPage.css
+
+  This file styles the GeoGoHub events page.
+
+  Responsibilities:
+  - Control the events page layout.
+  - Style the page introduction.
+  - Provide loading, empty, and error states.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoGoHub
+*/
+
+.events-page {
+  min-height: calc(100vh - 160px);
+  padding: 3rem 2rem;
+  background-color: #f7f8f6;
+}
+
+.events-page__content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.events-page__heading {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.events-page__heading h2 {
+  margin: 0 0 1rem;
+  color: #1f2a22;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.events-page__heading p {
+  margin: 0;
+  color: #5f665f;
+  line-height: 1.7;
+}
+
+.events-page__eyebrow {
+  margin-bottom: 0.75rem;
+  color: #456b4d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.events-page__message {
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.events-page__error {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 1rem;
+  border: 1px solid #c86b6b;
+  border-radius: 0.5rem;
+  background-color: #fff1f1;
+  color: #8b2525;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .events-page {
+    padding: 2rem 1rem;
+  }
+}

@@ -20,18 +20,25 @@ import '../styles/EventCard.css';
 // Render one event.
 function EventCard({ event }) {
   return (
-    <article>
-      <h3>{event.title}</h3>
-      <p>{event.description}</p>
-      <p>
-        <strong>Location:</strong> {event.location}
-      </p>
-      <p>
-        <strong>Category:</strong> {event.category}
-      </p>
-      <p>
-        <strong>Capacity:</strong> {event.capacity}
-      </p>
+    <article className="event-card">
+      <div className="event-card__header">
+        <p className="event-card__category">{event.category}</p>
+        <h3>{event.title}</h3>
+      </div>
+
+      <p className="event-card__description">{event.description}</p>
+
+      <dl className="event-card__details">
+        <div>
+          <dt>Location</dt>
+          <dd>{event.location}</dd>
+        </div>
+
+        <div>
+          <dt>Capacity</dt>
+          <dd>{event.capacity} guests</dd>
+        </div>
+      </dl>
     </article>
   );
 }
