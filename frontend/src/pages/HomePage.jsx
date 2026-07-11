@@ -4,9 +4,9 @@
   This file defines the home page for GeoGoHub.
 
   Responsibilities:
-  - Display the main landing page.
-  - Welcome users to the application.
-  - Serve as the default page after loading the application.
+  - Welcome visitors to GeoGoHub.
+  - Introduce the purpose of the application.
+  - Encourage visitors to explore membership and events.
 
   Author: Shorena K. Anzhilov
   Course: CS 5610 Web Development
@@ -19,8 +19,19 @@ import '../styles/HomePage.css';
 function HomePage() {
   return (
     <main>
-      <h2>Home Page</h2>
-      <p>Welcome to GeoGoHub.</p>
+      <section>
+        <h2>Welcome to GeoGoHub</h2>
+
+        <p>
+          GeoGoHub is an exclusive members club connecting people through curated
+          events, networking opportunities, and cultural experiences inspired by
+          Georgia.
+        </p>
+
+        <button type="button">Become a Member</button>
+
+        <button type="button">View Events</button>
+      </section>
     </main>
   );
 }
