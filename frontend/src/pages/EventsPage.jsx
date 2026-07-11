@@ -36,7 +36,21 @@ useEffect(() => {
         setIsLoading(false);
       }
     }
+if (isLoading) {
+    return (
+      <main>
+        <p>Loading events...</p>
+      </main>
+    );
+  }
 
+  if (errorMessage) {
+    return (
+      <main>
+        <p>{errorMessage}</p>
+      </main>
+    );
+  }
     loadEvents();
   }, []);
 
