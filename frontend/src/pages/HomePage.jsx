@@ -23,7 +23,7 @@ function HomePage() {
         <h2>Welcome to GeoGoHub</h2>
 
         <p>
-          GeoGoHub is an exclusive members club connecting people through curated events, networking
+          GeoGoHub is an exclusive members club connecting people through curated events, sport, networking
           opportunities, and cultural experiences inspired by Georgia.
         </p>
 
