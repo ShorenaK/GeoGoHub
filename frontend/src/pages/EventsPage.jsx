@@ -13,6 +13,7 @@
   Project: GeoGoHub
 */
 
+import EventCard from '../components/EventCard.jsx';
 import { useEffect, useState } from 'react';
 
 import { getEvents } from '../services/api.js';
@@ -63,15 +64,7 @@ function EventsPage() {
         {events.length === 0 ? (
           <p>No events are currently available.</p>
         ) : (
-          <ul>
-            {events.map((event) => (
-              <li key={event._id}>
-                <h3>{event.title}</h3>
-                <p>{event.description}</p>
-                <p>{event.location}</p>
-              </li>
-            ))}
-          </ul>
+        
         )}
       </section>
     </main>
