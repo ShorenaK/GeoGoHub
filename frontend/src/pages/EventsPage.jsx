@@ -25,5 +25,20 @@ function EventsPage() {
   const [errorMessage, setErrorMessage] = useState('');
 
 }
+useEffect(() => {
+    async function loadEvents() {
+      try {
+        const response = await getEvents();
+        setEvents(response.data);
+      } catch (error) {
+        setErrorMessage(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
+    loadEvents();
+  }, []);
+
+  
 export default EventsPage;
