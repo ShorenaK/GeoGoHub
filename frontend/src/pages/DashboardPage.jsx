@@ -5,8 +5,8 @@
 
   Responsibilities:
   - Display personalized member information.
-  - Display the authenticated user's membership details.
-  - Provide access to member features and activity.
+  - Display membership details.
+  - Provide quick access to member features.
 
   Author: Shorena K. Anzhilov
   Course: CS 5610 Web Development
@@ -18,37 +18,74 @@ import PropTypes from 'prop-types';
 import '../styles/DashboardPage.css';
 
 // Render the authenticated member dashboard.
-function DashboardPage({ currentUser }) {
+function DashboardPage({ currentUser, onNavigate }) {
   const displayName =
-    currentUser.firstName || currentUser.name || currentUser.email?.split('@')[0] || 'Member';
+    currentUser.firstName ||
+    currentUser.name ||
+    currentUser.email?.split('@')[0] ||
+    'Member';
 
   return (
     <main className="dashboard-page">
       <section className="dashboard-page__content">
-        <p className="dashboard-page__eyebrow">Member Dashboard</p>
+        <div className="dashboard-page__heading">
+          <p className="dashboard-page__eyebrow">Member Dashboard</p>
 
-        <h2>Welcome, {displayName}</h2>
+          <h2>Welcome back, {displayName}</h2>
 
-        <div className="dashboard-card">
-          <h3>Your Profile</h3>
+          <p>
+            Manage your membership and explore upcoming GeoGoHub experiences.
+          </p>
+        </div>
 
-          {currentUser.email && (
-            <p>
-              <strong>Email:</strong> {currentUser.email}
-            </p>
-          )}
+        <div className="dashboard-grid">
+          <section className="dashboard-card">
+            <h3>Member Information</h3>
 
-          {currentUser.role && (
-            <p>
-              <strong>Role:</strong> {currentUser.role}
-            </p>
-          )}
+            <dl className="dashboard-details">
+              <div>
+                <dt>Name</dt>
+                <dd>{displayName}</dd>
+              </div>
 
-          {currentUser.membershipStatus && (
-            <p>
-              <strong>Membership status:</strong> {currentUser.membershipStatus}
-            </p>
-          )}
+              <div>
+                <dt>Email</dt>
+                <dd>{currentUser.email || 'Not available'}</dd>
+              </div>
+
+              <div>
+                <dt>Membership</dt>
+                <dd className="dashboard-status">
+                  {currentUser.membershipStatus || 'Not available'}
+                </dd>
+              </div>
+
+              <div>
+                <dt>Role</dt>
+                <dd>{currentUser.role || 'Member'}</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section className="dashboard-card">
+            <h3>Quick Actions</h3>
+
+            <div className="dashboard-actions">
+              <button
+                type="button"
+                onClick={() => onNavigate('events')}
+              >
+                Browse Events
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onNavigate('application')}
+              >
+                View Membership
+              </button>
+            </div>
+          </section>
         </div>
       </section>
     </main>
@@ -63,6 +100,7 @@ DashboardPage.propTypes = {
     role: PropTypes.string,
     membershipStatus: PropTypes.string,
   }).isRequired,
+  onNavigate: PropTypes.func.isRequired,
 };
 
 export default DashboardPage;
