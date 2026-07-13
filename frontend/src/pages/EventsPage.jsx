@@ -60,7 +60,7 @@ function EventsPage() {
     <main className="events-page">
       <section className="events-page__content">
         <div className="events-page__heading">
-          <p className="events-page__eyebrow">GeoGoHub Experiences</p>
+          <p className="events-page__eyebrow">GeoGoHub Private Club</p>
           <h2>Upcoming Events</h2>
           <p>
             Explore curated gatherings created for members to connect, share ideas, and build

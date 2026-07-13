@@ -23,7 +23,7 @@ function HomePage({ onNavigate }) {
   return (
     <main className="home-page">
       <section className="home-page__hero">
-        <p className="home-page__eyebrow">Private Community in Georgia</p>
+        <p className="home-page__eyebrow">Private Community Club in Georgia</p>
 
         <h2>Welcome to GeoGoHub</h2>
 
