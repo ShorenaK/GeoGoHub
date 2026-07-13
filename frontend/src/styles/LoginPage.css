@@ -1,0 +1,23 @@
+/*
+  LoginPage.css
+
+  This file styles the GeoGoHub login page.
+
+  Responsibilities:
+  - Style the login page layout.
+  - Improve form readability.
+  - Display clear error and success states.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoGoHub
+*/
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 160px);
+  padding: 3rem 1.5rem;
+  background-color: #f7f8f6;
+}
+
