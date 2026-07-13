@@ -28,10 +28,9 @@ function HomePage({ onNavigate }) {
         <h2>Welcome to GeoGoHub</h2>
 
         <p className="home-page__description">
-          GeoGoHub is an exclusive members club connecting professionals,
-          entrepreneurs, founders, and creatives through curated events,
-          sports, networking opportunities, and cultural experiences inspired
-          by Georgia.
+          GeoGoHub is an exclusive members club connecting professionals, entrepreneurs, founders,
+          and creatives through curated events, sports, networking opportunities, and cultural
+          experiences inspired by Georgia.
         </p>
 
         <div className="home-page__actions">

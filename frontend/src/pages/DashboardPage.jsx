@@ -20,10 +20,7 @@ import '../styles/DashboardPage.css';
 // Render the authenticated member dashboard.
 function DashboardPage({ currentUser }) {
   const displayName =
-    currentUser.firstName ||
-    currentUser.name ||
-    currentUser.email?.split('@')[0] ||
-    'Member';
+    currentUser.firstName || currentUser.name || currentUser.email?.split('@')[0] || 'Member';
 
   return (
     <main className="dashboard-page">
@@ -49,8 +46,7 @@ function DashboardPage({ currentUser }) {
 
           {currentUser.membershipStatus && (
             <p>
-              <strong>Membership status:</strong>{' '}
-              {currentUser.membershipStatus}
+              <strong>Membership status:</strong> {currentUser.membershipStatus}
             </p>
           )}
         </div>

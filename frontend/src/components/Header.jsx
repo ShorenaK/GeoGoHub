@@ -20,27 +20,19 @@ import Navbar from './Navbar.jsx';
 import '../styles/Header.css';
 
 // Render the application header.
-function Header({ currentUser, onLogout, onNavigate }) {
+function Header({ currentUser = null, onLogout, onNavigate }) {
   const displayName =
-    currentUser?.firstName ||
-    currentUser?.name ||
-    currentUser?.email?.split('@')[0];
+    currentUser?.firstName || currentUser?.name || currentUser?.email?.split('@')[0];
 
   return (
     <header>
       <div>
         <h1>GeoGo Hub</h1>
 
-        {currentUser && (
-          <p className="header__welcome">Welcome, {displayName}</p>
-        )}
+        {currentUser && <p className="header__welcome">Welcome, {displayName}</p>}
       </div>
 
-      <Navbar
-        currentUser={currentUser}
-        onLogout={onLogout}
-        onNavigate={onNavigate}
-      />
+      <Navbar currentUser={currentUser} onLogout={onLogout} onNavigate={onNavigate} />
     </header>
   );
 }
@@ -53,10 +45,6 @@ Header.propTypes = {
   }),
   onLogout: PropTypes.func.isRequired,
   onNavigate: PropTypes.func.isRequired,
-};
-
-Header.defaultProps = {
-  currentUser: null,
 };
 
 export default Header;

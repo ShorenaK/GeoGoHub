@@ -14,7 +14,7 @@
 */
 
 // Handles unexpected server errors.
-export function errorHandler(error, req, res, next) {
+export function errorHandler(error, req, res, _next) {
   console.error(error);
 
   res.status(500).json({

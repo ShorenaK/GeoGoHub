@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
 import '../styles/Navbar.css';
 
 // Render the main navigation.
-function Navbar({ currentUser, onLogout, onNavigate }) {
+function Navbar({ currentUser = null, onLogout, onNavigate }) {
   return (
     <nav aria-label="Main navigation">
       <ul>
@@ -36,10 +36,7 @@ function Navbar({ currentUser, onLogout, onNavigate }) {
         </li>
 
         <li>
-          <button
-            type="button"
-            onClick={() => onNavigate('application')}
-          >
+          <button type="button" onClick={() => onNavigate('application')}>
             Membership
           </button>
         </li>
@@ -47,10 +44,7 @@ function Navbar({ currentUser, onLogout, onNavigate }) {
         {currentUser ? (
           <>
             <li>
-              <button
-                type="button"
-                onClick={() => onNavigate('dashboard')}
-              >
+              <button type="button" onClick={() => onNavigate('dashboard')}>
                 Dashboard
               </button>
             </li>
@@ -81,10 +75,6 @@ Navbar.propTypes = {
   }),
   onLogout: PropTypes.func.isRequired,
   onNavigate: PropTypes.func.isRequired,
-};
-
-Navbar.defaultProps = {
-  currentUser: null,
 };
 
 export default Navbar;

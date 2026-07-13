@@ -30,10 +30,7 @@ export async function getEvents() {
   const response = await fetch(`${API_BASE_URL}/events`);
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to retrieve events.',
-    );
+    const message = await getErrorMessage(response, 'Failed to retrieve events.');
     throw new Error(message);
   }
 
@@ -47,10 +44,7 @@ export async function getUsers() {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to retrieve users.',
-    );
+    const message = await getErrorMessage(response, 'Failed to retrieve users.');
     throw new Error(message);
   }
 
@@ -69,10 +63,7 @@ export async function loginUser(loginData) {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'The email or password is incorrect.',
-    );
+    const message = await getErrorMessage(response, 'The email or password is incorrect.');
     throw new Error(message);
   }
 
@@ -86,10 +77,7 @@ export async function getProfile() {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Unable to retrieve the user profile.',
-    );
+    const message = await getErrorMessage(response, 'Unable to retrieve the user profile.');
     throw new Error(message);
   }
 
@@ -110,4 +98,3 @@ export async function logoutUser() {
 
   return response.json();
 }
-

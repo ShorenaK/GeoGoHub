@@ -63,15 +63,13 @@ function EventsPage() {
           <p className="events-page__eyebrow">GeoGoHub Experiences</p>
           <h2>Upcoming Events</h2>
           <p>
-            Explore curated gatherings created for members to connect, share
-            ideas, and build meaningful relationships.
+            Explore curated gatherings created for members to connect, share ideas, and build
+            meaningful relationships.
           </p>
         </div>
 
         {events.length === 0 ? (
-          <p className="events-page__message">
-            No events are currently available.
-          </p>
+          <p className="events-page__message">No events are currently available.</p>
         ) : (
           <EventList events={events} />
         )}

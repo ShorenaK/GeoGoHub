@@ -50,8 +50,7 @@ function LoginPage({ onLogin }) {
     try {
       const response = await loginUser(formData);
 
-      const authenticatedUser =
-        response.user || response.data || response;
+      const authenticatedUser = response.user || response.data || response;
 
       onLogin(authenticatedUser);
       setSuccessMessage('You have logged in successfully.');
@@ -73,9 +72,7 @@ function LoginPage({ onLogin }) {
         <div className="login-page__heading">
           <p className="login-page__eyebrow">Member Access</p>
           <h2>Log in to GeoGoHub</h2>
-          <p>
-            Access your member profile, private events, and RSVP activity.
-          </p>
+          <p>Access your member profile, private events, and RSVP activity.</p>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
@@ -106,22 +103,14 @@ function LoginPage({ onLogin }) {
           </div>
 
           {errorMessage && (
-            <p className="login-form__message login-form__message--error">
-              {errorMessage}
-            </p>
+            <p className="login-form__message login-form__message--error">{errorMessage}</p>
           )}
 
           {successMessage && (
-            <p className="login-form__message login-form__message--success">
-              {successMessage}
-            </p>
+            <p className="login-form__message login-form__message--success">{successMessage}</p>
           )}
 
-          <button
-            className="login-form__submit"
-            type="submit"
-            disabled={isSubmitting}
-          >
+          <button className="login-form__submit" type="submit" disabled={isSubmitting}>
             {isSubmitting ? 'Logging in...' : 'Log In'}
           </button>
         </form>

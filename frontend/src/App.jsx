@@ -38,8 +38,7 @@ function App() {
     async function checkSession() {
       try {
         const response = await getProfile();
-        const authenticatedUser =
-          response.user || response.data || response;
+        const authenticatedUser = response.user || response.data || response;
 
         setCurrentUser(authenticatedUser);
       } catch {
@@ -79,21 +78,13 @@ function App() {
         return <ApplicationPage />;
 
       case 'login':
-        return (
-          <LoginPage
-            onLogin={handleLogin}
-            onNavigate={setCurrentPage}
-          />
-        );
+        return <LoginPage onLogin={handleLogin} onNavigate={setCurrentPage} />;
 
       case 'dashboard':
         return currentUser ? (
           <DashboardPage currentUser={currentUser} />
         ) : (
-          <LoginPage
-            onLogin={handleLogin}
-            onNavigate={setCurrentPage}
-          />
+          <LoginPage onLogin={handleLogin} onNavigate={setCurrentPage} />
         );
 
       case 'home':
@@ -105,11 +96,7 @@ function App() {
   if (isCheckingSession) {
     return (
       <>
-        <Header
-          currentUser={null}
-          onLogout={handleLogout}
-          onNavigate={setCurrentPage}
-        />
+        <Header currentUser={null} onLogout={handleLogout} onNavigate={setCurrentPage} />
 
         <main>
           <p>Loading GeoGoHub...</p>
@@ -122,11 +109,7 @@ function App() {
 
   return (
     <>
-      <Header
-        currentUser={currentUser}
-        onLogout={handleLogout}
-        onNavigate={setCurrentPage}
-      />
+      <Header currentUser={currentUser} onLogout={handleLogout} onNavigate={setCurrentPage} />
 
       {renderPage()}
 
