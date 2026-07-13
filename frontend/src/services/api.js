@@ -15,12 +15,26 @@
 
 const API_BASE_URL = '/api';
 
+// Read an API error message when one is available.
+async function getErrorMessage(response, fallbackMessage) {
+  try {
+    const errorData = await response.json();
+    return errorData.message || fallbackMessage;
+  } catch {
+    return fallbackMessage;
+  }
+}
+
 // Retrieve all events.
 export async function getEvents() {
   const response = await fetch(`${API_BASE_URL}/events`);
 
   if (!response.ok) {
-    throw new Error('Failed to retrieve events.');
+    const message = await getErrorMessage(
+      response,
+      'Failed to retrieve events.',
+    );
+    throw new Error(message);
   }
 
   return response.json();
@@ -33,7 +47,11 @@ export async function getUsers() {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to retrieve users.');
+    const message = await getErrorMessage(
+      response,
+      'Failed to retrieve users.',
+    );
+    throw new Error(message);
   }
 
   return response.json();
@@ -51,8 +69,45 @@ export async function loginUser(loginData) {
   });
 
   if (!response.ok) {
-    throw new Error('Login failed.');
+    const message = await getErrorMessage(
+      response,
+      'The email or password is incorrect.',
+    );
+    throw new Error(message);
   }
 
   return response.json();
 }
+
+// Retrieve the currently authenticated user.
+export async function getProfile() {
+  const response = await fetch(`${API_BASE_URL}/auth/profile`, {
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Unable to retrieve the user profile.',
+    );
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
+// Log the current user out of the application.
+export async function logoutUser() {
+  const response = await fetch(`${API_BASE_URL}/auth/logout`, {
+    method: 'POST',
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(response, 'Logout failed.');
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
