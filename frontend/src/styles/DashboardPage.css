@@ -13,3 +13,53 @@
   Project: GeoGoHub
 */
 
+.dashboard-page {
+  min-height: calc(100vh - 160px);
+  padding: 3rem 2rem;
+  background-color: #f7f8f6;
+}
+
+.dashboard-page__content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.dashboard-page__eyebrow {
+  margin: 0 0 0.75rem;
+  color: #456b4d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dashboard-page h2 {
+  margin: 0 0 2rem;
+  color: #1f2a22;
+  font-size: 2.5rem;
+}
+
+.dashboard-card {
+  padding: 2rem;
+  border: 1px solid #d8ddd9;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card h3 {
+  margin-top: 0;
+  color: #243b2a;
+}
+
+.dashboard-card p {
+  margin: 0.75rem 0;
+  color: #4f5851;
+}
+
+@media (max-width: 600px) {
+  .dashboard-page {
+    padding: 2rem 1rem;
+  }
+}
