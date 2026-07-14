@@ -24,14 +24,55 @@ import {
 // Handles creating a new membership application.
 export async function createApplicationController(req, res) {
   try {
-    const application = await createApplication(req.body);
+    const {
+      firstName,
+      lastName,
+      email,
+      profession,
+      company,
+      reason,
+    } = req.body;
 
-    res.status(201).json({
+    // Validate required fields.
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !profession ||
+      !reason
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please complete all required fields.',
+      });
+    }
+
+    // Validate email format.
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please enter a valid email address.',
+      });
+    }
+
+    // Trim whitespace before saving.
+    const application = await createApplication({
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+      email: email.trim().toLowerCase(),
+      profession: profession.trim(),
+      company: company ? company.trim() : '',
+      reason: reason.trim(),
+    });
+
+    return res.status(201).json({
       success: true,
       data: application,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: 'Failed to create application.',
       error: error.message,
