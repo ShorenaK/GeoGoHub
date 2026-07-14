@@ -19,13 +19,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import EventList from '../components/EventList.jsx';
-import {
-  createRsvp,
-  deleteRsvp,
-  getEvents,
-  getMyRsvps,
-  updateRsvp,
-} from '../services/api.js';
+import { createRsvp, deleteRsvp, getEvents, getMyRsvps, updateRsvp } from '../services/api.js';
 import '../styles/EventsPage.css';
 
 // Render the events page.
@@ -39,8 +33,7 @@ function EventsPage({ currentUser = null }) {
 
   const canManageRsvps =
     currentUser?.role === 'admin' ||
-    (currentUser?.role === 'member' &&
-      currentUser?.membershipStatus === 'approved');
+    (currentUser?.role === 'member' && currentUser?.membershipStatus === 'approved');
 
   useEffect(() => {
     async function loadPageData() {
@@ -79,10 +72,7 @@ function EventsPage({ currentUser = null }) {
         status,
       });
 
-      setRsvps((currentRsvps) => [
-        ...currentRsvps,
-        response.data,
-      ]);
+      setRsvps((currentRsvps) => [...currentRsvps, response.data]);
 
       setSuccessMessage('Your RSVP was saved successfully.');
     } catch (error) {
@@ -127,9 +117,7 @@ function EventsPage({ currentUser = null }) {
 
       await deleteRsvp(rsvpId);
 
-      setRsvps((currentRsvps) =>
-        currentRsvps.filter((rsvp) => rsvp._id !== rsvpId),
-      );
+      setRsvps((currentRsvps) => currentRsvps.filter((rsvp) => rsvp._id !== rsvpId));
 
       setSuccessMessage('Your RSVP was canceled.');
     } catch (error) {
@@ -151,15 +139,13 @@ function EventsPage({ currentUser = null }) {
     <main className="events-page">
       <section className="events-page__content">
         <div className="events-page__heading">
-          <p className="events-page__eyebrow">
-            GeoGoHub Private Club
-          </p>
+          <p className="events-page__eyebrow">GeoGoHub Private Club</p>
 
           <h2>Upcoming Events</h2>
 
           <p>
-            Explore curated gatherings created for members to connect,
-            share ideas, and build meaningful relationships.
+            Explore curated gatherings created for members to connect, share ideas, and build
+            meaningful relationships.
           </p>
         </div>
 
@@ -176,15 +162,11 @@ function EventsPage({ currentUser = null }) {
         )}
 
         {!currentUser && (
-          <p className="events-page__notice">
-            Log in as an approved member to RSVP to events.
-          </p>
+          <p className="events-page__notice">Log in as an approved member to RSVP to events.</p>
         )}
 
         {events.length === 0 ? (
-          <p className="events-page__message">
-            No events are currently available.
-          </p>
+          <p className="events-page__message">No events are currently available.</p>
         ) : (
           <EventList
             events={events}

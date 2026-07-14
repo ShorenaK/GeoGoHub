@@ -67,97 +67,78 @@ function ApplicationPage({ currentUser = null }) {
     }
   }
   if (currentUser?.membershipStatus === 'pending') {
-  return (
-    <main className="application-page">
-      <section className="application-status-card">
-        <p className="application-page__eyebrow">Membership Status</p>
+    return (
+      <main className="application-page">
+        <section className="application-status-card">
+          <p className="application-page__eyebrow">Membership Status</p>
 
-        <h2>Application Pending</h2>
+          <h2>Application Pending</h2>
 
-        <p className="application-status-card__badge application-status-card__badge--pending">
-          Pending
-        </p>
+          <p className="application-status-card__badge application-status-card__badge--pending">
+            Pending
+          </p>
 
-        <p>
-          Your membership application has been received and is currently
-          under review.
-        </p>
+          <p>Your membership application has been received and is currently under review.</p>
 
-        <p>
-          You will receive an update when the GeoGoHub membership team makes
-          a decision.
-        </p>
-      </section>
-    </main>
-  );
-}
+          <p>You will receive an update when the GeoGoHub membership team makes a decision.</p>
+        </section>
+      </main>
+    );
+  }
 
-if (currentUser?.membershipStatus === 'approved') {
-  const displayName =
-    currentUser.firstName ||
-    currentUser.name ||
-    currentUser.email?.split('@')[0] ||
-    'Member';
+  if (currentUser?.membershipStatus === 'approved') {
+    const displayName =
+      currentUser.firstName || currentUser.name || currentUser.email?.split('@')[0] || 'Member';
 
-  return (
-    <main className="application-page">
-      <section className="application-status-card">
-        <p className="application-page__eyebrow">Membership</p>
+    return (
+      <main className="application-page">
+        <section className="application-status-card">
+          <p className="application-page__eyebrow">Membership</p>
 
-        <h2>Welcome, {displayName}</h2>
+          <h2>Welcome, {displayName}</h2>
 
-        <p className="application-status-card__badge application-status-card__badge--approved">
-          Approved
-        </p>
+          <p className="application-status-card__badge application-status-card__badge--approved">
+            Approved
+          </p>
 
-        <dl className="application-status-details">
-          <div>
-            <dt>Status</dt>
-            <dd>Approved</dd>
-          </div>
+          <dl className="application-status-details">
+            <div>
+              <dt>Status</dt>
+              <dd>Approved</dd>
+            </div>
 
-          <div>
-            <dt>Role</dt>
-            <dd>{currentUser.role || 'Member'}</dd>
-          </div>
+            <div>
+              <dt>Role</dt>
+              <dd>{currentUser.role || 'Member'}</dd>
+            </div>
 
-          <div>
-            <dt>Email</dt>
-            <dd>{currentUser.email || 'Not available'}</dd>
-          </div>
-        </dl>
+            <div>
+              <dt>Email</dt>
+              <dd>{currentUser.email || 'Not available'}</dd>
+            </div>
+          </dl>
 
-        <p>Your GeoGoHub membership is active.</p>
-      </section>
-    </main>
-  );
-}
+          <p>Your GeoGoHub membership is active.</p>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="application-page">
       <section className="application-page__content">
         <div className="application-page__heading">
-          <p className="application-page__eyebrow">
-            Join the GeoGoHub Community
-          </p>
+          <p className="application-page__eyebrow">Join the GeoGoHub Community</p>
 
           <h2>Membership Application</h2>
 
-          <p>
-            Tell us about yourself and why you would like to become part of
-            GeoGoHub.
-          </p>
+          <p>Tell us about yourself and why you would like to become part of GeoGoHub.</p>
         </div>
 
-        <form
-          className="application-form"
-          onSubmit={handleSubmit}
-        >
+        <form className="application-form" onSubmit={handleSubmit}>
           <div className="application-form__row">
             <div className="application-form__field">
-              <label htmlFor="application-first-name">
-                First name
-              </label>
+              <label htmlFor="application-first-name">First name</label>
 
               <input
                 id="application-first-name"
@@ -171,9 +152,7 @@ if (currentUser?.membershipStatus === 'approved') {
             </div>
 
             <div className="application-form__field">
-              <label htmlFor="application-last-name">
-                Last name
-              </label>
+              <label htmlFor="application-last-name">Last name</label>
 
               <input
                 id="application-last-name"
@@ -188,9 +167,7 @@ if (currentUser?.membershipStatus === 'approved') {
           </div>
 
           <div className="application-form__field">
-            <label htmlFor="application-email">
-              Email address
-            </label>
+            <label htmlFor="application-email">Email address</label>
 
             <input
               id="application-email"
@@ -205,9 +182,7 @@ if (currentUser?.membershipStatus === 'approved') {
 
           <div className="application-form__row">
             <div className="application-form__field">
-              <label htmlFor="application-profession">
-                Profession
-              </label>
+              <label htmlFor="application-profession">Profession</label>
 
               <input
                 id="application-profession"
@@ -220,9 +195,7 @@ if (currentUser?.membershipStatus === 'approved') {
             </div>
 
             <div className="application-form__field">
-              <label htmlFor="application-company">
-                Company or organization
-              </label>
+              <label htmlFor="application-company">Company or organization</label>
 
               <input
                 id="application-company"
@@ -235,9 +208,7 @@ if (currentUser?.membershipStatus === 'approved') {
           </div>
 
           <div className="application-form__field">
-            <label htmlFor="application-reason">
-              Why would you like to join GeoGoHub?
-            </label>
+            <label htmlFor="application-reason">Why would you like to join GeoGoHub?</label>
 
             <textarea
               id="application-reason"
@@ -250,10 +221,7 @@ if (currentUser?.membershipStatus === 'approved') {
           </div>
 
           {errorMessage && (
-            <p
-              className="application-form__message application-form__message--error"
-              role="alert"
-            >
+            <p className="application-form__message application-form__message--error" role="alert">
               {errorMessage}
             </p>
           )}
@@ -267,14 +235,8 @@ if (currentUser?.membershipStatus === 'approved') {
             </p>
           )}
 
-          <button
-            className="application-form__submit"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            {isSubmitting
-              ? 'Submitting application...'
-              : 'Submit Application'}
+          <button className="application-form__submit" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting application...' : 'Submit Application'}
           </button>
         </form>
       </section>

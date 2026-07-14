@@ -43,9 +43,7 @@ function EventCard({
         <h3>{event.title}</h3>
       </div>
 
-      <p className="event-card__description">
-        {event.description}
-      </p>
+      <p className="event-card__description">{event.description}</p>
 
       <dl className="event-card__details">
         <div>
@@ -63,9 +61,7 @@ function EventCard({
         <div className="event-card__rsvp">
           {rsvp ? (
             <>
-              <label htmlFor={`rsvp-status-${event._id}`}>
-                Your RSVP
-              </label>
+              <label htmlFor={`rsvp-status-${event._id}`}>Your RSVP</label>
 
               <select
                 id={`rsvp-status-${event._id}`}
@@ -81,9 +77,7 @@ function EventCard({
               <button
                 type="button"
                 className="event-card__cancel"
-                onClick={() =>
-                  onDeleteRsvp(rsvp._id, event._id)
-                }
+                onClick={() => onDeleteRsvp(rsvp._id, event._id)}
                 disabled={isPending}
               >
                 {isPending ? 'Updating...' : 'Cancel RSVP'}
@@ -93,9 +87,7 @@ function EventCard({
             <button
               type="button"
               className="event-card__rsvp-button"
-              onClick={() =>
-                onCreateRsvp(event._id, 'going')
-              }
+              onClick={() => onCreateRsvp(event._id, 'going')}
               disabled={isPending}
             >
               {isPending ? 'Saving...' : 'RSVP — Going'}

@@ -27,28 +27,20 @@ function DashboardPage({ currentUser, onNavigate }) {
   const [rsvpError, setRsvpError] = useState('');
 
   const displayName =
-    currentUser.firstName ||
-    currentUser.name ||
-    currentUser.email?.split('@')[0] ||
-    'Member';
+    currentUser.firstName || currentUser.name || currentUser.email?.split('@')[0] || 'Member';
 
   useEffect(() => {
     async function loadMemberRsvps() {
       try {
         setRsvpError('');
 
-        const [rsvpResponse, eventResponse] = await Promise.all([
-          getMyRsvps(),
-          getEvents(),
-        ]);
+        const [rsvpResponse, eventResponse] = await Promise.all([getMyRsvps(), getEvents()]);
 
         const events = eventResponse.data;
         const rsvps = rsvpResponse.data;
 
         const rsvpsWithEvents = rsvps.map((rsvp) => {
-          const matchingEvent = events.find(
-            (event) => event._id === rsvp.eventId,
-          );
+          const matchingEvent = events.find((event) => event._id === rsvp.eventId);
 
           return {
             ...rsvp,
@@ -71,16 +63,11 @@ function DashboardPage({ currentUser, onNavigate }) {
     <main className="dashboard-page">
       <section className="dashboard-page__content">
         <div className="dashboard-page__heading">
-          <p className="dashboard-page__eyebrow">
-            Member Dashboard
-          </p>
+          <p className="dashboard-page__eyebrow">Member Dashboard</p>
 
           <h2>Welcome Back, {displayName}</h2>
 
-          <p>
-            Manage your membership and explore upcoming GeoGoHub
-            private events.
-          </p>
+          <p>Manage your membership and explore upcoming GeoGoHub private events.</p>
         </div>
 
         <div className="dashboard-grid">
@@ -116,17 +103,11 @@ function DashboardPage({ currentUser, onNavigate }) {
             <h3>Quick Actions</h3>
 
             <div className="dashboard-actions">
-              <button
-                type="button"
-                onClick={() => onNavigate('events')}
-              >
+              <button type="button" onClick={() => onNavigate('events')}>
                 Browse Events
               </button>
 
-              <button
-                type="button"
-                onClick={() => onNavigate('application')}
-              >
+              <button type="button" onClick={() => onNavigate('application')}>
                 View Membership
               </button>
             </div>
@@ -137,74 +118,48 @@ function DashboardPage({ currentUser, onNavigate }) {
           <div className="dashboard-rsvps__heading">
             <div>
               <h3>My RSVPs</h3>
-              <p>
-                Review the events you are planning to attend.
-              </p>
+              <p>Review the events you are planning to attend.</p>
             </div>
 
-            <button
-              type="button"
-              onClick={() => onNavigate('events')}
-            >
+            <button type="button" onClick={() => onNavigate('events')}>
               Manage RSVPs
             </button>
           </div>
 
-          {isLoadingRsvps && (
-            <p className="dashboard-rsvps__message">
-              Loading your RSVPs...
-            </p>
-          )}
+          {isLoadingRsvps && <p className="dashboard-rsvps__message">Loading your RSVPs...</p>}
 
           {rsvpError && (
-            <p
-              className="dashboard-rsvps__error"
-              role="alert"
-            >
+            <p className="dashboard-rsvps__error" role="alert">
               {rsvpError}
             </p>
           )}
 
-          {!isLoadingRsvps &&
-            !rsvpError &&
-            memberRsvps.length === 0 && (
-              <p className="dashboard-rsvps__message">
-                You have not RSVP’d to any events yet.
-              </p>
-            )}
+          {!isLoadingRsvps && !rsvpError && memberRsvps.length === 0 && (
+            <p className="dashboard-rsvps__message">You have not RSVP’d to any events yet.</p>
+          )}
 
-          {!isLoadingRsvps &&
-            !rsvpError &&
-            memberRsvps.length > 0 && (
-              <div className="dashboard-rsvp-list">
-                {memberRsvps.map((rsvp) => (
-                  <article
-                    className="dashboard-rsvp-item"
-                    key={rsvp._id}
+          {!isLoadingRsvps && !rsvpError && memberRsvps.length > 0 && (
+            <div className="dashboard-rsvp-list">
+              {memberRsvps.map((rsvp) => (
+                <article className="dashboard-rsvp-item" key={rsvp._id}>
+                  <div>
+                    <h4>{rsvp.event?.title || 'Event information unavailable'}</h4>
+
+                    {rsvp.event?.location && <p>{rsvp.event.location}</p>}
+                  </div>
+
+                  <span
+                    className={`dashboard-rsvp-status dashboard-rsvp-status--${rsvp.status.replaceAll(
+                      ' ',
+                      '-',
+                    )}`}
                   >
-                    <div>
-                      <h4>
-                        {rsvp.event?.title ||
-                          'Event information unavailable'}
-                      </h4>
-
-                      {rsvp.event?.location && (
-                        <p>{rsvp.event.location}</p>
-                      )}
-                    </div>
-
-                    <span
-                      className={`dashboard-rsvp-status dashboard-rsvp-status--${rsvp.status.replaceAll(
-                        ' ',
-                        '-',
-                      )}`}
-                    >
-                      {rsvp.status}
-                    </span>
-                  </article>
-                ))}
-              </div>
-            )}
+                    {rsvp.status}
+                  </span>
+                </article>
+              ))}
+            </div>
+          )}
         </section>
       </section>
     </main>

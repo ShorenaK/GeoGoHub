@@ -48,10 +48,7 @@ export async function submitApplication(applicationData) {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to submit membership application.',
-    );
+    const message = await getErrorMessage(response, 'Failed to submit membership application.');
 
     throw new Error(message);
   }
@@ -128,10 +125,7 @@ export async function getMyRsvps() {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to retrieve your RSVPs.',
-    );
+    const message = await getErrorMessage(response, 'Failed to retrieve your RSVPs.');
 
     throw new Error(message);
   }
@@ -151,10 +145,7 @@ export async function createRsvp(rsvpData) {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to create RSVP.',
-    );
+    const message = await getErrorMessage(response, 'Failed to create RSVP.');
 
     throw new Error(message);
   }
@@ -174,10 +165,7 @@ export async function updateRsvp(rsvpId, updatedData) {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to update RSVP.',
-    );
+    const message = await getErrorMessage(response, 'Failed to update RSVP.');
 
     throw new Error(message);
   }
@@ -193,10 +181,7 @@ export async function deleteRsvp(rsvpId) {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to cancel RSVP.',
-    );
+    const message = await getErrorMessage(response, 'Failed to cancel RSVP.');
 
     throw new Error(message);
   }
