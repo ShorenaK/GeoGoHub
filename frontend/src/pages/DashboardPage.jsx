@@ -75,7 +75,7 @@ function DashboardPage({ currentUser, onNavigate }) {
             Member Dashboard
           </p>
 
-          <h2>Welcome back, {displayName}</h2>
+          <h2>Welcome Back, {displayName}</h2>
 
           <p>
             Manage your membership and explore upcoming GeoGoHub
