@@ -72,7 +72,7 @@ function App() {
   function renderPage() {
     switch (currentPage) {
       case 'events':
-        return <EventsPage />;
+        return <EventsPage currentUser={currentUser} />;
 
       case 'application':
         return <ApplicationPage />;
