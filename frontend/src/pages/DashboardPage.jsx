@@ -20,10 +20,7 @@ import '../styles/DashboardPage.css';
 // Render the authenticated member dashboard.
 function DashboardPage({ currentUser, onNavigate }) {
   const displayName =
-    currentUser.firstName ||
-    currentUser.name ||
-    currentUser.email?.split('@')[0] ||
-    'Member';
+    currentUser.firstName || currentUser.name || currentUser.email?.split('@')[0] || 'Member';
 
   return (
     <main className="dashboard-page">
@@ -33,9 +30,7 @@ function DashboardPage({ currentUser, onNavigate }) {
 
           <h2>Welcome back, {displayName}</h2>
 
-          <p>
-            Manage your membership and explore upcoming GeoGoHub experiences.
-          </p>
+          <p>Manage your membership and explore upcoming GeoGoHub experiences.</p>
         </div>
 
         <div className="dashboard-grid">
@@ -71,17 +66,11 @@ function DashboardPage({ currentUser, onNavigate }) {
             <h3>Quick Actions</h3>
 
             <div className="dashboard-actions">
-              <button
-                type="button"
-                onClick={() => onNavigate('events')}
-              >
+              <button type="button" onClick={() => onNavigate('events')}>
                 Browse Events
               </button>
 
-              <button
-                type="button"
-                onClick={() => onNavigate('application')}
-              >
+              <button type="button" onClick={() => onNavigate('application')}>
                 View Membership
               </button>
             </div>

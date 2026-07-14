@@ -82,7 +82,7 @@ function App() {
 
       case 'dashboard':
         return currentUser ? (
-          <DashboardPage currentUser={currentUser} />
+          <DashboardPage currentUser={currentUser} onNavigate={setCurrentPage} />
         ) : (
           <LoginPage onLogin={handleLogin} onNavigate={setCurrentPage} />
         );
