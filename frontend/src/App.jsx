@@ -75,7 +75,7 @@ function App() {
         return <EventsPage currentUser={currentUser} />;
 
       case 'application':
-        return <ApplicationPage />;
+        return <ApplicationPage currentUser={currentUser} />;
 
       case 'login':
         return <LoginPage onLogin={handleLogin} onNavigate={setCurrentPage} />;

@@ -15,6 +15,7 @@
 */
 
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { submitApplication } from '../services/api.js';
 import '../styles/ApplicationPage.css';
@@ -29,7 +30,7 @@ const initialFormData = {
 };
 
 // Render the membership application page.
-function ApplicationPage() {
+function ApplicationPage({ currentUser = null }) {
   const [formData, setFormData] = useState(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -65,6 +66,72 @@ function ApplicationPage() {
       setIsSubmitting(false);
     }
   }
+  if (currentUser?.membershipStatus === 'pending') {
+  return (
+    <main className="application-page">
+      <section className="application-status-card">
+        <p className="application-page__eyebrow">Membership Status</p>
+
+        <h2>Application Pending</h2>
+
+        <p className="application-status-card__badge application-status-card__badge--pending">
+          Pending
+        </p>
+
+        <p>
+          Your membership application has been received and is currently
+          under review.
+        </p>
+
+        <p>
+          You will receive an update when the GeoGoHub membership team makes
+          a decision.
+        </p>
+      </section>
+    </main>
+  );
+}
+
+if (currentUser?.membershipStatus === 'approved') {
+  const displayName =
+    currentUser.firstName ||
+    currentUser.name ||
+    currentUser.email?.split('@')[0] ||
+    'Member';
+
+  return (
+    <main className="application-page">
+      <section className="application-status-card">
+        <p className="application-page__eyebrow">Membership</p>
+
+        <h2>Welcome, {displayName}</h2>
+
+        <p className="application-status-card__badge application-status-card__badge--approved">
+          Approved
+        </p>
+
+        <dl className="application-status-details">
+          <div>
+            <dt>Status</dt>
+            <dd>Approved</dd>
+          </div>
+
+          <div>
+            <dt>Role</dt>
+            <dd>{currentUser.role || 'Member'}</dd>
+          </div>
+
+          <div>
+            <dt>Email</dt>
+            <dd>{currentUser.email || 'Not available'}</dd>
+          </div>
+        </dl>
+
+        <p>Your GeoGoHub membership is active.</p>
+      </section>
+    </main>
+  );
+}
 
   return (
     <main className="application-page">
@@ -214,5 +281,15 @@ function ApplicationPage() {
     </main>
   );
 }
+
+ApplicationPage.propTypes = {
+  currentUser: PropTypes.shape({
+    firstName: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    role: PropTypes.string,
+    membershipStatus: PropTypes.string,
+  }),
+};
 
 export default ApplicationPage;

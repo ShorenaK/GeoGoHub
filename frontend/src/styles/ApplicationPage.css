@@ -165,3 +165,79 @@
     gap: 0;
   }
 }
+
+.application-status-card {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #d8ddd9;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.application-status-card h2 {
+  margin: 0 0 1rem;
+  color: #1f2a22;
+  font-size: 2.25rem;
+}
+
+.application-status-card p {
+  color: #5f665f;
+  line-height: 1.6;
+}
+
+.application-status-card__badge {
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.application-status-card__badge--pending {
+  background-color: #fff6dd;
+  color: #725714;
+}
+
+.application-status-card__badge--approved {
+  background-color: #e7f4e9;
+  color: #285e33;
+}
+
+.application-status-details {
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.application-status-details div {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #e5e8e5;
+}
+
+.application-status-details div:last-child {
+  border-bottom: 0;
+}
+
+.application-status-details dt {
+  color: #4f5851;
+  font-weight: 700;
+}
+
+.application-status-details dd {
+  margin: 0;
+  color: #263329;
+  text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  .application-status-details div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
