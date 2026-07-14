@@ -102,3 +102,12 @@ export async function deleteApplication(applicationId) {
 
   return result;
 }
+
+// Find a membership application by email.
+export async function getApplicationByEmail(email) {
+  const db = getDatabase();
+
+  return db.collection(APPLICATIONS_COLLECTION).findOne({
+    email: email.toLowerCase(),
+  });
+}
