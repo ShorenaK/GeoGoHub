@@ -121,3 +121,47 @@
   color: #285e33;
 }
 
+.application-form__submit {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  border: 2px solid #30573a;
+  border-radius: 0.4rem;
+  background-color: #30573a;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.application-form__submit:hover:not(:disabled) {
+  background-color: #24442d;
+}
+
+.application-form__submit:focus-visible {
+  outline: 3px solid #8aa892;
+  outline-offset: 3px;
+}
+
+.application-form__submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+@media (max-width: 650px) {
+  .application-page {
+    padding: 2rem 1rem;
+  }
+
+  .application-page__heading h2 {
+    font-size: 2rem;
+  }
+
+  .application-form {
+    padding: 1.5rem;
+  }
+
+  .application-form__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
