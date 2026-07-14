@@ -68,6 +68,27 @@
   text-align: center;
 }
 
+.events-page__notice,
+.events-page__success {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.events-page__notice {
+  border: 1px solid #c9cec9;
+  background-color: #ffffff;
+  color: #4f5851;
+}
+
+.events-page__success {
+  border: 1px solid #73a47d;
+  background-color: #eef8f0;
+  color: #285e33;
+}
+
 @media (max-width: 600px) {
   .events-page {
     padding: 2rem 1rem;
