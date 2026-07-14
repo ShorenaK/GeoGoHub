@@ -127,6 +127,130 @@
   outline-offset: 3px;
 }
 
+.dashboard-rsvps {
+  margin-top: 1.5rem;
+}
+
+.dashboard-rsvps__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-rsvps__heading h3 {
+  margin: 0 0 0.4rem;
+}
+
+.dashboard-rsvps__heading p {
+  margin: 0;
+  color: #5f665f;
+  line-height: 1.5;
+}
+
+.dashboard-rsvps__heading button {
+  flex-shrink: 0;
+  padding: 0.7rem 1rem;
+  border: 2px solid #30573a;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  color: #30573a;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dashboard-rsvps__heading button:hover {
+  background-color: #edf3ee;
+}
+
+.dashboard-rsvps__heading button:focus-visible {
+  outline: 3px solid #8aa892;
+  outline-offset: 3px;
+}
+
+.dashboard-rsvp-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.dashboard-rsvp-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #e0e5e1;
+  border-radius: 0.5rem;
+  background-color: #fafbfa;
+}
+
+.dashboard-rsvp-item h4 {
+  margin: 0 0 0.3rem;
+  color: #243b2a;
+  font-size: 1rem;
+}
+
+.dashboard-rsvp-item p {
+  margin: 0;
+  color: #687069;
+  font-size: 0.9rem;
+}
+
+.dashboard-rsvp-status {
+  flex-shrink: 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.dashboard-rsvp-status--going {
+  background-color: #e7f4e9;
+  color: #285e33;
+}
+
+.dashboard-rsvp-status--maybe {
+  background-color: #fff6dd;
+  color: #725714;
+}
+
+.dashboard-rsvp-status--not-going {
+  background-color: #fff1f1;
+  color: #8b2525;
+}
+
+.dashboard-rsvps__message {
+  margin: 0;
+  color: #5f665f;
+}
+
+.dashboard-rsvps__error {
+  margin: 0;
+  padding: 0.9rem;
+  border: 1px solid #c86b6b;
+  border-radius: 0.4rem;
+  background-color: #fff1f1;
+  color: #8b2525;
+}
+
+@media (max-width: 650px) {
+  .dashboard-rsvps__heading {
+    flex-direction: column;
+  }
+
+  .dashboard-rsvps__heading button {
+    width: 100%;
+  }
+
+  .dashboard-rsvp-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 750px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
