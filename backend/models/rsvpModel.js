@@ -4,25 +4,7 @@
   This file handles MongoDB operations for event RSVPs.
 
   Responsibilities:
-  - Create new RSVPs.
-  - Read RSVPs.
-  - Update RSVPs.
-  - Delete RSVPs.
-
-  Collection:
-  - rsvps
-
-  Author: Shorena K. Anzhilov
-  Course: CS 5610 Web Development
-  Project: GeoGoHub
-*/
-/*
-  models/rsvpModel.js
-
-  This file handles MongoDB operations for event RSVPs.
-
-  Responsibilities:
-  - Create new RSVPs.
+  - Create RSVPs connected to users and events.
   - Read RSVPs.
   - Update RSVPs.
   - Delete RSVPs.
@@ -36,22 +18,26 @@
 */
 
 import { ObjectId } from 'mongodb';
+
 import { getDatabase } from '../db/database.js';
 
 const RSVPS_COLLECTION = 'rsvps';
 
-// Creates a new RSVP in MongoDB.
+// Create a new RSVP.
 export async function createRsvp(rsvpData) {
   const db = getDatabase();
 
   const newRsvp = {
-    ...rsvpData,
+    userId: new ObjectId(rsvpData.userId),
+    eventId: new ObjectId(rsvpData.eventId),
     status: rsvpData.status || 'going',
     createdAt: new Date(),
     updatedAt: new Date(),
   };
 
-  const result = await db.collection(RSVPS_COLLECTION).insertOne(newRsvp);
+  const result = await db
+    .collection(RSVPS_COLLECTION)
+    .insertOne(newRsvp);
 
   return {
     _id: result.insertedId,
@@ -59,56 +45,66 @@ export async function createRsvp(rsvpData) {
   };
 }
 
-// Retrieves all RSVPs from MongoDB.
+// Find an RSVP for a particular user and event.
+export async function getRsvpByUserAndEvent(userId, eventId) {
+  const db = getDatabase();
+
+  return db.collection(RSVPS_COLLECTION).findOne({
+    userId: new ObjectId(userId),
+    eventId: new ObjectId(eventId),
+  });
+}
+
+// Retrieve RSVPs for one authenticated user.
+export async function getRsvpsByUserId(userId) {
+  const db = getDatabase();
+
+  return db
+    .collection(RSVPS_COLLECTION)
+    .find({
+      userId: new ObjectId(userId),
+    })
+    .toArray();
+}
+
+// Retrieve all RSVPs.
 export async function getAllRsvps() {
   const db = getDatabase();
 
-  // TODO: Replace with pagination if the RSVPs collection grows significantly.
-  const rsvps = await db.collection(RSVPS_COLLECTION).find().toArray();
-
-  return rsvps;
+  return db.collection(RSVPS_COLLECTION).find().toArray();
 }
 
-// Retrieves one RSVP by MongoDB _id.
+// Retrieve one RSVP by ID.
 export async function getRsvpById(rsvpId) {
   const db = getDatabase();
 
-  const objectId = new ObjectId(rsvpId);
-
-  const rsvp = await db.collection(RSVPS_COLLECTION).findOne({
-    _id: objectId,
+  return db.collection(RSVPS_COLLECTION).findOne({
+    _id: new ObjectId(rsvpId),
   });
-
-  return rsvp;
 }
 
-// Updates an existing RSVP.
+// Update an RSVP.
 export async function updateRsvp(rsvpId, updatedData) {
   const db = getDatabase();
 
-  const objectId = new ObjectId(rsvpId);
-
-  updatedData.updatedAt = new Date();
-
-  const result = await db.collection(RSVPS_COLLECTION).updateOne(
-    { _id: objectId },
+  return db.collection(RSVPS_COLLECTION).updateOne(
     {
-      $set: updatedData,
+      _id: new ObjectId(rsvpId),
+    },
+    {
+      $set: {
+        ...updatedData,
+        updatedAt: new Date(),
+      },
     },
   );
-
-  return result;
 }
 
-// Deletes an RSVP by MongoDB _id.
+// Delete an RSVP.
 export async function deleteRsvp(rsvpId) {
   const db = getDatabase();
 
-  const objectId = new ObjectId(rsvpId);
-
-  const result = await db.collection(RSVPS_COLLECTION).deleteOne({
-    _id: objectId,
+  return db.collection(RSVPS_COLLECTION).deleteOne({
+    _id: new ObjectId(rsvpId),
   });
-
-  return result;
 }

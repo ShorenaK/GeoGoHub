@@ -18,22 +18,79 @@ import {
   deleteRsvp,
   getAllRsvps,
   getRsvpById,
+  getRsvpByUserAndEvent,
+  getRsvpsByUserId,
   updateRsvp,
 } from '../models/rsvpModel.js';
 
-// Handles creating a new RSVP.
+// Handle creating a new RSVP.
 export async function createRsvpController(req, res) {
   try {
-    const rsvp = await createRsvp(req.body);
+    const { eventId, status } = req.body;
+    const userId = req.user._id.toString();
 
-    res.status(201).json({
+    if (!eventId) {
+      return res.status(400).json({
+        success: false,
+        message: 'An event ID is required.',
+      });
+    }
+
+    const allowedStatuses = ['going', 'maybe', 'not going'];
+
+    if (status && !allowedStatuses.includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid RSVP status.',
+      });
+    }
+
+    const existingRsvp = await getRsvpByUserAndEvent(
+      userId,
+      eventId,
+    );
+
+    if (existingRsvp) {
+      return res.status(409).json({
+        success: false,
+        message: 'You have already RSVP’d to this event.',
+      });
+    }
+
+    const rsvp = await createRsvp({
+      userId,
+      eventId,
+      status,
+    });
+
+    return res.status(201).json({
       success: true,
       data: rsvp,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: 'Failed to create RSVP.',
+      error: error.message,
+    });
+  }
+}
+
+// Retrieve RSVPs belonging to the authenticated user.
+export async function getCurrentUserRsvpsController(req, res) {
+  try {
+    const rsvps = await getRsvpsByUserId(
+      req.user._id.toString(),
+    );
+
+    return res.status(200).json({
+      success: true,
+      data: rsvps,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to get your RSVPs.',
       error: error.message,
     });
   }
