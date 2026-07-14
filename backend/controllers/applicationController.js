@@ -17,6 +17,7 @@ import {
   createApplication,
   deleteApplication,
   getAllApplications,
+  getApplicationByEmail,
   getApplicationById,
   updateApplication,
 } from '../models/applicationModel.js';
