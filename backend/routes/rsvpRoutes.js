@@ -21,17 +21,26 @@ import {
   createRsvpController,
   deleteRsvpController,
   getAllRsvpsController,
+  getCurrentUserRsvpsController,
   getRsvpByIdController,
   updateRsvpController,
 } from '../controllers/rsvpController.js';
 
-import { requireMember } from '../middleware/authMiddleware.js';
+import {
+  requireAdmin,
+  requireMember,
+} from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-// Only approved members can manage RSVPs.
+// Approved members can create and view their own RSVPs.
 router.post('/', requireMember, createRsvpController);
-router.get('/', requireMember, getAllRsvpsController);
+router.get('/mine', requireMember, getCurrentUserRsvpsController);
+
+// Only administrators can retrieve every RSVP.
+router.get('/', requireAdmin, getAllRsvpsController);
+
+// Approved members can manage individual RSVPs.
 router.get('/:id', requireMember, getRsvpByIdController);
 router.put('/:id', requireMember, updateRsvpController);
 router.delete('/:id', requireMember, deleteRsvpController);
