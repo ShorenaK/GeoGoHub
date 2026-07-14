@@ -37,6 +37,28 @@ export async function getEvents() {
   return response.json();
 }
 
+// Submit a new membership application.
+export async function submitApplication(applicationData) {
+  const response = await fetch(`${API_BASE_URL}/applications`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(applicationData),
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to submit membership application.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
 // Retrieve all users.
 export async function getUsers() {
   const response = await fetch(`${API_BASE_URL}/users`, {
