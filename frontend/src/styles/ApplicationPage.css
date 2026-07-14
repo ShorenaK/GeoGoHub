@@ -1,0 +1,123 @@
+/*
+  ApplicationPage.css
+
+  This file styles the GeoGoHub membership application page.
+
+  Responsibilities:
+  - Style the membership application layout.
+  - Arrange form fields responsively.
+  - Display clear success and error states.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoGoHub
+*/
+
+.application-page {
+  min-height: calc(100vh - 160px);
+  padding: 3rem 1.5rem;
+  background-color: #f7f8f6;
+}
+
+.application-page__content {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.application-page__heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.application-page__eyebrow {
+  margin: 0 0 0.75rem;
+  color: #456b4d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.application-page__heading h2 {
+  margin: 0 0 1rem;
+  color: #1f2a22;
+  font-size: 2.5rem;
+}
+
+.application-page__heading p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #5f665f;
+  line-height: 1.7;
+}
+
+.application-form {
+  padding: 2rem;
+  border: 1px solid #d8ddd9;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.application-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.application-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.application-form__field label {
+  color: #263329;
+  font-weight: 700;
+}
+
+.application-form__field input,
+.application-form__field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #bfc7c1;
+  border-radius: 0.4rem;
+  background-color: #ffffff;
+  color: #1f2a22;
+  font: inherit;
+}
+
+.application-form__field textarea {
+  min-height: 140px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.application-form__field input:focus,
+.application-form__field textarea:focus {
+  border-color: #456b4d;
+  outline: 3px solid rgba(69, 107, 77, 0.2);
+}
+
+.application-form__message {
+  margin: 0 0 1.25rem;
+  padding: 0.9rem;
+  border-radius: 0.4rem;
+  line-height: 1.5;
+}
+
+.application-form__message--error {
+  border: 1px solid #c86b6b;
+  background-color: #fff1f1;
+  color: #8b2525;
+}
+
+.application-form__message--success {
+  border: 1px solid #73a47d;
+  background-color: #eef8f0;
+  color: #285e33;
+}
+
