@@ -30,7 +30,7 @@ function DashboardPage({ currentUser, onNavigate }) {
 
           <h2>Welcome back, {displayName}</h2>
 
-          <p>Manage your membership and explore upcoming GeoGoHub experiences.</p>
+          <p>Manage your membership and explore upcoming GeoGoHub Private Events.</p>
         </div>
 
         <div className="dashboard-grid">
