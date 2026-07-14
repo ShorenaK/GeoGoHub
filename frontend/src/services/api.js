@@ -120,3 +120,86 @@ export async function logoutUser() {
 
   return response.json();
 }
+
+// Retrieve RSVPs belonging to the authenticated member.
+export async function getMyRsvps() {
+  const response = await fetch(`${API_BASE_URL}/rsvps/mine`, {
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to retrieve your RSVPs.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
+// Create an RSVP for an event.
+export async function createRsvp(rsvpData) {
+  const response = await fetch(`${API_BASE_URL}/rsvps`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify(rsvpData),
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to create RSVP.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
+// Update an existing RSVP.
+export async function updateRsvp(rsvpId, updatedData) {
+  const response = await fetch(`${API_BASE_URL}/rsvps/${rsvpId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify(updatedData),
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to update RSVP.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
+// Delete an RSVP.
+export async function deleteRsvp(rsvpId) {
+  const response = await fetch(`${API_BASE_URL}/rsvps/${rsvpId}`, {
+    method: 'DELETE',
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to cancel RSVP.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
