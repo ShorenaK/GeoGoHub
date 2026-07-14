@@ -22,6 +22,18 @@ import {
   updateApplication,
 } from '../models/applicationModel.js';
 
+// Check for duplicate applications by email before creating a new one.
+const existingApplication = await getApplicationByEmail(
+  email.trim().toLowerCase(),
+);
+
+if (existingApplication) {
+  return res.status(409).json({
+    success: false,
+    message: 'A membership application has already been submitted with this email address.',
+  });
+}
+
 // Handles creating a new membership application.
 export async function createApplicationController(req, res) {
   try {
