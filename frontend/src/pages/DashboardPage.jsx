@@ -88,13 +88,20 @@ function DashboardPage({ currentUser, onNavigate }) {
               <div>
                 <dt>Membership</dt>
                 <dd className="dashboard-status">
-                  {currentUser.membershipStatus || 'Not available'}
+                  {currentUser.membershipStatus
+                    ? currentUser.membershipStatus.charAt(0).toUpperCase() +
+                      currentUser.membershipStatus.slice(1)
+                    : 'Not available'}
                 </dd>
               </div>
 
               <div>
                 <dt>Role</dt>
-                <dd>{currentUser.role || 'Member'}</dd>
+                <dd>
+                  {currentUser.role
+                    ? currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1)
+                    : 'Member'}
+                </dd>
               </div>
             </dl>
           </section>

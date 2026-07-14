@@ -235,6 +235,16 @@
   text-transform: capitalize;
 }
 
+.application-status-card__active {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #b8d8c0;
+  border-radius: 0.5rem;
+  background-color: #edf8f0;
+  color: #2f6b3f;
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .application-status-details div {
     grid-template-columns: 1fr;

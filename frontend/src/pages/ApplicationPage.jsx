@@ -118,7 +118,7 @@ function ApplicationPage({ currentUser = null }) {
             </div>
           </dl>
 
-          <p>Your GeoGoHub membership is active.</p>
+          <p className="application-status-card__active">Your GeoGoHub membership is active.</p>
         </section>
       </main>
     );
