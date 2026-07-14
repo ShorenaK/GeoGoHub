@@ -22,18 +22,6 @@ import {
   updateApplication,
 } from '../models/applicationModel.js';
 
-// Check for duplicate applications by email before creating a new one.
-const existingApplication = await getApplicationByEmail(
-  email.trim().toLowerCase(),
-);
-
-if (existingApplication) {
-  return res.status(409).json({
-    success: false,
-    message: 'A membership application has already been submitted with this email address.',
-  });
-}
-
 // Handles creating a new membership application.
 export async function createApplicationController(req, res) {
   try {
@@ -60,21 +48,36 @@ export async function createApplicationController(req, res) {
       });
     }
 
+    // Normalize the email before validation and database checks.
+    const normalizedEmail = email.trim().toLowerCase();
+
     // Validate email format.
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailPattern.test(email)) {
+    if (!emailPattern.test(normalizedEmail)) {
       return res.status(400).json({
         success: false,
         message: 'Please enter a valid email address.',
       });
     }
 
-    // Trim whitespace before saving.
+    // Check whether this email already has an application.
+    const existingApplication =
+      await getApplicationByEmail(normalizedEmail);
+
+    if (existingApplication) {
+      return res.status(409).json({
+        success: false,
+        message:
+          'A membership application has already been submitted with this email address.',
+      });
+    }
+
+    // Trim and normalize values before saving.
     const application = await createApplication({
       firstName: firstName.trim(),
       lastName: lastName.trim(),
-      email: email.trim().toLowerCase(),
+      email: normalizedEmail,
       profession: profession.trim(),
       company: company ? company.trim() : '',
       reason: reason.trim(),
