@@ -188,3 +188,66 @@ export async function deleteRsvp(rsvpId) {
 
   return response.json();
 }
+
+// Retrieve all membership applications for an administrator.
+export async function getApplications() {
+  const response = await fetch(`${API_BASE_URL}/applications`, {
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to retrieve membership applications.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
+// Update a membership application.
+export async function updateApplication(applicationId, updatedData) {
+  const response = await fetch(
+    `${API_BASE_URL}/applications/${applicationId}`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(updatedData),
+    },
+  );
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to update membership application.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
+// Delete an event.
+export async function deleteEvent(eventId) {
+  const response = await fetch(`${API_BASE_URL}/events/${eventId}`, {
+    method: 'DELETE',
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const message = await getErrorMessage(
+      response,
+      'Failed to delete event.',
+    );
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}

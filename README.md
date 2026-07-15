@@ -139,3 +139,52 @@ my Mangoos Atlas
 
 git add . && git commit -m "Set up React frontend structure" && git push origin main
 
+npm run format
+npm run lint   
+
+
+
+
+
+
+A fuller membership workflow where applicants can track their status.
+Admins can manage membership approvals.
+For the current project, ApplicationPage.jsx should behave intelligently:
+Logged-out visitors → see the membership application form.
+Users with membershipStatus === "pending" → see a pending application message.
+Users with membershipStatus === "approved" → see an active membership page instead of the application form.
+
+I did not save temporary implementation details or code—only the long-term project improvement idea, which is the kind of information that's useful to remember across conversations
+
+
+future improvment forgot the user or the passowrd 
+
+after submitting the ppalication user receves confitiom that applicaion haves n=been submited 
+
+Your membership application was submitted successfully. Our team will review it soon. aproximatlly how mnay days 
+
+also when login ability oto see the passwerd what is entered.
+
+
+
+for TA and professor to test it 
+user with approved application 
+hborgnol0@prlog.org
+====================
+id
+6a56ad7c521eea61cca05804
+firstName
+"Hetty"
+lastName
+"Borgnol"
+email
+"hborgnol0@prlog.org"
+password
+"password123"
+role
+"member"
+membershipStatus
+"approved"
+
+
+===============================
