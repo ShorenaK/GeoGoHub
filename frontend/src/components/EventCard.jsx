@@ -44,8 +44,17 @@ function EventCard({
       </div>
 
       <p className="event-card__description">{event.description}</p>
-
       <dl className="event-card__details">
+        <div>
+          <dt>Date</dt>
+          <dd>{formatEventDate(event.date)}</dd>
+        </div>
+
+        <div>
+          <dt>Time</dt>
+          <dd>{event.time || 'Time not available'}</dd>
+        </div>
+
         <div>
           <dt>Location</dt>
           <dd>{event.location}</dd>
@@ -98,15 +107,37 @@ function EventCard({
     </article>
   );
 }
+// Format an ISO date as a readable calendar date.
+function formatEventDate(dateValue) {
+  if (!dateValue) {
+    return 'Date not available';
+  }
+
+  const date = new Date(dateValue);
+
+  if (Number.isNaN(date.getTime())) {
+    return 'Date not available';
+  }
+
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+}
 
 EventCard.propTypes = {
   event: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    time: PropTypes.string,
     location: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     capacity: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string,
   }).isRequired,
   rsvp: PropTypes.shape({
     _id: PropTypes.string.isRequired,

@@ -152,7 +152,13 @@ function DashboardPage({ currentUser, onNavigate }) {
                   <div>
                     <h4>{rsvp.event?.title || 'Event information unavailable'}</h4>
 
-                    {rsvp.event?.location && <p>{rsvp.event.location}</p>}
+                    {rsvp.event && (
+                      <p>
+                        {formatEventDate(rsvp.event.date)}
+                        {rsvp.event.time ? ` at ${rsvp.event.time}` : ''}
+                        {rsvp.event.location ? ` · ${rsvp.event.location}` : ''}
+                      </p>
+                    )}
                   </div>
 
                   <span
@@ -171,6 +177,26 @@ function DashboardPage({ currentUser, onNavigate }) {
       </section>
     </main>
   );
+}
+
+// Format an ISO date as a readable calendar date.
+function formatEventDate(dateValue) {
+  if (!dateValue) {
+    return 'Date not available';
+  }
+
+  const date = new Date(dateValue);
+
+  if (Number.isNaN(date.getTime())) {
+    return 'Date not available';
+  }
+
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
 }
 
 DashboardPage.propTypes = {

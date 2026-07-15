@@ -51,9 +51,12 @@ const eventShape = PropTypes.shape({
   _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  date: PropTypes.string,
+  time: PropTypes.string,
   location: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   capacity: PropTypes.number.isRequired,
+  imageUrl: PropTypes.string,
 });
 
 EventList.propTypes = {
