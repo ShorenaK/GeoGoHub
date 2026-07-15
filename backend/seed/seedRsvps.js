@@ -32,8 +32,7 @@ function getRandomItem(items) {
 function getRandomDate(startDate, endDate) {
   const startTime = startDate.getTime();
   const endTime = endDate.getTime();
-  const randomTime =
-    startTime + Math.random() * (endTime - startTime);
+  const randomTime = startTime + Math.random() * (endTime - startTime);
 
   return new Date(randomTime);
 }
@@ -44,24 +43,17 @@ export async function seedRsvps(db) {
   const events = await db.collection(EVENTS_COLLECTION).find().toArray();
 
   if (users.length === 0) {
-    throw new Error(
-      'Cannot seed RSVPs because the users collection is empty.',
-    );
+    throw new Error('Cannot seed RSVPs because the users collection is empty.');
   }
 
   if (events.length === 0) {
-    throw new Error(
-      'Cannot seed RSVPs because the events collection is empty.',
-    );
+    throw new Error('Cannot seed RSVPs because the events collection is empty.');
   }
 
   const rsvps = [];
   const usedUserEventPairs = new Set();
 
-  while (
-    rsvps.length < RSVP_COUNT &&
-    usedUserEventPairs.size < users.length * events.length
-  ) {
+  while (rsvps.length < RSVP_COUNT && usedUserEventPairs.size < users.length * events.length) {
     const user = getRandomItem(users);
     const event = getRandomItem(events);
     const pairKey = `${user._id.toString()}-${event._id.toString()}`;
@@ -73,10 +65,7 @@ export async function seedRsvps(db) {
 
     usedUserEventPairs.add(pairKey);
 
-    const createdAt = getRandomDate(
-      new Date('2025-07-14'),
-      new Date(),
-    );
+    const createdAt = getRandomDate(new Date('2025-07-14'), new Date());
 
     const updatedAt = getRandomDate(createdAt, new Date());
 
@@ -91,9 +80,7 @@ export async function seedRsvps(db) {
 
   await db.collection(RSVPS_COLLECTION).deleteMany({});
 
-  const result = await db
-    .collection(RSVPS_COLLECTION)
-    .insertMany(rsvps);
+  const result = await db.collection(RSVPS_COLLECTION).insertMany(rsvps);
 
   console.log(`Seeded ${result.insertedCount} RSVPs.`);
 }

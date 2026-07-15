@@ -45,10 +45,7 @@ export async function createRsvpController(req, res) {
       });
     }
 
-    const existingRsvp = await getRsvpByUserAndEvent(
-      userId,
-      eventId,
-    );
+    const existingRsvp = await getRsvpByUserAndEvent(userId, eventId);
 
     if (existingRsvp) {
       return res.status(409).json({
@@ -79,9 +76,7 @@ export async function createRsvpController(req, res) {
 // Retrieve RSVPs belonging to the authenticated user.
 export async function getCurrentUserRsvpsController(req, res) {
   try {
-    const rsvps = await getRsvpsByUserId(
-      req.user._id.toString(),
-    );
+    const rsvps = await getRsvpsByUserId(req.user._id.toString());
 
     return res.status(200).json({
       success: true,

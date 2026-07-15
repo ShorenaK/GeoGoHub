@@ -26,10 +26,7 @@ import {
   updateRsvpController,
 } from '../controllers/rsvpController.js';
 
-import {
-  requireAdmin,
-  requireMember,
-} from '../middleware/authMiddleware.js';
+import { requireAdmin, requireMember } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 

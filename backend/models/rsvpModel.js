@@ -35,9 +35,7 @@ export async function createRsvp(rsvpData) {
     updatedAt: new Date(),
   };
 
-  const result = await db
-    .collection(RSVPS_COLLECTION)
-    .insertOne(newRsvp);
+  const result = await db.collection(RSVPS_COLLECTION).insertOne(newRsvp);
 
   return {
     _id: result.insertedId,

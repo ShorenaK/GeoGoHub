@@ -25,23 +25,10 @@ import {
 // Handles creating a new membership application.
 export async function createApplicationController(req, res) {
   try {
-    const {
-      firstName,
-      lastName,
-      email,
-      profession,
-      company,
-      reason,
-    } = req.body;
+    const { firstName, lastName, email, profession, company, reason } = req.body;
 
     // Validate required fields.
-    if (
-      !firstName ||
-      !lastName ||
-      !email ||
-      !profession ||
-      !reason
-    ) {
+    if (!firstName || !lastName || !email || !profession || !reason) {
       return res.status(400).json({
         success: false,
         message: 'Please complete all required fields.',
@@ -62,14 +49,12 @@ export async function createApplicationController(req, res) {
     }
 
     // Check whether this email already has an application.
-    const existingApplication =
-      await getApplicationByEmail(normalizedEmail);
+    const existingApplication = await getApplicationByEmail(normalizedEmail);
 
     if (existingApplication) {
       return res.status(409).json({
         success: false,
-        message:
-          'A membership application has already been submitted with this email address.',
+        message: 'A membership application has already been submitted with this email address.',
       });
     }
 
