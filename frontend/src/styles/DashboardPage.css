@@ -275,3 +275,144 @@
     padding: 1.5rem;
   }
 }
+
+.dashboard-message {
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  color: #5f665f;
+  text-align: center;
+}
+
+.dashboard-message--error {
+  border: 1px solid #c86b6b;
+  background-color: #fff1f1;
+  color: #8b2525;
+}
+
+.dashboard-message--success {
+  border: 1px solid #73a47d;
+  background-color: #eef8f0;
+  color: #285e33;
+}
+
+.dashboard-admin-section {
+  margin-top: 1.5rem;
+}
+
+.dashboard-section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-section-heading h3 {
+  margin: 0 0 0.4rem;
+}
+
+.dashboard-section-heading p {
+  margin: 0;
+  color: #5f665f;
+}
+
+.dashboard-section-heading span {
+  flex-shrink: 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background-color: #edf3ee;
+  color: #30573a;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.dashboard-admin-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.dashboard-admin-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid #e0e5e1;
+  border-radius: 0.5rem;
+  background-color: #fafbfa;
+}
+
+.dashboard-admin-item__content {
+  min-width: 0;
+}
+
+.dashboard-admin-item h4 {
+  margin: 0 0 0.5rem;
+  color: #243b2a;
+}
+
+.dashboard-admin-item p {
+  margin: 0.35rem 0;
+  color: #5f665f;
+  line-height: 1.5;
+}
+
+.dashboard-admin-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dashboard-admin-actions button,
+.dashboard-delete-button {
+  padding: 0.65rem 1rem;
+  border: 2px solid #30573a;
+  border-radius: 0.4rem;
+  background-color: #30573a;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dashboard-admin-actions button:hover:not(:disabled) {
+  background-color: #24442d;
+}
+
+.dashboard-admin-actions__decline,
+.dashboard-delete-button {
+  border-color: #a44b4b;
+  background-color: transparent;
+  color: #8b2525;
+}
+
+.dashboard-admin-actions__decline:hover:not(:disabled),
+.dashboard-delete-button:hover:not(:disabled) {
+  background-color: #fff1f1;
+}
+
+.dashboard-admin-actions button:disabled,
+.dashboard-delete-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.dashboard-admin-event {
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .dashboard-section-heading,
+  .dashboard-admin-item {
+    flex-direction: column;
+  }
+
+  .dashboard-admin-actions,
+  .dashboard-admin-actions button,
+  .dashboard-delete-button {
+    width: 100%;
+  }
+}
