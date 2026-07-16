@@ -199,3 +199,12 @@ Admin
 
 
     ====================
+
+    ## Known Limitations
+
+GeoGoHub currently uses the default in-memory session store provided by
+`express-session`. The browser session cookie is configured for up to 30 days,
+but server-side sessions may be lost when the Render service restarts,
+redeploys, or spins down because of inactivity. Users may therefore need to
+log in again. A persistent MongoDB- or Redis-backed session store is planned
+as a future improvement.
