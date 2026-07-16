@@ -196,10 +196,7 @@ export async function getApplications() {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to retrieve membership applications.',
-    );
+    const message = await getErrorMessage(response, 'Failed to retrieve membership applications.');
 
     throw new Error(message);
   }
@@ -209,23 +206,17 @@ export async function getApplications() {
 
 // Update a membership application.
 export async function updateApplication(applicationId, updatedData) {
-  const response = await fetch(
-    `${API_BASE_URL}/applications/${applicationId}`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(updatedData),
+  const response = await fetch(`${API_BASE_URL}/applications/${applicationId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
     },
-  );
+    credentials: 'include',
+    body: JSON.stringify(updatedData),
+  });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to update membership application.',
-    );
+    const message = await getErrorMessage(response, 'Failed to update membership application.');
 
     throw new Error(message);
   }
@@ -241,10 +232,7 @@ export async function deleteEvent(eventId) {
   });
 
   if (!response.ok) {
-    const message = await getErrorMessage(
-      response,
-      'Failed to delete event.',
-    );
+    const message = await getErrorMessage(response, 'Failed to delete event.');
 
     throw new Error(message);
   }

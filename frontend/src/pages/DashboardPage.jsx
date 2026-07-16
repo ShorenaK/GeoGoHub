@@ -69,10 +69,7 @@ function DashboardPage({ currentUser, onNavigate }) {
   const isAdmin = currentUser.role === 'admin';
 
   const displayName =
-    currentUser.firstName ||
-    currentUser.name ||
-    currentUser.email?.split('@')[0] ||
-    'Member';
+    currentUser.firstName || currentUser.name || currentUser.email?.split('@')[0] || 'Member';
 
   useEffect(() => {
     async function loadDashboard() {
@@ -80,24 +77,21 @@ function DashboardPage({ currentUser, onNavigate }) {
         setErrorMessage('');
 
         if (isAdmin) {
-          const [applicationResponse, eventResponse] =
-            await Promise.all([getApplications(), getEvents()]);
+          const [applicationResponse, eventResponse] = await Promise.all([
+            getApplications(),
+            getEvents(),
+          ]);
 
           setApplications(applicationResponse.data);
           setAdminEvents(eventResponse.data);
         } else {
-          const [rsvpResponse, eventResponse] = await Promise.all([
-            getMyRsvps(),
-            getEvents(),
-          ]);
+          const [rsvpResponse, eventResponse] = await Promise.all([getMyRsvps(), getEvents()]);
 
           const events = eventResponse.data;
           const rsvps = rsvpResponse.data;
 
           const rsvpsWithEvents = rsvps.map((rsvp) => {
-            const matchingEvent = events.find(
-              (event) => event._id === rsvp.eventId,
-            );
+            const matchingEvent = events.find((event) => event._id === rsvp.eventId);
 
             return {
               ...rsvp,
@@ -136,9 +130,7 @@ function DashboardPage({ currentUser, onNavigate }) {
         ),
       );
 
-      setSuccessMessage(
-        `The membership application was marked ${status}.`,
-      );
+      setSuccessMessage(`The membership application was marked ${status}.`);
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
@@ -147,9 +139,7 @@ function DashboardPage({ currentUser, onNavigate }) {
   }
 
   async function handleDeleteEvent(eventId) {
-    const shouldDelete = window.confirm(
-      'Are you sure you want to delete this event?',
-    );
+    const shouldDelete = window.confirm('Are you sure you want to delete this event?');
 
     if (!shouldDelete) {
       return;
@@ -162,9 +152,7 @@ function DashboardPage({ currentUser, onNavigate }) {
 
       await deleteEvent(eventId);
 
-      setAdminEvents((currentEvents) =>
-        currentEvents.filter((event) => event._id !== eventId),
-      );
+      setAdminEvents((currentEvents) => currentEvents.filter((event) => event._id !== eventId));
 
       setSuccessMessage('The event was deleted successfully.');
     } catch (error) {
@@ -206,10 +194,7 @@ function DashboardPage({ currentUser, onNavigate }) {
         )}
 
         {successMessage && (
-          <p
-            className="dashboard-message dashboard-message--success"
-            role="status"
-          >
+          <p className="dashboard-message dashboard-message--success" role="status">
             {successMessage}
           </p>
         )}
@@ -232,10 +217,7 @@ function DashboardPage({ currentUser, onNavigate }) {
               <div>
                 <dt>Membership</dt>
                 <dd className="dashboard-status">
-                  {formatLabel(
-                    currentUser.membershipStatus,
-                    'Not available',
-                  )}
+                  {formatLabel(currentUser.membershipStatus, 'Not available')}
                 </dd>
               </div>
 
@@ -250,18 +232,12 @@ function DashboardPage({ currentUser, onNavigate }) {
             <h3>Quick Actions</h3>
 
             <div className="dashboard-actions">
-              <button
-                type="button"
-                onClick={() => onNavigate('events')}
-              >
+              <button type="button" onClick={() => onNavigate('events')}>
                 Browse Events
               </button>
 
               {!isAdmin && (
-                <button
-                  type="button"
-                  onClick={() => onNavigate('application')}
-                >
+                <button type="button" onClick={() => onNavigate('application')}>
                   View Membership
                 </button>
               )}
@@ -282,16 +258,11 @@ function DashboardPage({ currentUser, onNavigate }) {
               </div>
 
               {applications.length === 0 ? (
-                <p className="dashboard-message">
-                  No membership applications are available.
-                </p>
+                <p className="dashboard-message">No membership applications are available.</p>
               ) : (
                 <div className="dashboard-admin-list">
                   {applications.map((application) => (
-                    <article
-                      className="dashboard-admin-item"
-                      key={application._id}
-                    >
+                    <article className="dashboard-admin-item" key={application._id}>
                       <div className="dashboard-admin-item__content">
                         <h4>
                           {application.firstName} {application.lastName}
@@ -300,40 +271,30 @@ function DashboardPage({ currentUser, onNavigate }) {
                         <p>{application.email}</p>
 
                         <p>
-                          <strong>Profession:</strong>{' '}
-                          {application.profession}
+                          <strong>Profession:</strong> {application.profession}
                         </p>
 
                         {application.company && (
                           <p>
-                            <strong>Company:</strong>{' '}
-                            {application.company}
+                            <strong>Company:</strong> {application.company}
                           </p>
                         )}
 
                         <p>
-                          <strong>Reason:</strong>{' '}
-                          {application.reason}
+                          <strong>Reason:</strong> {application.reason}
                         </p>
 
                         <p>
-                          <strong>Status:</strong>{' '}
-                          {formatLabel(application.status, 'Pending')}
+                          <strong>Status:</strong> {formatLabel(application.status, 'Pending')}
                         </p>
                       </div>
 
                       <div className="dashboard-admin-actions">
                         <button
                           type="button"
-                          onClick={() =>
-                            handleApplicationStatus(
-                              application._id,
-                              'approved',
-                            )
-                          }
+                          onClick={() => handleApplicationStatus(application._id, 'approved')}
                           disabled={
-                            pendingItemId === application._id ||
-                            application.status === 'approved'
+                            pendingItemId === application._id || application.status === 'approved'
                           }
                         >
                           Approve
@@ -342,15 +303,9 @@ function DashboardPage({ currentUser, onNavigate }) {
                         <button
                           type="button"
                           className="dashboard-admin-actions__decline"
-                          onClick={() =>
-                            handleApplicationStatus(
-                              application._id,
-                              'declined',
-                            )
-                          }
+                          onClick={() => handleApplicationStatus(application._id, 'declined')}
                           disabled={
-                            pendingItemId === application._id ||
-                            application.status === 'declined'
+                            pendingItemId === application._id || application.status === 'declined'
                           }
                         >
                           Decline
@@ -373,16 +328,11 @@ function DashboardPage({ currentUser, onNavigate }) {
               </div>
 
               {adminEvents.length === 0 ? (
-                <p className="dashboard-message">
-                  No events are currently available.
-                </p>
+                <p className="dashboard-message">No events are currently available.</p>
               ) : (
                 <div className="dashboard-admin-list">
                   {adminEvents.map((event) => (
-                    <article
-                      className="dashboard-admin-item dashboard-admin-event"
-                      key={event._id}
-                    >
+                    <article className="dashboard-admin-item dashboard-admin-event" key={event._id}>
                       <div className="dashboard-admin-item__content">
                         <h4>{event.title}</h4>
 
@@ -400,9 +350,7 @@ function DashboardPage({ currentUser, onNavigate }) {
                         onClick={() => handleDeleteEvent(event._id)}
                         disabled={pendingItemId === event._id}
                       >
-                        {pendingItemId === event._id
-                          ? 'Deleting...'
-                          : 'Delete Event'}
+                        {pendingItemId === event._id ? 'Deleting...' : 'Delete Event'}
                       </button>
                     </article>
                   ))}
@@ -418,40 +366,25 @@ function DashboardPage({ currentUser, onNavigate }) {
                 <p>Review the events you are planning to attend.</p>
               </div>
 
-              <button
-                type="button"
-                onClick={() => onNavigate('events')}
-              >
+              <button type="button" onClick={() => onNavigate('events')}>
                 Manage RSVPs
               </button>
             </div>
 
             {memberRsvps.length === 0 ? (
-              <p className="dashboard-rsvps__message">
-                You have not RSVP’d to any events yet.
-              </p>
+              <p className="dashboard-rsvps__message">You have not RSVP’d to any events yet.</p>
             ) : (
               <div className="dashboard-rsvp-list">
                 {memberRsvps.map((rsvp) => (
-                  <article
-                    className="dashboard-rsvp-item"
-                    key={rsvp._id}
-                  >
+                  <article className="dashboard-rsvp-item" key={rsvp._id}>
                     <div>
-                      <h4>
-                        {rsvp.event?.title ||
-                          'Event information unavailable'}
-                      </h4>
+                      <h4>{rsvp.event?.title || 'Event information unavailable'}</h4>
 
                       {rsvp.event && (
                         <p>
                           {formatEventDate(rsvp.event.date)}
-                          {rsvp.event.time
-                            ? ` at ${rsvp.event.time}`
-                            : ''}
-                          {rsvp.event.location
-                            ? ` · ${rsvp.event.location}`
-                            : ''}
+                          {rsvp.event.time ? ` at ${rsvp.event.time}` : ''}
+                          {rsvp.event.location ? ` · ${rsvp.event.location}` : ''}
                         </p>
                       )}
                     </div>

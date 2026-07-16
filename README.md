@@ -165,7 +165,7 @@ Your membership application was submitted successfully. Our team will review it 
 
 also when login ability oto see the passwerd what is entered.
 
-
+=============================
 
 for TA and professor to test it 
 user with approved application 
@@ -188,3 +188,14 @@ membershipStatus
 
 
 ===============================
+Admin 
+
+"firstName": "Starlene",
+    "lastName": "Scourgie",
+    "email": "sscourgieu@narod.ru",
+    "password": "password123",
+    "role": "admin",
+    "membershipStatus": "approved",
+
+
+    ====================
