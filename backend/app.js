@@ -60,7 +60,7 @@ app.use(
       httpOnly: true,
       secure: 'auto',
       sameSite: 'lax',
-      maxAge: 24 * 60 * 60 * 1000,
+      maxAge: 30 * 24 * 60 * 60 * 1000,
     },
   }),
 );
