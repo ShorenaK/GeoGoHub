@@ -10,8 +10,7 @@
   - Configure user sessions.
   - Initialize Passport authentication.
   - Register API routes.
-  - Register authentication routes.
-  - Provide application and health check routes.
+  - Serve the React frontend in production.
   - Handle unknown routes and server errors.
   - Export the configured app for server.js.
 
@@ -20,22 +19,33 @@
   Project: GeoGoHub
 */
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import express from 'express';
 import session from 'express-session';
 
+import passport from './config/passport.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { notFound } from './middleware/notFound.js';
 import applicationRoutes from './routes/applicationRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import rsvpRoutes from './routes/rsvpRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
-import passport from './config/passport.js';
-import authRoutes from './routes/authRoutes.js';
-
-import { errorHandler } from './middleware/errorHandler.js';
-import { notFound } from './middleware/notFound.js';
-
-// Create the Express application.
 const app = express();
+
+const currentFilePath = fileURLToPath(import.meta.url);
+const currentDirectory = path.dirname(currentFilePath);
+const frontendDistPath = path.resolve(currentDirectory, '../frontend/dist');
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+// Render runs Express behind a reverse proxy.
+if (isProduction) {
+  app.set('trust proxy', 1);
+}
 
 // Parse incoming JSON request bodies.
 app.use(express.json());
@@ -47,7 +57,10 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
+      httpOnly: true,
+      secure: 'auto',
+      sameSite: 'lax',
+      maxAge: 24 * 60 * 60 * 1000,
     },
   }),
 );
@@ -65,13 +78,6 @@ app.use('/api/rsvps', rsvpRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 
-// Root route.
-app.get('/', (req, res) => {
-  res.json({
-    message: 'GeoGoHub backend is running',
-  });
-});
-
 // Health check route.
 app.get('/api/health', (req, res) => {
   res.json({
@@ -79,6 +85,27 @@ app.get('/api/health', (req, res) => {
     message: 'GeoGoHub API is healthy',
   });
 });
+
+// Serve the compiled React application in production.
+if (isProduction) {
+  app.use(express.static(frontendDistPath));
+
+  // Return the React application for non-API browser requests.
+  app.use((req, res, next) => {
+    if (req.method === 'GET' && !req.path.startsWith('/api') && req.accepts('html')) {
+      return res.sendFile(path.join(frontendDistPath, 'index.html'));
+    }
+
+    return next();
+  });
+} else {
+  // Development-only root route.
+  app.get('/', (req, res) => {
+    res.json({
+      message: 'GeoGoHub backend is running',
+    });
+  });
+}
 
 // Handle requests to routes that do not exist.
 app.use(notFound);
