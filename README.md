@@ -78,6 +78,10 @@ GeoGoHub demonstrates a full-stack web application built with React, Node.js, Ex
 
 [GeoGoHub GitHub Repository](https://github.com/ShorenaK/GeoGoHub)
 
+### Presentation Deck
+
+[Presentation Slides](https://docs.google.com/presentation/d/13YsUJN9wiZLQY1QgLQalpNRzwHMoEJZx5QglgEJHFKE/edit?usp=sharing)
+
 ---
 
 ## Application Screenshots
