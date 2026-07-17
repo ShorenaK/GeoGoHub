@@ -261,19 +261,18 @@ npm install
 cd ../frontend
 npm install
 
-# Configure the required environment variables
+## Configure the required environment variables
 
-# Start the backend
+### Start the backend
 cd ../backend
 npm start
 
-# Start the frontend
+### Start the frontend
 cd ../frontend
 npm run dev
 ---
 
 ## The following accounts provided below are for the professor and TA's to test the application.
-
 
 ### Testing Accounts
 
@@ -322,7 +321,6 @@ Use this account to test:
 - Approve functionality
 - Decline functionality
 - Application totals
-
 
 ---
 
