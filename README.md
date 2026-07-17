@@ -1,210 +1,537 @@
 # GeoGoHub
-GeoGo Hub will be a full-stack web application for a curated private members club in the Republic of Georgia. The platform is designed for established professionals, entrepreneurs, founders, investors, creatives, and community leaders who want access to exclusive social and networking gatherings.
-------
 
+## Project Description
 
+GeoGoHub is a full-stack web application for a curated private members club in the Republic of Georgia.
 
-[ProjectProposal] @John Alexis Guerra Gomez
+The platform is designed for established professionals, entrepreneurs, founders, investors, creatives, executives, and community leaders who want to build meaningful personal and professional relationships through exclusive social, cultural, and networking events.
 
-Project 3 Name: "GeoGo Hub" — Curated Private Members Club Platform for Georgia
+The inspiration for GeoGoHub comes from my birth country, the Republic of Georgia. Georgia has a growing professional, entrepreneurial, and creative community, and GeoGoHub provides a centralized platform where selected members can discover and attend curated gatherings.
 
-Team Member: @Shorena K. Anzhilov
+Unlike open event platforms, GeoGoHub uses an application-based membership system. Visitors may apply to join the club, while administrators review each application and approve or decline prospective members.
 
-Description:
-GeoGo Hub will be a full-stack web application for a curated private members club in the Republic of Georgia. The platform is designed for established professionals, entrepreneurs, founders, investors, creatives, and community leaders who want access to exclusive social and networking gatherings.
+Approved members can browse private events, RSVP to gatherings, and manage their attendance through a personalized dashboard.
 
-Unlike open event platforms, GeoGo Hub will not allow every user to create public events. Membership will be application based, and events will be curated by the club admin. Approved members will be able to discover private gatherings such as founder dinners, golf networking events, card nights, cultural gatherings, private discussions, and business roundtables. Members will be able to RSVP to events and manage their attendance.
+Examples of events featured on the platform include:
 
-The application GeoGoHub will use four MongoDB collections:
+- Founder dinners
+- Business roundtables
+- Professional networking events
+- Golf gatherings
+- Cultural experiences
+- Private discussions
+- Card nights
+- Community events
 
-users
-applications
-events
-rsvps
+GeoGoHub combines membership management, event discovery, authentication, administration, and RSVP functionality in one full-stack application.
 
-Users Collection:
-Stores user account information, role, profile details, membership status, and login-related information.
+The final application includes the following primary pages:
 
-Applications Collection:
-Stores membership applications including applicant details, professional background, reason for joining, application status, and submission date.
+- Home Page
+- Events Page
+- Membership Application Page
+- Login Page
+- Member Dashboard
+- Administrator Dashboard
 
-Events Collection:
-Stores curated event information including event title, description, date, location, category, capacity, image URL, and event details.
+---
 
-RSVPs Collection:
-Stores event RSVP information including member ID, event ID, RSVP status, and RSVP date.
+## Live Application
 
-CRUD Features:
+### Website
 
-Create:
-Applicants will be able to create membership applications.
-Admins will be able to create curated club events.
-Members will be able to create RSVPs for events.
+[GeoGoHub Live Application](https://geogohub.onrender.com/)
 
-Read:
-Users will be able to view their profile and application status.
-Approved members will be able to browse upcoming private events.
-Admins will be able to view membership applications and event RSVPs.
+### GitHub Repository
 
-Update:
-Applicants will be able to update their membership application before approval.
-Admins will be able to approve or reject applications.
-Admins will be able to edit event details.
-Members will be able to update or cancel their RSVP status.
+[GeoGoHub GitHub Repository](https://github.com/ShorenaK/GeoGoHub)
 
-Delete:
-Applicants will be able to withdraw/delete their application.
-Admins will be able to delete events.
-Members will be able to delete/cancel RSVPs.
+---
 
-User Personas:
+## Website Preview
 
-1. Professional Member
-   A Professional Member is an established business owner, founder, investor, executive, or creative professional in Georgia. They want to join a curated private club where they can meet like-minded people, attend exclusive events, and build meaningful personal and professional relationships.
+### Home Page
 
-2. Applicant
-   An Applicant is interested in joining GeoGo Hub but must first submit a membership application. They need a way to provide background information, explain why they want to join, and check whether their application has been approved.
+![GeoGoHub Home Page](./frontend/public/images/home_page.png)
 
-3. Club Admin / Founder
-   The Club Admin manages the private club experience. They need a way to review membership applications, approve or reject applicants, create curated events, update event details, and manage the event calendar.
+### Events Page
 
-User Stories:
+![GeoGoHub Events Page](./frontend/public/images/event_page.png)
 
-1. As an Applicant, I want to submit a membership application so that I can request access to the private members club.
+### Membership Application Page
 
-2. As an Applicant, I want to view or update my application status so that I know whether I have been approved.
+![GeoGoHub Membership Application Page](./frontend/public/images/membership_application_page.png)
 
-3. As an Admin, I want to approve or reject membership applications so that the club remains curated.
+### Login Page
 
-4. As an Admin, I want to create, edit, and delete curated events so that members can discover exclusive gatherings.
+![GeoGoHub Login Page](./frontend/public/images/member_login_page.png)
 
-5. As an Approved Member, I want to browse upcoming private events so that I can choose which gatherings to attend.
+### Member Dashboard
 
-6. As an Approved Member, I want to RSVP to an event or cancel my RSVP so that I can manage my attendance.
+![GeoGoHub Member Dashboard](./frontend/public/images/member_dashboard_page.png)
 
-Technology Stack:
-Frontend: React with Hooks, HTML, CSS
-Backend: Node.js + Express
-Database: MongoDB using the native Node.js driver
-Authentication: Passport
-Data Requests: Fetch API
+### Administrator Dashboard
 
-I will not use Mongoose, Axios, CORS, or other prohibited libraries unless approved.
+![GeoGoHub Administrator Dashboard](./frontend/public/images/admin_page.png)
 
-Implementation:
-I will implement the full stack for all user stories, including the React frontend, Express routes, MongoDB database operations, Passport authentication, and deployment.
+---
 
+## Application Wireframe
 
----- 
-git add . 
-git commit -m "files added"
-git push origin main 
+Original wireframe
 
+![GeoGoHub Application Wireframe](./frontend/public/images/first_wareframe_figma_file.png)
 
-npm run format
-npm run lint
+The final wireframe presents the primary pages and user flows implemented in GeoGoHub.
 
+![GeoGoHub Application Wireframe](./frontend/public/images/geogohub_wireframe.png)
 
+The wireframe illustrates the main application areas:
 
-https://mockaroo.com/
+- Public home page
+- Event discovery
+- Membership application workflow
+- User login
+- Approved-member dashboard
+- Administrator application-management dashboard
 
+---
 
+## Technologies Used
 
-Your current RSVP model for the project is  accepts:
+### Front-End
 
-{
-  "status": "maybe"
-}
+- React
+- React Hooks
+- JavaScript ES6+
+- HTML5
+- CSS3
+- Vite
+- PropTypes
+- Fetch API
 
-but In a real application, an RSVP should know which user submitted it
-which event it's for
+### Back-End
 
-So eventually I need to change it making the notes for my self 
+- Node.js
+- Express.js
+- Passport.js
+- Passport Local Strategy
+- Express Session
+- MongoDB Native Driver
 
-{
-  "userId": "...",
-  "eventId": "...",
-  "status": "going",
-  "createdAt": "...",
-  "updatedAt": "..."
-}
+### Database
 
-this is only to satisfy the rubric assignment. I need to add add userId and eventId later
+- MongoDB Atlas
 
+### Development Tools
 
-https://cloud.mongodb.com/v2/6a43ef87fb29f13e7077db6e#/explorer/6a43efb740ce35b86cdc28ee/geogohub/users/find
+- Visual Studio Code
+- Git
+- GitHub
+- npm
+- MongoDB Compass
+- Thunder Client
+- Browser Developer Tools
+- ESLint
+- Prettier
+- Mockaroo
 
-my Mangoos Atlas 
+### Deployment
 
+- Render
+- MongoDB Atlas
 
-git add . && git commit -m "Set up React frontend structure" && git push origin main
+The React frontend and Express backend are deployed together as one Render web service. MongoDB Atlas provides the cloud-hosted database.
 
-npm run format
-npm run lint   
+---
 
+## Important Deployment Note
 
+GeoGoHub is deployed using Render's free service tier.
 
+Free Render services may spin down after periods of inactivity. As a result, the application may take approximately 30–60 seconds to start when it is opened for the first time.
 
+If the website does not load immediately:
 
+1. Wait for the Render service to wake up.
+2. Refresh the page.
+3. Allow the application a few moments to connect to MongoDB Atlas.
 
-A fuller membership workflow where applicants can track their status.
-Admins can manage membership approvals.
-For the current project, ApplicationPage.jsx should behave intelligently:
-Logged-out visitors → see the membership application form.
-Users with membershipStatus === "pending" → see a pending application message.
-Users with membershipStatus === "approved" → see an active membership page instead of the application form.
+After the service finishes starting, authentication, membership applications, event browsing, RSVP functionality, and dashboard features should operate normally.
 
-I did not save temporary implementation details or code—only the long-term project improvement idea, which is the kind of information that's useful to remember across conversations
+---
 
+## Main Features
 
-future improvment forgot the user or the passowrd 
+### Membership Application
 
-after submitting the ppalication user receves confitiom that applicaion haves n=been submited 
+Visitors can submit an application to request membership in GeoGoHub.
 
-Your membership application was submitted successfully. Our team will review it soon. aproximatlly how mnay days 
+The application collects information including:
 
-also when login ability oto see the passwerd what is entered.
+- First name
+- Last name
+- Email address
+- Profession
+- Company
+- Reason for joining
 
-=============================
+Required-field validation is performed before the application is submitted.
 
-for TA and professor to test it 
-user with approved application 
-hborgnol0@prlog.org
-====================
-id
-6a56ad7c521eea61cca05804
-firstName
-"Hetty"
-lastName
-"Borgnol"
-email
-"hborgnol0@prlog.org"
-password
-"password123"
-role
-"member"
-membershipStatus
-"approved"
+Duplicate membership applications using the same email address are prevented.
 
+After successful submission, the applicant receives the following confirmation:
 
-===============================
-Admin 
+> Your membership application was submitted successfully. Our team will review it soon.
 
-"firstName": "Starlene",
-    "lastName": "Scourgie",
-    "email": "sscourgieu@narod.ru",
-    "password": "password123",
-    "role": "admin",
-    "membershipStatus": "approved",
+### Membership Status Workflow
 
+The Membership page changes according to the user's authentication and membership status:
 
-    ====================
+- Logged-out visitors see the membership application form.
+- Users with a pending membership status see a pending application message.
+- Approved members see an active membership message rather than the application form.
 
-    ## Known Limitations
+### Authentication
 
-GeoGoHub currently uses the default in-memory session store provided by
-`express-session`. The browser session cookie is configured for up to 30 days,
-but server-side sessions may be lost when the Render service restarts,
-redeploys, or spins down because of inactivity. Users may therefore need to
-log in again. A persistent MongoDB- or Redis-backed session store is planned
-as a future improvement.
+GeoGoHub uses Passport.js and session-based authentication.
+
+Users can:
+
+- Log in with an existing account
+- Access protected member features
+- View their dashboard
+- Log out securely
+
+### Event Discovery
+
+Users can browse curated GeoGoHub events.
+
+Each event displays information such as:
+
+- Event title
+- Description
+- Date
+- Time
+- Location
+- Capacity
+- Event image
+
+### RSVP Management
+
+Approved members can RSVP to eligible events.
+
+Members can:
+
+- Register their attendance
+- View their RSVP records
+- Review event information from their dashboard
+- Cancel or update attendance where supported
+
+### Member Dashboard
+
+The member dashboard displays personalized account information, including:
+
+- Member name
+- Email address
+- Membership status
+- Account role
+- RSVP history
+- Event dates and details
+
+### Administrator Dashboard
+
+Administrators have access to a separate dashboard for reviewing membership applications.
+
+Administrators can:
+
+- View submitted applications
+- Review applicant information
+- View professional background and reason for joining
+- Approve membership applications
+- Decline membership applications
+- View the total number of submitted applications
+
+---
+
+## Database Structure
+
+GeoGoHub uses four main MongoDB collections.
+
+### Users
+
+Stores:
+
+- User account information
+- First and last name
+- Email address
+- Password information
+- User role
+- Membership status
+- Login-related information
+
+### Applications
+
+Stores:
+
+- Applicant details
+- Professional background
+- Company information
+- Reason for joining
+- Application status
+- Submission date
+
+### Events
+
+Stores:
+
+- Event title
+- Description
+- Date
+- Time
+- Location
+- Category
+- Capacity
+- Image URL
+- Additional event information
+
+### RSVPs
+
+Stores:
+
+- Member ID
+- Event ID
+- RSVP status
+- Creation date
+- Update date
+
+---
+
+## CRUD Functionality
+
+GeoGoHub includes Create, Read, Update, and Delete operations through its frontend and backend features.
+
+### Create
+
+- Visitors can create membership applications.
+- Approved members can create event RSVPs.
+- Event records can be created through the backend event routes.
+
+### Read
+
+- Users can view their account information.
+- Users can view their membership status.
+- Members can browse events.
+- Members can view their RSVPs.
+- Administrators can review membership applications.
+
+### Update
+
+- Administrators can approve or decline membership applications.
+- RSVP records can be updated.
+- Event records can be updated through the backend routes.
+
+### Delete
+
+- Members can cancel or delete RSVP records.
+- Application and event records support deletion through the appropriate backend routes.
+
+---
+
+## Large Dataset Requirement
+
+To satisfy the project requirement for working with a large dataset, GeoGoHub was populated with more than 1,000 generated records.
+
+Mockaroo was used to generate realistic test data for application development and database testing.
+
+The generated data was:
+
+- Exported as JSON
+- Inserted through project seed scripts
+- Imported into MongoDB
+- Tested with the Express backend
+- Reviewed using MongoDB Compass
+- Used to validate the administrator and database features
+
+The deployed application uses MongoDB Atlas as its production database.
+
+---
+
+## Testing Accounts
+
+The following demonstration accounts are provided for the professor and teaching assistants to test the application.
+
+### Approved Member Account
+
+```text
+Email: hborgnol0@prlog.org
+Password: password123
+```
+
+This account has:
+
+```text
+Role: Member
+Membership Status: Approved
+```
+
+Use this account to test:
+
+- Member login
+- Approved membership status
+- Events
+- RSVP functionality
+- Member dashboard
+- Logout
+
+### Administrator Account
+
+```text
+Email: sscourgieu@narod.ru
+Password: password123
+```
+
+This account has:
+
+```text
+Role: Admin
+Membership Status: Approved
+```
+
+Use this account to test:
+
+- Administrator login
+- Administrator dashboard
+- Membership application review
+- Approve functionality
+- Decline functionality
+- Application totals
+
+> These accounts contain demonstration data and are provided only for academic project testing.
+
+---
+
+## Tools Used for Testing
+
+- Thunder Client
+- MongoDB Compass
+- Browser Developer Tools
+- ESLint
+- Prettier
+- Node.js
+- Express.js
+- MongoDB Native Driver
+- Render deployment logs
+
+---
+
+## Challenges Encountered
+
+Some of the primary challenges encountered during development included:
+
+- Implementing session-based authentication with Passport.js
+- Connecting the React frontend to the Express backend
+- Creating protected member and administrator routes
+- Managing different user roles and membership statuses
+- Preventing duplicate membership applications
+- Connecting RSVP records to both users and events
+- Displaying populated event information in the member dashboard
+- Creating separate member and administrator dashboard experiences
+- Generating and testing a dataset containing more than 1,000 records
+- Configuring MongoDB Atlas network access
+- Configuring environment variables securely
+- Deploying the frontend and backend together on Render
+
+---
+
+## Known Limitations
+
+GeoGoHub currently uses the default in-memory session store provided by `express-session`.
+
+Although the browser session cookie is configured to last for up to 30 days, server-side sessions may be lost when the Render service:
+
+- Restarts
+- Redeploys
+- Spins down because of inactivity
+
+Users may therefore need to log in again after the application restarts.
+
+A persistent MongoDB- or Redis-backed session store is planned as a future improvement.
+
+The administrator dashboard currently focuses primarily on reviewing and updating membership applications. Additional event-management controls may be added in a future version.
+
+---
+
+## Future Improvements
+
+Planned future enhancements include:
+
+- Persistent MongoDB- or Redis-backed session storage
+- Forgot-password functionality
+- Password-reset functionality
+- Show-or-hide password control on the login page
+- Email confirmation after membership application submission
+- Estimated application review timeframe
+- Email notifications when an application is approved or declined
+- User registration
+- Email verification
+- Member profile editing
+- Profile picture uploads
+- Advanced event search
+- Event category filters
+- Event location filters
+- Interactive calendar integration
+- Event reminder notifications
+- Expanded administrator event management
+- Administrator RSVP management
+- Member messaging
+- Improved mobile responsiveness
+
+---
+
+## Project Highlights
+
+Some accomplishments I am particularly proud of include:
+
+- Building a complete full-stack React, Express, and MongoDB application
+- Implementing Passport.js authentication
+- Creating separate member and administrator experiences
+- Developing an application-based membership workflow
+- Implementing approval and decline functionality for administrators
+- Building RSVP functionality connected to users and events
+- Creating personalized member dashboards
+- Preventing duplicate membership applications
+- Using the MongoDB Native Driver without Mongoose
+- Using the Fetch API without Axios
+- Generating and testing more than 1,000 database records
+- Deploying the complete application using Render and MongoDB Atlas
+- Creating a professional interface inspired by Georgia's professional and cultural community
+
+
+---
+
+## Developed By
+
+**Shorena K. Anzhilov**
+
+### GitHub
+
+[ShorenaK](https://github.com/ShorenaK)
+
+### LinkedIn
+
+[Shorena K. Anzhilov](https://www.linkedin.com/in/shorenaanzhilov/)
+
+---
+
+## Contact
+
+Questions and feedback are welcome.
+
+[Email Me](mailto:shorenaanzhilov@gmail.com)
+
+---
+
+## License
+
+This project is licensed under the MIT License.
