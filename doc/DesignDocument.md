@@ -386,6 +386,4 @@ These additions created a more comprehensive application while maintaining the c
 
 ## Conclusion
 
-GeoGoHub is a full-stack web application built with React, Node.js, Express, Passport.js, and MongoDB.
-
-The project brings together secure authentication, membership management, CRUD operations, and responsive design to create a platform where users can apply for membership, browse exclusive events, and manage their participation through a personalized dashboard.
+GeoGoHub is a full-stack web application built with React, Node.js, Express, Passport.js, and MongoDB. The project brings together secure authentication, membership management, CRUD operations, and responsive design to create a platform where users can apply for membership, browse exclusive events, and manage their participation through a personalized dashboard.
