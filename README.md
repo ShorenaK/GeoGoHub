@@ -257,11 +257,7 @@ The data was imported into MongoDB Atlas and used to validate database operation
 
 ## Build Instructions
 
-[git clone](https://github.com/ShorenaK/GeoGoHub)
-
- https://github.com/ShorenaK/GeoGoHub.git
-
-
+git clone
 
 cd GeoGoHub/backend
 npm install
