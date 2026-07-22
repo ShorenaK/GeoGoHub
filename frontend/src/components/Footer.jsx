@@ -1,3 +1,4 @@
+/* Great job with creating a reusable component footer here! */
 /*
   Footer.jsx
 
