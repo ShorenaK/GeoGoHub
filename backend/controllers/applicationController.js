@@ -37,7 +37,7 @@ export async function createApplicationController(req, res) {
 
     // Normalize the email before validation and database checks.
     const normalizedEmail = email.trim().toLowerCase();
-
+    /* Great job using regular expressions here to parse through email patterns! */
     // Validate email format.
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
