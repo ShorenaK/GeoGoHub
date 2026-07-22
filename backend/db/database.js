@@ -17,8 +17,12 @@
   Project: GeoGoHub
 */
 
+// I would consider removing the import to the 'dotenv' module for this project. It is not necessary to achieve the objectives here for this project specifically.
+// Also, you are missing an import to 'process', this will help configure/recognize the call to initialize the database collection in your instantiation statements below.
 import dotenv from 'dotenv';
 import { MongoClient } from 'mongodb';
+// Added import process statement here so that it can be recognized when it is used at the beginning of line 30.
+import process from 'process';
 
 dotenv.config();
 
