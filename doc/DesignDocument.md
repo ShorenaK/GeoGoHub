@@ -1,3 +1,5 @@
+// Your Design Document is well done and organized. As I said before, I mentioned that some sections included in this document are not needed in the
+// general README.md file, they are better suited in this file like you did! :) Great job on your project!
 # GeoGoHub Design Document
 
 ## Project Overview
