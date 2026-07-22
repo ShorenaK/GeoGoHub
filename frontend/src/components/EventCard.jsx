@@ -1,4 +1,4 @@
-/*
+/* Great job including comments in your document to describe the purpose of this component and its responsibilities. */
   EventCard.jsx
 
   This file defines the reusable event card component for GeoGoHub.
@@ -126,7 +126,7 @@ function formatEventDate(dateValue) {
     timeZone: 'UTC',
   }).format(date);
 }
-
+/* Great job with the PropTypes module use here. */
 EventCard.propTypes = {
   event: PropTypes.shape({
     _id: PropTypes.string.isRequired,
