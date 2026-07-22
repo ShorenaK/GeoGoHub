@@ -1,3 +1,5 @@
+/* Great job creating two helper functions in the middleware directory to call/import on for unexpected and not found errors to call upon in your data logic functions! 
+This eliminates the need to rewrite the sames line of code for error checking regarding server errors. */
 /*
   middleware/errorHandler.js
 
