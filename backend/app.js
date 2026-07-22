@@ -24,7 +24,8 @@ import { fileURLToPath } from 'url';
 
 import express from 'express';
 import session from 'express-session';
-
+// Added process module import for express PORT initialization starting on line 44.
+import process from 'process';
 import passport from './config/passport.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { notFound } from './middleware/notFound.js';
@@ -41,6 +42,9 @@ const currentDirectory = path.dirname(currentFilePath);
 const frontendDistPath = path.resolve(currentDirectory, '../frontend/dist');
 
 const isProduction = process.env.NODE_ENV === 'production';
+
+// PORT logic needed.
+const PORT = process.env.PORT || 3000;
 
 // Render runs Express behind a reverse proxy.
 if (isProduction) {
@@ -113,4 +117,11 @@ app.use(notFound);
 // Handle unexpected server errors.
 app.use(errorHandler);
 
+// Also, I do not see any PORT logic here.
+app.listen(PORT, () => {
+  console.log(`Listening on https://localhost:${PORT}`);
+});
+
+
+// Unaware of the purpose of this line for an express file, usually, we use the 'export default' in the routers directory but not in the main backend.js file or in your case, app.js.
 export default app;
