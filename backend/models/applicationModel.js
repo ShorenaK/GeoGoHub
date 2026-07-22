@@ -1,3 +1,4 @@
+/* As a global comment, great job on your mongodb collections & functions for your database logic in all files created in the /models directory. */
 /*
   models/applicationModel.js
 
