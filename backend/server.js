@@ -1,3 +1,5 @@
+/* I now realized that you separated the server logic into a separate file here and imported it in the app.js file, I now understand how it was done here.
+Also, you should not need the 'dotenv' module for this project. */
 /*
   server.js
 
