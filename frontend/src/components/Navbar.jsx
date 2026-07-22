@@ -1,3 +1,4 @@
+/* Great job using a global block comment for each file with clear descriptions for the components purpose and responsibility! */
 /*
   Navbar.jsx
 
