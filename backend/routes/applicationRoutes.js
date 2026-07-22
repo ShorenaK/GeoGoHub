@@ -1,3 +1,4 @@
+/* Great job with all route files. Every route is clearly defined, well-organized, and every endpoint functions as expected when demoing your website and API calls and the use of global comments is well done as well! */
 /*
   routes/applicationRoutes.js
 
