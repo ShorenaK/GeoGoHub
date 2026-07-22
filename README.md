@@ -1,5 +1,5 @@
 # GeoGoHub
-
+=> Feedback 1: Great job including a table of contents in your README.md file, it is well organized, clean, and effective! Each link works as expected.
 ## Table of Contents
 
 - [Project Description](#project-description)
@@ -25,7 +25,7 @@
 - [License](#license)
 
 ---
-
+=> Feedback 2: Your project description was meaningful, clear, descriptive, informative, and impactful. Especially considering the personal inpiration aspect mentioned regarding your birth country, which makes a lot of sense for the project scope/background, well done! Great job at mentioning the platform's primary pages and event features upfront for easy accessibility purposes. 
 ## Project Description
 
 GeoGoHub is a full-stack web application for a curated private members club in the Republic of Georgia.
@@ -61,7 +61,7 @@ The final application includes the following primary pages:
 - Administrator Dashboard
 
 ---
-
+=> Feedback 3: Nicely done on your project objective! Considering that this is an independently complete project, I am impressed! Great work.
 ## Project Objective
 
 GeoGoHub demonstrates a full-stack web application built with React, Node.js, Express, Passport.js, and the MongoDB Native Driver. The project showcases secure authentication, role-based authorization, CRUD operations, and an application-based membership workflow for managing exclusive professional events.
@@ -111,7 +111,7 @@ GeoGoHub demonstrates a full-stack web application built with React, Node.js, Ex
 ![GeoGoHub Administrator Dashboard](./frontend/public/images/admin_page.png)
 
 ---
-
+=> Feedback 4: Fantastic job on your wireframes from your original concept/sketches to the final deliverables for your full-stack web app design!
 ## Application Wireframe
 
 ### Original Wireframe
@@ -132,7 +132,6 @@ The final design implements the following application areas:
 - Administrator Dashboard
 
 ---
-
 ## Technologies Used
 
 ### Front-End
@@ -337,7 +336,7 @@ Use this account to test:
 - Prettier
 
 ---
-
+=> Feedback 5: Perhaps, keep the 'challenges encountered' section within your project slide show rather than having it on the README.md file.
 ## Challenges Encountered
 
 Some of the primary challenges encountered during development included:
@@ -369,7 +368,7 @@ A persistent MongoDB- or Redis-backed session store is planned as a future impro
 The administrator dashboard currently focuses primarily on reviewing and updating membership applications. Additional event-management controls may be added in a future version.
 
 ---
-
+=> Feedback 6: Similar to my previous comment--perhaps, include this section in your presentation slides as well rather than having it on the README.md file.
 ## Future Improvements
 
 Planned future enhancements include:
@@ -398,7 +397,7 @@ Planned future enhancements include:
 - Calendar integration
 
 ---
-
+=> Feedback 7: This section seems redundant/repetitive considering these technolgies/descriptions/features were explicitly mentioned throughout the README.md file already prior to this section. 
 ## Project Highlights
 
 - Full-stack React, Express, and MongoDB application
@@ -435,6 +434,7 @@ Questions and feedback are welcome.
 [Email Me](mailto:shorenaanzhilov@gmail.com)
 
 ---
+=> Feedback 8: I do not see an 'AI Disclosure' section here. Perhaps, you may not have used any LLM's in the development of your project. If not, well done! Otherwise, please include this section next time. 
 
 ## License
 
