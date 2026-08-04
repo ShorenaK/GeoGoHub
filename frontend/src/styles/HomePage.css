@@ -5,6 +5,7 @@
 
   Responsibilities:
   - Style the main landing section.
+  - Present membership benefits clearly.
   - Improve spacing and readability.
   - Arrange the call-to-action buttons.
   - Keep home page styles isolated from other pages.
@@ -15,9 +16,6 @@
 */
 
 .home-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: calc(100vh - 160px);
   padding: 4rem 2rem;
   background-color: #f7f8f6;
@@ -40,8 +38,11 @@
 }
 
 .home-page h2 {
-  margin: 0 0 1.25rem;
   color: #1f2a22;
+}
+
+.home-page__hero h2 {
+  margin: 0 0 1.25rem;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.1;
 }
@@ -103,9 +104,64 @@
   background-color: #edf3ee;
 }
 
+.home-page__benefits {
+  width: 100%;
+  max-width: 1100px;
+  margin: 5rem auto 0;
+}
+
+.home-page__benefits-heading {
+  max-width: 680px;
+  margin-bottom: 2rem;
+}
+
+.home-page__benefits-heading h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+.home-page__benefits-heading > p:last-child {
+  margin: 0;
+  color: #5f665f;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.home-page__benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.home-page__benefit-card {
+  padding: 1.75rem;
+  border: 1px solid #d8ddd9;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.home-page__benefit-card h3 {
+  margin: 0 0 0.75rem;
+  color: #263329;
+  font-size: 1.25rem;
+}
+
+.home-page__benefit-card p {
+  margin: 0;
+  color: #5f665f;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .home-page__benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   .home-page {
-    min-height: auto;
     padding: 3rem 1rem;
   }
 
@@ -116,5 +172,9 @@
 
   .home-page__button {
     width: 100%;
+  }
+
+  .home-page__benefits {
+    margin-top: 4rem;
   }
 }
