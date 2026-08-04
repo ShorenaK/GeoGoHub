@@ -30,6 +30,7 @@ function LoginPage({ onLogin }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -59,6 +60,8 @@ function LoginPage({ onLogin }) {
         email: '',
         password: '',
       });
+
+      setShowPassword(false);
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
@@ -71,13 +74,16 @@ function LoginPage({ onLogin }) {
       <section className="login-page__content">
         <div className="login-page__heading">
           <p className="login-page__eyebrow">Member Access</p>
+
           <h2>Log in to GeoGoHub</h2>
+
           <p>Access your member profile, private events, and RSVP activity.</p>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="login-form__field">
             <label htmlFor="login-email">Email address</label>
+
             <input
               id="login-email"
               name="email"
@@ -91,23 +97,40 @@ function LoginPage({ onLogin }) {
 
           <div className="login-form__field">
             <label htmlFor="login-password">Password</label>
-            <input
-              id="login-password"
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleChange}
-              autoComplete="current-password"
-              required
-            />
+
+            <div className="login-form__password-wrapper">
+              <input
+                id="login-password"
+                name="password"
+                type={showPassword ? 'text' : 'password'}
+                value={formData.password}
+                onChange={handleChange}
+                autoComplete="current-password"
+                required
+              />
+
+              <button
+                className="login-form__password-toggle"
+                type="button"
+                onClick={() => setShowPassword((currentValue) => !currentValue)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                aria-pressed={showPassword}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
+            </div>
           </div>
 
           {errorMessage && (
-            <p className="login-form__message login-form__message--error">{errorMessage}</p>
+            <p className="login-form__message login-form__message--error" role="alert">
+              {errorMessage}
+            </p>
           )}
 
           {successMessage && (
-            <p className="login-form__message login-form__message--success">{successMessage}</p>
+            <p className="login-form__message login-form__message--success" role="status">
+              {successMessage}
+            </p>
           )}
 
           <button className="login-form__submit" type="submit" disabled={isSubmitting}>
