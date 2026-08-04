@@ -5,7 +5,7 @@
 
   Responsibilities:
   - Render the root React component.
-  - Initialize the React application.
+  - Initialize React Router.
   - Mount the application to the HTML root element.
 
   Author: Shorena K. Anzhilov
@@ -15,11 +15,14 @@
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+
 import App from './App.jsx';
 
-// Render the React application.
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
 );
