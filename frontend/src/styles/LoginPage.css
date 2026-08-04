@@ -7,6 +7,7 @@
   - Style the login page layout.
   - Improve form readability.
   - Display clear error and success states.
+  - Style the show and hide password control.
 
   Author: Shorena K. Anzhilov
   Course: CS 5610 Web Development
@@ -87,6 +88,39 @@
   outline: 3px solid rgba(69, 107, 77, 0.2);
 }
 
+.login-form__password-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.login-form__password-wrapper input {
+  border-radius: 0.4rem 0 0 0.4rem;
+}
+
+.login-form__password-toggle {
+  flex-shrink: 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid #30573a;
+  border-left: 0;
+  border-radius: 0 0.4rem 0.4rem 0;
+  background-color: #eef3ef;
+  color: #24442d;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-form__password-toggle:hover {
+  background-color: #dfe9e1;
+}
+
+.login-form__password-toggle:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid #8aa892;
+  outline-offset: 2px;
+}
+
 .login-form__message {
   margin: 0 0 1.25rem;
   padding: 0.8rem;
@@ -139,5 +173,9 @@
 
   .login-form {
     padding: 1.5rem;
+  }
+
+  .login-form__password-toggle {
+    padding-inline: 0.8rem;
   }
 }
