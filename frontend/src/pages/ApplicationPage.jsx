@@ -195,7 +195,9 @@ function ApplicationPage({ currentUser = null }) {
             </div>
 
             <div className="application-form__field">
-              <label htmlFor="application-company">Company or organization</label>
+              <label htmlFor="application-company">
+                Company or organization <span>(optional)</span>
+              </label>
 
               <input
                 id="application-company"
