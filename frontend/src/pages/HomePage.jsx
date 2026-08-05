@@ -18,40 +18,55 @@
 import PropTypes from 'prop-types';
 
 import '../styles/HomePage.css';
-import heroImage from '../assets/hero-image.png'; 
 
 // Render the home page.
 function HomePage({ onNavigate }) {
   return (
     <main className="home-page">
       <section className="home-page__hero" aria-labelledby="home-page-title">
-        <p className="home-page__eyebrow">Private Community Club in Georgia</p>
+        <div className="home-page__hero-content">
+          <p className="home-page__eyebrow">Private Community Club in Georgia</p>
 
-        <h2 id="home-page-title">Welcome to GeoGoHub</h2>
+          <h1 id="home-page-title">Welcome to GeoGoHub</h1>
 
-        <p className="home-page__description">
-          GeoGoHub is an exclusive members club connecting professionals, entrepreneurs, founders,
-          and creatives through curated events, sports, networking opportunities, and cultural
-          experiences inspired by Georgia.
-        </p>
+          <p className="home-page__description">
+            GeoGoHub is an exclusive members club connecting professionals, entrepreneurs,
+            founders, and creatives through curated events, sports, networking opportunities, and
+            cultural experiences inspired by Georgia.
+          </p>
 
-        <div className="home-page__actions">
-          <button
-            type="button"
-            className="home-page__button home-page__button--primary"
-            onClick={() => onNavigate('application')}
-          >
-            Become a Member
-          </button>
+          <div className="home-page__actions">
+            <button
+              type="button"
+              className="home-page__button home-page__button--primary"
+              onClick={() => onNavigate('application')}
+            >
+              Become a Member
+            </button>
 
-          <button
-            type="button"
-            className="home-page__button home-page__button--secondary"
-            onClick={() => onNavigate('events')}
-          >
-            View Events
-          </button>
+            <button
+              type="button"
+              className="home-page__button home-page__button--secondary"
+              onClick={() => onNavigate('events')}
+            >
+              View Events
+            </button>
+          </div>
         </div>
+
+        <aside className="home-page__club-card" aria-label="GeoGoHub private club">
+          <div className="home-page__logo-mark" aria-hidden="true">
+            GG
+          </div>
+
+          <p className="home-page__club-name">GeoGoHub</p>
+          <p className="home-page__club-type">Private Club</p>
+
+          <p className="home-page__club-description">
+            Building connections, creating opportunities, and sharing experiences inspired by
+            Georgia.
+          </p>
+        </aside>
       </section>
 
       <section className="home-page__benefits" aria-labelledby="membership-benefits-title">
