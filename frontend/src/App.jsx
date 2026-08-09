@@ -27,6 +27,7 @@ import EventsPage from './pages/EventsPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import { getProfile, logoutUser } from './services/api.js';
+import './styles/App.css';
 
 // Render the main application and selected page.
 function App() {

@@ -1,0 +1,36 @@
+/* Global application styles */
+
+.app-back-navigation {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.app-back-button {
+  padding: 0.8rem 1.4rem;
+  border: 2px solid #c9a34e;
+  border-radius: 0.5rem;
+  background-color: #f8f1df;
+  color: #5f4615;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.app-back-button:hover {
+  background-color: #ead9a8;
+}
+
+.app-back-button:focus-visible {
+  outline: 3px solid #30573a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .app-back-navigation {
+    padding: 0 1rem;
+  }
+}
