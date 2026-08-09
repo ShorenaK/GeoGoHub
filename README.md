@@ -440,12 +440,24 @@ Questions and feedback are welcome.
 
 This project is licensed under the MIT License.
 
+===US===
+
+https://docs.google.com/document/d/15LkkMyQWr6pRrOjfrnY1IekAau06TvAtQVLCX8FW7Ks/edit?tab=t.0
 
 
+https://docs.google.com/document/d/1Q8boS2RBxc6Ll81yzq99InK3oUX567-wBM9eEn35P8s/edit?tab=t.0
 
 
+https://docs.google.com/document/d/1NxKsQslqvU4Yi2gG3FFhsUfNmSQkLrC0Bimo0HRbfqc/edit?tab=t.0#heading=h.1a9ypzulpj1g
+
+--- we need to submi the usabilyt repot doct -- 
+
+https://docs.google.com/document/d/1Hh0jQxaedQFnZTkVLmZnbh1u0-pRXouDe9LElPJywN4/edit?tab=t.0#heading=h.3889grurbl14
+
+https://northeastern.instructure.com/courses/249954/assignments/3196238
 
 
+https://northeastern.instructure.com/courses/249954/assignments/3196228
 ------
 
 
@@ -494,3 +506,203 @@ page without leaving the application.
 
 A future version should fully implement React Router routes so that native
 browser Back/Forward navigation and page-specific URLs work as expected.
+
+
+
+
+# GeoGoHub Usability Iteration Status
+
+## Usability Studies Reviewed
+
+Three usability studies were completed with Nona, Eka, and Teo.
+
+## Completed Improvements
+
+### 1. Membership Application – Company Field
+Feedback:
+Nona noted that not every potential member works for a company or organization.
+
+Change:
+- "Company or Organization" is optional.
+- Required membership fields are still validated.
+
+Status: COMPLETED
+
+### 2. Membership Application Status
+Feedback:
+Teo wanted a way to see whether a submitted membership application was
+pending, approved, or rejected.
+
+Change:
+- Membership status is displayed for logged-in users.
+- Pending and approved application states are handled.
+- Dashboard membership status was improved with visual status badges.
+- Approved = green
+- Pending = gold
+- Denied/Declined = red
+
+Status: COMPLETED
+
+### 3. Login – Show Password
+Feedback:
+Eka wanted the ability to see the password while entering it.
+
+Change:
+- Added Show Password functionality to the Login page.
+- Improved accessibility of login feedback.
+
+Status: COMPLETED
+
+### 4. Events – Search
+Feedback:
+Teo suggested adding search/filter functionality because finding specific
+events could be easier.
+
+Change:
+- Added event search.
+- Users can search by title, category, or location.
+
+Status: COMPLETED
+
+### 5. Events – Card Readability
+Feedback:
+Usability testing indicated that event information could be easier to scan.
+
+Change:
+- Improved EventCard layout.
+- Category and event title are displayed more clearly.
+- Long event titles have more space.
+- Event category badges were changed to a subtle gold design.
+
+Status: COMPLETED
+
+### 6. RSVP Status Feedback
+Feedback:
+Eka changed an RSVP from Going to Not Going but did not immediately notice
+that the status had changed.
+
+Change:
+- RSVP status presentation and feedback were improved.
+- Going, Maybe, and Not Going use visually distinct status styles.
+- Success feedback is displayed after RSVP updates.
+
+Status: COMPLETED
+
+### 7. Back Navigation
+Feedback:
+Nona used the browser Back button and expected to return to the previous
+GeoGoHub page.
+
+Change:
+- Added a temporary in-app Back button.
+- The application remembers previously visited GeoGoHub pages.
+- The Back button was made larger and given a gold accent so it is noticeable.
+
+Current limitation:
+GeoGoHub currently uses React state for most page navigation even though
+BrowserRouter is included in the project. Therefore, the browser's native
+Back/Forward navigation does not fully represent navigation inside the app.
+
+Future improvement:
+Convert page navigation to React Router routes so browser Back/Forward
+navigation and page-specific URLs work naturally.
+
+Status: TEMPORARY FIX COMPLETED
+
+
+## Improvements Not Implemented
+
+### 8. Event Images
+Feedback:
+Nona suggested adding images related to each event, such as sports,
+networking, dining, and cultural-event images.
+
+Decision:
+- Event images were explored but were not included in the final iteration.
+- The application is currently deployed using Render's free tier.
+- We decided not to add multiple large image assets because of concerns about
+  additional loading time and performance on the current hosting setup.
+
+Future improvement:
+Use optimized/compressed event images and an appropriate image-hosting
+strategy or additional hosting resources.
+
+Status: FUTURE IMPROVEMENT
+
+
+### 9. Member Profile Photo
+Feedback:
+Eka suggested allowing members to upload a profile photo.
+
+Decision:
+Not implemented during this iteration because it would require additional
+upload/storage functionality and was a larger change than the higher-priority
+usability fixes.
+
+Status: FUTURE IMPROVEMENT
+
+
+### 10. Member Hobbies / Interests / Biography
+Feedback:
+Eka suggested allowing members to add hobbies, interests, or a short
+biography.
+
+Decision:
+Not implemented during this iteration.
+
+ FUTURE IMPROVEMENT
+
+
+## Still To Review Next Session
+
+### Home Page / Membership Benefits
+Teo said the benefits of becoming a member should be more visible on the
+Home page.
+
+Eka also suggested improving the visual design and adding more information.
+
+Status: REVIEW NEXT SESSION
+
+
+### Final Accessibility and Responsive Review
+- Test keyboard navigation.
+- Check focus indicators.
+- Check form labels and status/error messages.
+- Check mobile layout after the latest changes.
+
+Status: TODO
+
+
+### Final Code Quality Check
+Run ESLint and Prettier after the remaining changes.
+
+Status: TODO
+
+
+### Final Deployment Test
+After completing the remaining changes:
+- Deploy the updated application.
+- Test Home, Membership, Login, Dashboard, Events, RSVP, Search, and Back.
+- Verify the deployed application still connects correctly to the backend.
+
+Status: TODO
+
+
+### Final Project Video / Presentation
+Document the usability feedback and demonstrate the changes made as a result
+of the three studies.
+
+Important examples to demonstrate:
+- Optional Company/Organization field
+- Membership status
+- Show Password
+- Event search
+- Improved event cards
+- RSVP feedback
+- In-app Back button
+- Future improvements such as event images and React Router navigation
+
+Status: TODO
+
+
+---- I created new branch to merge it after implemnetion but I deced to keep as new project and kpet the the firt one intect 
