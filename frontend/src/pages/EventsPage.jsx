@@ -136,6 +136,20 @@ function EventsPage({ currentUser = null }) {
     );
   }
 
+  const filteredEvents = events.filter((event) => {
+  const searchValue = searchTerm.trim().toLowerCase();
+
+  if (!searchValue) {
+    return true;
+  }
+
+  return (
+    event.title.toLowerCase().includes(searchValue) ||
+    event.category.toLowerCase().includes(searchValue) ||
+    event.location.toLowerCase().includes(searchValue)
+  );
+});
+
   return (
     <main className="events-page">
       <section className="events-page__content">
