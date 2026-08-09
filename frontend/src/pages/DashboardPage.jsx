@@ -216,7 +216,11 @@ function DashboardPage({ currentUser, onNavigate }) {
 
               <div>
                 <dt>Membership</dt>
-                <dd className="dashboard-status">
+                <dd
+                  className={`dashboard-status dashboard-status--${
+                    currentUser.membershipStatus || 'unknown'
+                  }`}
+                >
                   {formatLabel(currentUser.membershipStatus, 'Not available')}
                 </dd>
               </div>
