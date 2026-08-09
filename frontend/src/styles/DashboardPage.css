@@ -95,9 +95,32 @@
   color: #263329;
 }
 
+/* Membership status badge */
 .dashboard-status {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: capitalize;
+}
+
+.dashboard-status--approved {
+  background-color: #e7f4e9;
+  color: #285e33;
+}
+
+.dashboard-status--pending {
+  border: 1px solid #c9a34e;
+  background-color: #f8f1df;
+  color: #7a5a16;
+}
+
+.dashboard-status--denied,
+.dashboard-status--declined {
+  background-color: #fff1f1;
+  color: #8b2525;
 }
 
 .dashboard-actions {
@@ -236,46 +259,6 @@
   color: #8b2525;
 }
 
-@media (max-width: 650px) {
-  .dashboard-rsvps__heading {
-    flex-direction: column;
-  }
-
-  .dashboard-rsvps__heading button {
-    width: 100%;
-  }
-
-  .dashboard-rsvp-item {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 750px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-details div {
-    grid-template-columns: 1fr;
-    gap: 0.3rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .dashboard-page {
-    padding: 2rem 1rem;
-  }
-
-  .dashboard-page__heading h2 {
-    font-size: 2rem;
-  }
-
-  .dashboard-card {
-    padding: 1.5rem;
-  }
-}
-
 .dashboard-message {
   margin: 0 0 1.5rem;
   padding: 1rem;
@@ -404,30 +387,15 @@
   align-items: center;
 }
 
-.dashboard-status {
-  display: inline-block;
-  width: fit-content;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: capitalize;
-}
+@media (max-width: 750px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
 
-.dashboard-status--approved {
-  background-color: #e7f4e9;
-  color: #285e33;
-}
-
-.dashboard-status--pending {
-  border: 1px solid #c9a34e;
-  background-color: #f8f1df;
-  color: #7a5a16;
-}
-
-.dashboard-status--declined {
-  background-color: #fff1f1;
-  color: #8b2525;
+  .dashboard-details div {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
 }
 
 @media (max-width: 700px) {
@@ -440,5 +408,34 @@
   .dashboard-admin-actions button,
   .dashboard-delete-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard-rsvps__heading {
+    flex-direction: column;
+  }
+
+  .dashboard-rsvps__heading button {
+    width: 100%;
+  }
+
+  .dashboard-rsvp-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-page {
+    padding: 2rem 1rem;
+  }
+
+  .dashboard-page__heading h2 {
+    font-size: 2rem;
+  }
+
+  .dashboard-card {
+    padding: 1.5rem;
   }
 }
