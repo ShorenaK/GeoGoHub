@@ -439,3 +439,33 @@ Questions and feedback are welcome.
 ## License
 
 This project is licensed under the MIT License.
+
+
+
+
+
+
+
+------
+
+
+  {
+    "firstName": "Midge",
+    "lastName": "Donohoe",
+    "email": "mdonohoe2@homestead.com",
+    "password": "password123",
+    "role": "member",
+    "membershipStatus": "denied",
+    "createdAt": "2025-11-13T19:25:22Z",
+    "updatedAt": "2025-07-21T12:12:37Z"
+  }
+
+
+  -----------------
+
+
+  ## Future Improvements
+
+- Navigation: GeoGoHub currently uses React state for page navigation rather than URL-based routing. An in-app Back button was added as a usability improvement. A future version should use React Router so browser Back/Forward navigation and page-specific URLs work naturally.
+
+- Event Images & Logo: The current version does not include full event imagery. Because the application is deployed on Render's free tier, adding multiple large images could negatively affect performance and loading speed. A future version should optimize image sizes and consider more suitable image hosting or a higher hosting tier. 
