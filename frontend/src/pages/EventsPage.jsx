@@ -30,6 +30,7 @@ function EventsPage({ currentUser = null }) {
   const [pendingEventId, setPendingEventId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const canManageRsvps =
     currentUser?.role === 'admin' ||
