@@ -6,6 +6,7 @@
   Responsibilities:
   - Render the main application layout.
   - Track the currently selected page.
+  - Track internal page navigation history.
   - Track the authenticated user.
   - Restore an existing Passport session.
   - Handle login and logout.
@@ -30,6 +31,7 @@ import { getProfile, logoutUser } from './services/api.js';
 // Render the main application and selected page.
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [pageHistory, setPageHistory] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [isCheckingSession, setIsCheckingSession] = useState(true);
 
@@ -51,9 +53,34 @@ function App() {
     checkSession();
   }, []);
 
+  // Navigate to another GeoGoHub page and remember the current page.
+  function handleNavigate(page) {
+    if (page === currentPage) {
+      return;
+    }
+
+    setPageHistory((currentHistory) => [...currentHistory, currentPage]);
+    setCurrentPage(page);
+  }
+
+  // Return to the previously visited GeoGoHub page.
+  function handleBack() {
+    if (pageHistory.length === 0) {
+      return;
+    }
+
+    const previousPage = pageHistory[pageHistory.length - 1];
+
+    setPageHistory((currentHistory) => currentHistory.slice(0, -1));
+    setCurrentPage(previousPage);
+  }
+
   // Save the authenticated user and open the dashboard.
   function handleLogin(user) {
     setCurrentUser(user);
+
+    // Do not send a logged-in member back to the login screen.
+    setPageHistory([]);
     setCurrentPage('dashboard');
   }
 
@@ -61,7 +88,9 @@ function App() {
   async function handleLogout() {
     try {
       await logoutUser();
+
       setCurrentUser(null);
+      setPageHistory([]);
       setCurrentPage('home');
     } catch (error) {
       console.error(error.message);
@@ -78,25 +107,25 @@ function App() {
         return <ApplicationPage currentUser={currentUser} />;
 
       case 'login':
-        return <LoginPage onLogin={handleLogin} onNavigate={setCurrentPage} />;
+        return <LoginPage onLogin={handleLogin} onNavigate={handleNavigate} />;
 
       case 'dashboard':
         return currentUser ? (
-          <DashboardPage currentUser={currentUser} onNavigate={setCurrentPage} />
+          <DashboardPage currentUser={currentUser} onNavigate={handleNavigate} />
         ) : (
-          <LoginPage onLogin={handleLogin} onNavigate={setCurrentPage} />
+          <LoginPage onLogin={handleLogin} onNavigate={handleNavigate} />
         );
 
       case 'home':
       default:
-        return <HomePage onNavigate={setCurrentPage} />;
+        return <HomePage onNavigate={handleNavigate} />;
     }
   }
 
   if (isCheckingSession) {
     return (
       <>
-        <Header currentUser={null} onLogout={handleLogout} onNavigate={setCurrentPage} />
+        <Header currentUser={null} onLogout={handleLogout} onNavigate={handleNavigate} />
 
         <main>
           <p>Loading GeoGoHub...</p>
@@ -109,7 +138,15 @@ function App() {
 
   return (
     <>
-      <Header currentUser={currentUser} onLogout={handleLogout} onNavigate={setCurrentPage} />
+      <Header currentUser={currentUser} onLogout={handleLogout} onNavigate={handleNavigate} />
+
+      {pageHistory.length > 0 && (
+        <div className="app-back-navigation">
+          <button type="button" className="app-back-button" onClick={handleBack}>
+            ← Back
+          </button>
+        </div>
+      )}
 
       {renderPage()}
 
