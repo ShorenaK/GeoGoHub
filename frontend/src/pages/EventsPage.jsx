@@ -7,6 +7,7 @@
   - Retrieve events from the backend API.
   - Retrieve the authenticated member's RSVPs.
   - Create, update, and cancel RSVPs.
+  - Search available events.
   - Display loading, error, and success messages.
   - Render available club events.
 
@@ -128,6 +129,20 @@ function EventsPage({ currentUser = null }) {
     }
   }
 
+  const filteredEvents = events.filter((event) => {
+    const searchValue = searchTerm.trim().toLowerCase();
+
+    if (!searchValue) {
+      return true;
+    }
+
+    return (
+      event.title.toLowerCase().includes(searchValue) ||
+      event.category.toLowerCase().includes(searchValue) ||
+      event.location.toLowerCase().includes(searchValue)
+    );
+  });
+
   if (isLoading) {
     return (
       <main className="events-page">
@@ -135,20 +150,6 @@ function EventsPage({ currentUser = null }) {
       </main>
     );
   }
-
-  const filteredEvents = events.filter((event) => {
-  const searchValue = searchTerm.trim().toLowerCase();
-
-  if (!searchValue) {
-    return true;
-  }
-
-  return (
-    event.title.toLowerCase().includes(searchValue) ||
-    event.category.toLowerCase().includes(searchValue) ||
-    event.location.toLowerCase().includes(searchValue)
-  );
-});
 
   return (
     <main className="events-page">
@@ -162,6 +163,18 @@ function EventsPage({ currentUser = null }) {
             Explore curated gatherings created for members to connect, share ideas, and build
             meaningful relationships.
           </p>
+        </div>
+
+        <div className="events-page__search">
+          <label htmlFor="event-search">Search events</label>
+
+          <input
+            id="event-search"
+            type="search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="Search by title, category, or location"
+          />
         </div>
 
         {errorMessage && (
@@ -180,11 +193,13 @@ function EventsPage({ currentUser = null }) {
           <p className="events-page__notice">Log in as an approved member to RSVP to events.</p>
         )}
 
-        {events.length === 0 ? (
-          <p className="events-page__message">No events are currently available.</p>
+        {filteredEvents.length === 0 ? (
+          <p className="events-page__message">
+            {searchTerm ? 'No events match your search.' : 'No events are currently available.'}
+          </p>
         ) : (
           <EventList
-            events={events}
+            events={filteredEvents}
             canManageRsvps={canManageRsvps}
             findRsvpForEvent={findRsvpForEvent}
             onCreateRsvp={handleCreateRsvp}
