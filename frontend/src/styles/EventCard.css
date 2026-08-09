@@ -34,16 +34,20 @@
 }
 
 .event-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
 .event-card__category {
   display: inline-block;
-  margin: 0 0 0.75rem;
+  margin: 0;
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
-  background-color: #edf3ee;
-  color: #30573a;
+  background-color: #44d15c;
+  color: #f2400a;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -51,10 +55,12 @@
 }
 
 .event-card h3 {
+  width: 100%;
   margin: 0;
   color: #1f2a22;
   font-size: 1.35rem;
   line-height: 1.3;
+  overflow-wrap: break-word;
 }
 
 .event-card__description {
