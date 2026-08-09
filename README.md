@@ -466,6 +466,31 @@ This project is licensed under the MIT License.
 
   ## Future Improvements
 
+  - confirmation of the application htat has been received and the message desping tiem framce of the application process as well as easy login capablity with the integration of goolge/hotmail etc email. 
+
 - Navigation: GeoGoHub currently uses React state for page navigation rather than URL-based routing. An in-app Back button was added as a usability improvement. A future version should use React Router so browser Back/Forward navigation and page-specific URLs work naturally.
 
 - Event Images & Logo: The current version does not include full event imagery. Because the application is deployed on Render's free tier, adding multiple large images could negatively affect performance and loading speed. A future version should optimize image sizes and consider more suitable image hosting or a higher hosting tier. 
+
+
+ ### changes
+
+ ### Navigation and Browser Back Button
+
+GeoGoHub includes React Router (`BrowserRouter`) as part of the application
+setup. However, the current page navigation is primarily managed through React
+state rather than individual URL routes.
+
+During usability testing, a participant attempted to use the browser Back
+button to return to the previous GeoGoHub page. Because the application
+currently uses state-based navigation, the browser Back button may instead
+return the user to the website visited before GeoGoHub.
+
+Due to the limited time available for the final project iteration, the
+application was not fully migrated to route-based navigation. As a temporary
+usability improvement, an in-app "Back" button was implemented that tracks
+previously visited GeoGoHub pages and allows users to return to the previous
+page without leaving the application.
+
+A future version should fully implement React Router routes so that native
+browser Back/Forward navigation and page-specific URLs work as expected.
