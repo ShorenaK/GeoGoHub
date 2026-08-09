@@ -160,3 +160,25 @@
   cursor: not-allowed;
   opacity: 0.65;
 }
+
+.event-card__current-status {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.event-card__current-status--going {
+  background-color: #e7f4e9;
+  color: #285e33;
+}
+
+.event-card__current-status--maybe {
+  background-color: #fff6dd;
+  color: #725714;
+}
+
+.event-card__current-status--not-going {
+  background-color: #fff1f1;
+  color: #8b2525;
+}

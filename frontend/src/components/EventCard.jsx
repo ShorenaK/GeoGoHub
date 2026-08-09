@@ -18,6 +18,35 @@ import PropTypes from 'prop-types';
 
 import '../styles/EventCard.css';
 
+// Format an ISO date as a readable calendar date.
+function formatEventDate(dateValue) {
+  if (!dateValue) {
+    return 'Date not available';
+  }
+
+  const date = new Date(dateValue);
+
+  if (Number.isNaN(date.getTime())) {
+    return 'Date not available';
+  }
+
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+}
+
+// Format an RSVP value for display.
+function formatRsvpStatus(status) {
+  if (!status) {
+    return '';
+  }
+
+  return status.charAt(0).toUpperCase() + status.slice(1);
+}
+
 // Render one event.
 function EventCard({
   event,
@@ -38,12 +67,13 @@ function EventCard({
 
   return (
     <article className="event-card">
-      <div className="event-card__header">
+      <header className="event-card__header">
         <p className="event-card__category">{event.category}</p>
         <h3>{event.title}</h3>
-      </div>
+      </header>
 
       <p className="event-card__description">{event.description}</p>
+
       <dl className="event-card__details">
         <div>
           <dt>Date</dt>
@@ -70,7 +100,19 @@ function EventCard({
         <div className="event-card__rsvp">
           {rsvp ? (
             <>
-              <label htmlFor={`rsvp-status-${event._id}`}>Your RSVP</label>
+              <p
+                className={`event-card__current-status event-card__current-status--${rsvp.status.replaceAll(
+                  ' ',
+                  '-',
+                )}`}
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                Current RSVP: <strong>{formatRsvpStatus(rsvp.status)}</strong>
+              </p>
+
+              <label htmlFor={`rsvp-status-${event._id}`}>Change RSVP</label>
 
               <select
                 id={`rsvp-status-${event._id}`}
@@ -106,25 +148,6 @@ function EventCard({
       )}
     </article>
   );
-}
-// Format an ISO date as a readable calendar date.
-function formatEventDate(dateValue) {
-  if (!dateValue) {
-    return 'Date not available';
-  }
-
-  const date = new Date(dateValue);
-
-  if (Number.isNaN(date.getTime())) {
-    return 'Date not available';
-  }
-
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'UTC',
-  }).format(date);
 }
 
 EventCard.propTypes = {
