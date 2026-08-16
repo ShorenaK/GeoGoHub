@@ -129,7 +129,6 @@ The following suggestions were valuable but were intentionally not implemented i
 
 ---
 
-
 ### Usability Iteration — Before and After Evidence
 
 The screenshots below document several changes made after the three usability studies.
@@ -193,32 +192,6 @@ The RSVP interface now provides clearer Going, Maybe, and Not Going states and v
 ![Improved Membership Application](./frontend/public/images/new_applicaion_page-with-membership.png)
 
 The Company or Organization field was made optional, and optional Hobbies and Interests and Short Biography fields were added. The updated form also provides clear submission feedback.
-
-## Application Screenshots
-
-### Home Page
-
-![GeoGoHub Home Page](./frontend/public/images/home_page.png)
-
-### Events Page
-
-![GeoGoHub Events Page](./frontend/public/images/event_page.png)
-
-### Membership Application Page
-
-![GeoGoHub Membership Application Page](./frontend/public/images/membership_application_page.png)
-
-### Login Page
-
-![GeoGoHub Login Page](./frontend/public/images/member_login_page.png)
-
-### Member Dashboard
-
-![GeoGoHub Member Dashboard](./frontend/public/images/member_dashboard_page.png)
-
-### Administrator Dashboard
-
-![GeoGoHub Administrator Dashboard](./frontend/public/images/admin_page.png)
 
 ---
 
