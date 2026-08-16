@@ -191,7 +191,7 @@ The RSVP interface now provides clearer Going, Maybe, and Not Going states and v
 
 ![Improved Membership Application](./frontend/public/images/new_applicaion_page-with-membership.png)
 
-The Company or Organization field was made optional, and optional Hobbies and Interests and Short Biography fields were added. The updated form also provides clear submission feedback.
+The Company or Organization field was made optional, and optional Hobbies and Interests and Short Biography fields were added.
 
 ---
 
@@ -473,30 +473,30 @@ The administrator dashboard currently focuses primarily on reviewing and updatin
 
 ---
 
-## Future Improvements
+## Future Enhancements
 
 Planned future enhancements include:
 
-- Persistent MongoDB- or Redis-backed session storage
-- Forgot-password functionality
-- Password-reset functionality
-- Email confirmation after membership application submission
-- Estimated application review timeframe
-- Email notifications when an application is approved or declined
-- User registration
-- Email verification
-- Member profile editing
-- Profile picture uploads
-- Profile editing
-- Event category filters
-- Event location filters
-- Interactive calendar integration
-- Event reminder notifications
-- Expanded administrator event management
-- Administrator RSVP management
-- Member messaging
-- Improved mobile responsiveness
-- Calendar integration
+- **Event Images** — Add relevant images to event cards so users can visually identify networking, sports, dining, cultural, and other event types.
+- **Member Profile Photos** — Allow members to upload and display profile pictures as part of their member profiles.
+- **Expanded Member Profiles** — Create richer member profiles displaying profile photos, biographies, hobbies, interests, profession, and other member information.
+- **Member Profile Editing** — Allow members to update their biography, hobbies, interests, profession, and other profile information.
+- **Profile Picture Uploads** — Add secure image upload and storage functionality for member profile photos.
+- **Event Category Filters** — Allow users to filter events by categories such as networking, sports, dining, and culture.
+- **Event Location Filters** — Allow users to find events based on location.
+- **Interactive Calendar Integration** — Display upcoming events through an interactive calendar.
+- **Event Reminder Notifications** — Notify members about events for which they have RSVP'd.
+- **Email Confirmation** — Send confirmation after a membership application is submitted.
+- **Application Review Information** — Display an estimated application review timeframe.
+- **Application Status Notifications** — Notify applicants by email when their application is approved or declined.
+- **User Registration** — Allow approved members to create their own accounts.
+- **Email Verification** — Verify member email addresses during registration.
+- **Forgot Password / Password Reset** — Allow members to securely recover access to their accounts.
+- **Expanded Administrator Event Management** — Provide administrators with additional tools for creating, updating, and managing events.
+- **Administrator RSVP Management** — Allow administrators to review and manage member RSVPs.
+- **Member Messaging** — Allow members to communicate with other members through the application.
+- **Improved Mobile Responsiveness** — Continue optimizing layouts and interactions for mobile devices.
+- **Persistent Session Storage** — Replace the current session approach with MongoDB- or Redis-backed persistent session storage for production use.
 
 ---
 
