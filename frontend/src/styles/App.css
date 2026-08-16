@@ -1,5 +1,43 @@
-/* Global application styles */
+/*
+  App.css
 
+  This file defines global styles for the GeoGoHub React application.
+
+  Responsibilities:
+  - Define consistent typography across the application.
+  - Apply readable fonts to headings and interface content.
+  - Style the temporary Back navigation button.
+  - Provide visible keyboard focus states.
+  - Maintain responsive spacing for global navigation elements.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoGoHub
+*/
+
+/* Global typography */
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: #1f2a22;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.01em;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* Back navigation */
 .app-back-navigation {
   width: 100%;
   max-width: 1200px;
@@ -29,6 +67,7 @@
   outline-offset: 3px;
 }
 
+/* Responsive layout */
 @media (max-width: 600px) {
   .app-back-navigation {
     padding: 0 1rem;
