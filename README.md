@@ -34,7 +34,7 @@ The platform is designed for established professionals, entrepreneurs, founders,
 
 The inspiration for GeoGoHub comes from my birth country, the Republic of Georgia. Georgia has a growing professional, entrepreneurial, and creative community, and GeoGoHub provides a centralized platform where selected members can discover and attend curated gatherings.
 
-Unlike open event platforms, GeoGoHub uses an application-based membership system. Visitors may apply to join the club, while administrators review each application and approve or decline prospective members.
+Unlike open event platforms, GeoGoHub uses an application based membership system. Visitors may apply to join the club, while administrators review each application and approve or decline prospective members.
 
 Approved members can browse private events, RSVP to gatherings, and manage their attendance through a personalized dashboard.
 
@@ -99,31 +99,31 @@ The branch was initially created with the possibility of merging the improvement
 Based on the three usability studies, the final iteration includes:
 
 - **Membership application:** Company or Organization was changed to an optional field.
-- **Membership status:** Logged-in users receive clearer membership-status information, including visual treatment for approved, pending, and denied/declined states.
+- **Membership status:** Logged-in users receive clearer membership status information, including visual treatment for approved, pending, and denied & declined states.
 - **Login:** A Show Password control was added so users can verify the password they entered.
 - **Event discovery:** Search was added so events can be found by title, category, or location.
 - **Event cards:** Card layout and readability were improved, including additional space for event titles and subtle gold category badges.
 - **RSVP feedback:** Going, Maybe, and Not Going states are more visually distinct, and success feedback is displayed after an RSVP change.
 - **Navigation:** An in-app Back button was added as a temporary usability solution for returning to the previously visited GeoGoHub page.
 - **Home page:** Membership benefits were made more visible and the visual hierarchy was strengthened.
-- **Member information:** The membership application was expanded with fields for interests/hobbies and a short biography.
-- **Design consistency:** Spacing, typography, status colors, button styling, and the green/gold visual identity were refined across the application.
+- **Member information:** The membership application was expanded with fields for interests & hobbies and a short biography.
+- **Design consistency:** Spacing, typography, status colors, button styling, and the green & gold visual identity were refined across the application.
 
 ### Navigation and Browser Back Button
 
 GeoGoHub includes React Router (`BrowserRouter`) in the application setup, but most page navigation is currently managed through React state rather than individual URL routes.
 
-During usability testing, a participant expected the browser Back button to return to the previous GeoGoHub page. Because the application uses state-based navigation, the native browser Back button does not always represent navigation within the application.
+During usability testing, a participant expected the browser Back button to return to the previous GeoGoHub page. Because the application uses state based navigation, the native browser Back button does not always represent navigation within the application.
 
-Due to the limited time available for the final project iteration, the application was not fully migrated to route-based navigation. Instead, an in-app **Back** button was implemented as a temporary usability improvement. A future version should migrate page navigation fully to React Router so browser Back/Forward navigation and page-specific URLs work naturally.
+Due to the limited time available for the final project iteration, the application was not fully migrated to route-based navigation. Instead, an in-app **Back** button was implemented as a temporary usability improvement. A future version should migrate page navigation fully to React Router so browser Back & Forward navigation and page specific URLs work naturally.
 
 ### Improvements Reserved for Future Development
 
 The following suggestions were valuable but were intentionally not implemented in this iteration:
 
-- **Event images:** Event-specific imagery was explored but not added. The application currently uses Render's free service tier, so this iteration prioritized performance and avoided adding multiple large image assets. A future version should use optimized/compressed images and an appropriate image-hosting strategy.
-- **Profile photo upload:** This requires additional file-upload, storage, validation, and profile-management functionality and was outside the scope of the final iteration.
-- **Full React Router migration:** Native browser Back/Forward behavior and page-specific URLs should be implemented in a future version.
+- **Event images:** Event-specific imagery was explored but not added. The application currently uses Render's free service tier, so this iteration prioritized performance and avoided adding multiple large image assets. A future version should use optimized & compressed images and an appropriate image-hosting strategy.
+- **Profile photo upload:** This requires additional file upload, storage, validation, and profile management functionality and was outside the scope of the final iteration.
+- **Full React Router migration:** Native browser Back & Forward behavior and page specific URLs should be implemented in a future version.
 - **Application communication:** Future versions can provide email confirmation after an application is received, an estimated review timeframe, and approval/decline notifications.
 - **External authentication:** Google, Microsoft, or similar sign-in options could make account access easier in a future version.
 
@@ -167,7 +167,7 @@ A search field was added so users can find events by title, category, or locatio
 
 ![Events Page With Back Button](./frontend/public/images/changed_back_button.png)
 
-An in-app Back button was added as a temporary usability improvement while full route-based browser navigation remains a future enhancement.
+An in-app Back button was added as a temporary usability improvement while full route based browser navigation remains a future enhancement.
 
 #### RSVP Feedback and Status Visibility
 
