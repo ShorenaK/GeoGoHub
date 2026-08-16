@@ -5,6 +5,8 @@
 
   Responsibilities:
   - Receive application requests from routes.
+  - Validate membership application data.
+  - Normalize user input.
   - Call application model functions.
   - Send JSON responses back to the client.
 
@@ -25,7 +27,7 @@ import {
 // Handles creating a new membership application.
 export async function createApplicationController(req, res) {
   try {
-    const { firstName, lastName, email, profession, company, reason } = req.body;
+    const { firstName, lastName, email, profession, company, bio, interests, reason } = req.body;
 
     // Validate required fields.
     if (!firstName || !lastName || !email || !profession || !reason) {
@@ -65,6 +67,8 @@ export async function createApplicationController(req, res) {
       email: normalizedEmail,
       profession: profession.trim(),
       company: company ? company.trim() : '',
+      interests: interests ? interests.trim() : '',
+      bio: bio ? bio.trim() : '',
       reason: reason.trim(),
     });
 
@@ -86,12 +90,12 @@ export async function getAllApplicationsController(req, res) {
   try {
     const applications = await getAllApplications();
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       data: applications,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: 'Failed to get applications.',
       error: error.message,
