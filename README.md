@@ -72,17 +72,127 @@ GeoGoHub demonstrates a full-stack web application built with React, Node.js, Ex
 
 ### Website
 
-[GeoGoHub Live Application](https://geogohub.onrender.com/)
+[GeoGoHub Live Application](https://geogohub-iteration.onrender.com/)
 
 ### GitHub Repository
 
-[GeoGoHub GitHub Repository](https://github.com/ShorenaK/GeoGoHub)
+[GeoGoHub GitHub Repository](https://github.com/ShorenaK/GeoGoHub/tree/final-project-iteration)
 
 ### Presentation Deck
 
 [Presentation Slides](https://docs.google.com/presentation/d/13YsUJN9wiZLQY1QgLQalpNRzwHMoEJZx5QglgEJHFKE/edit?usp=sharing)
 
+## Final Project Usability & Design Iteration
+
+This version of GeoGoHub is the final project iteration of the original full-stack application. Three usability studies were conducted with participants representing potential users of a private membership and events platform. Participant names are intentionally omitted from this README.
+
+The studies focused on the Home page, membership application, login experience, member dashboard, event discovery, RSVP management, and navigation. Feedback was reviewed and prioritized so that the most useful and achievable improvements could be incorporated into the final iteration.
+
+### Development Branch
+
+The original GeoGoHub project remains intact on the original branch. A separate `final-project-iteration` branch was created in the same GitHub repository for the usability, accessibility, and design iteration.
+
+The branch was initially created with the possibility of merging the improvements back into the original project. For the final submission, I decided to keep the iteration separate so the original version remains intact and the improvements can be demonstrated and compared independently. A future version may merge the branches after additional development and testing.
+
+### Improvements Implemented
+
+Based on the three usability studies, the final iteration includes:
+
+- **Membership application:** Company or Organization was changed to an optional field.
+- **Membership status:** Logged-in users receive clearer membership-status information, including visual treatment for approved, pending, and denied/declined states.
+- **Login:** A Show Password control was added so users can verify the password they entered.
+- **Event discovery:** Search was added so events can be found by title, category, or location.
+- **Event cards:** Card layout and readability were improved, including additional space for event titles and subtle gold category badges.
+- **RSVP feedback:** Going, Maybe, and Not Going states are more visually distinct, and success feedback is displayed after an RSVP change.
+- **Navigation:** An in-app Back button was added as a temporary usability solution for returning to the previously visited GeoGoHub page.
+- **Home page:** Membership benefits were made more visible and the visual hierarchy was strengthened.
+- **Member information:** The membership application was expanded with fields for interests/hobbies and a short biography.
+- **Design consistency:** Spacing, typography, status colors, button styling, and the green/gold visual identity were refined across the application.
+
+### Navigation and Browser Back Button
+
+GeoGoHub includes React Router (`BrowserRouter`) in the application setup, but most page navigation is currently managed through React state rather than individual URL routes.
+
+During usability testing, a participant expected the browser Back button to return to the previous GeoGoHub page. Because the application uses state-based navigation, the native browser Back button does not always represent navigation within the application.
+
+Due to the limited time available for the final project iteration, the application was not fully migrated to route-based navigation. Instead, an in-app **Back** button was implemented as a temporary usability improvement. A future version should migrate page navigation fully to React Router so browser Back/Forward navigation and page-specific URLs work naturally.
+
+### Improvements Reserved for Future Development
+
+The following suggestions were valuable but were intentionally not implemented in this iteration:
+
+- **Event images:** Event-specific imagery was explored but not added. The application currently uses Render's free service tier, so this iteration prioritized performance and avoided adding multiple large image assets. A future version should use optimized/compressed images and an appropriate image-hosting strategy.
+- **Profile photo upload:** This requires additional file-upload, storage, validation, and profile-management functionality and was outside the scope of the final iteration.
+- **Full React Router migration:** Native browser Back/Forward behavior and page-specific URLs should be implemented in a future version.
+- **Application communication:** Future versions can provide email confirmation after an application is received, an estimated review timeframe, and approval/decline notifications.
+- **External authentication:** Google, Microsoft, or similar sign-in options could make account access easier in a future version.
+
 ---
+
+
+### Usability Iteration — Before and After Evidence
+
+The screenshots below document several changes made after the three usability studies.
+
+#### Home Page Visual Hierarchy and Membership Benefits
+
+**Before:**
+
+![Original GeoGoHub Home Page](./frontend/public/images/original_home.png)
+
+**After:**
+
+![Improved GeoGoHub Home Page](./frontend/public/images/changes_HOMe.png)
+
+The final iteration strengthens the visual hierarchy and makes membership benefits more visible on the Home page.
+
+#### Event Search
+
+**Before:**
+
+![Original Events Page Without Search](./frontend/public/images/orignal_searchevent.png)
+
+**After:**
+
+![Events Page With Search](./frontend/public/images/cahgnesSearchedevent.png)
+
+A search field was added so users can find events by title, category, or location.
+
+#### In-App Back Navigation
+
+**Before:**
+
+![Original Events Page Without Back Button](./frontend/public/images/origina_no_back_button.png)
+
+**After:**
+
+![Events Page With Back Button](./frontend/public/images/changed_back_button.png)
+
+An in-app Back button was added as a temporary usability improvement while full route-based browser navigation remains a future enhancement.
+
+#### RSVP Feedback and Status Visibility
+
+**Before:**
+
+![Original RSVP Interface](./frontend/public/images/original_rsvp.png)
+
+**After:**
+
+![Improved RSVP Interface](./frontend/public/images/changes_RSVP.png)
+
+The RSVP interface now provides clearer Going, Maybe, and Not Going states and visible feedback after a status change.
+
+#### Membership Application
+
+**Before:**
+
+![Original Membership Application](./frontend/public/images/old_applicationpage_membership.png)
+
+**After:**
+
+![Improved Membership Application](./frontend/public/images/new_applicaion_page-with-membership.png)
+
+The Company or Organization field was made optional, and optional Hobbies and Interests and Short Biography fields were added. The updated form also provides clear submission feedback.
 
 ## Application Screenshots
 
@@ -274,7 +384,7 @@ npm start
 ### Start the frontend
 cd ../frontend
 npm run dev
----
+**---**
 
 ## The following accounts provided below are for the professor and TA's to test the application.
 
@@ -282,17 +392,17 @@ npm run dev
 
 #### Approved Member Account
 
-```text
-Email: hborgnol0@prlog.org
+\`\`\`text
+Email: hborgnol0\@prlog.org
 Password: password123
-```
+\`\`\`
 
 This account has:
 
-```text
+\`\`\`text
 Role: Member
 Membership Status: Approved
-```
+\`\`\`
 
 Use this account to test:
 
@@ -305,17 +415,17 @@ Use this account to test:
 
 ### Administrator Account
 
-```text
-Email: sscourgieu@narod.ru
+\`\`\`text
+Email: sscourgieu\@narod.ru
 Password: password123
-```
+\`\`\`
 
 This account has:
 
-```text
+\`\`\`text
 Role: Admin
 Membership Status: Approved
-```
+\`\`\`
 
 Use this account to test:
 
@@ -330,11 +440,31 @@ Use this account to test:
 
 ## Tools Used for Testing
 
+- Chrome Developer Tools
+- Google Lighthouse
+- Keyboard navigation testing
 - Thunder Client
 - MongoDB Compass
-- Browser Developer Tools
 - ESLint
 - Prettier
+
+### Accessibility Testing
+
+The deployed final iteration was tested with **Google Chrome Lighthouse**. The tested deployed page received an **Accessibility score of 100**.
+
+The application was also reviewed for accessibility-related implementation details such as semantic HTML, form labels, visible focus indicators, status/error feedback, standard interactive elements, and keyboard access.
+
+### Lighthouse Evidence
+
+The screenshots below document the Lighthouse test performed on the deployed final iteration.
+
+![GeoGoHub Lighthouse Overall Report](./frontend/public/images/accessibility_report2.png)
+
+The tested deployment received **100 Performance**, **100 Accessibility**, **96 Best Practices**, and **91 SEO** in this Lighthouse run.
+
+![GeoGoHub Lighthouse Accessibility Details](./frontend/public/images/accessiblity_report.png)
+
+The Accessibility category received a score of **100**, with the automated accessibility audits shown as passed. Lighthouse automated testing does not replace manual accessibility testing, so keyboard navigation and other manual checks were also reviewed.
 
 ---
 
@@ -354,7 +484,7 @@ Some of the primary challenges encountered during development included:
 
 ## Known Limitations
 
-GeoGoHub currently uses the default in-memory session store provided by `express-session`.
+GeoGoHub currently uses the default in-memory session store provided by \`express-session\`.
 
 Although the browser session cookie is configured to last for up to 30 days, server-side sessions may be lost when the Render service:
 
@@ -377,7 +507,6 @@ Planned future enhancements include:
 - Persistent MongoDB- or Redis-backed session storage
 - Forgot-password functionality
 - Password-reset functionality
-- Show-or-hide password control on the login page
 - Email confirmation after membership application submission
 - Estimated application review timeframe
 - Email notifications when an application is approved or declined
@@ -386,7 +515,6 @@ Planned future enhancements include:
 - Member profile editing
 - Profile picture uploads
 - Profile editing
-- Advanced event search
 - Event category filters
 - Event location filters
 - Interactive calendar integration
@@ -411,6 +539,8 @@ Planned future enhancements include:
 - Fetch API (without Axios)
 - Deploying the complete application using Render and MongoDB Atlas
 - Creating a professional interface inspired by Georgia's professional and cultural community
+- Usability-driven iteration based on three participant studies
+- Lighthouse Accessibility score of 100 on the tested deployed page
 
 ---
 
@@ -432,277 +562,10 @@ Planned future enhancements include:
 
 Questions and feedback are welcome.
 
-[Email Me](mailto:shorenaanzhilov@gmail.com)
+[Email Me](mailto\:shorenaanzhilov\@gmail.com)
 
 ---
 
 ## License
 
 This project is licensed under the MIT License.
-
-===US===
-
-https://docs.google.com/document/d/15LkkMyQWr6pRrOjfrnY1IekAau06TvAtQVLCX8FW7Ks/edit?tab=t.0
-
-
-https://docs.google.com/document/d/1Q8boS2RBxc6Ll81yzq99InK3oUX567-wBM9eEn35P8s/edit?tab=t.0
-
-
-https://docs.google.com/document/d/1NxKsQslqvU4Yi2gG3FFhsUfNmSQkLrC0Bimo0HRbfqc/edit?tab=t.0#heading=h.1a9ypzulpj1g
-
---- we need to submi the usabilyt repot doct -- 
-
-https://docs.google.com/document/d/1Hh0jQxaedQFnZTkVLmZnbh1u0-pRXouDe9LElPJywN4/edit?tab=t.0#heading=h.3889grurbl14
-
-https://northeastern.instructure.com/courses/249954/assignments/3196238
-
-
-https://northeastern.instructure.com/courses/249954/assignments/3196228
-------
-
-
-  {
-    "firstName": "Midge",
-    "lastName": "Donohoe",
-    "email": "mdonohoe2@homestead.com",
-    "password": "password123",
-    "role": "member",
-    "membershipStatus": "denied",
-    "createdAt": "2025-11-13T19:25:22Z",
-    "updatedAt": "2025-07-21T12:12:37Z"
-  }
-
-
-  -----------------
-
-
-  ## Future Improvements
-
-  - confirmation of the application htat has been received and the message desping tiem framce of the application process as well as easy login capablity with the integration of goolge/hotmail etc email. 
-
-- Navigation: GeoGoHub currently uses React state for page navigation rather than URL-based routing. An in-app Back button was added as a usability improvement. A future version should use React Router so browser Back/Forward navigation and page-specific URLs work naturally.
-
-- Event Images & Logo: The current version does not include full event imagery. Because the application is deployed on Render's free tier, adding multiple large images could negatively affect performance and loading speed. A future version should optimize image sizes and consider more suitable image hosting or a higher hosting tier. 
-
-
- ### changes
-
- ### Navigation and Browser Back Button
-
-GeoGoHub includes React Router (`BrowserRouter`) as part of the application
-setup. However, the current page navigation is primarily managed through React
-state rather than individual URL routes.
-
-During usability testing, a participant attempted to use the browser Back
-button to return to the previous GeoGoHub page. Because the application
-currently uses state-based navigation, the browser Back button may instead
-return the user to the website visited before GeoGoHub.
-
-Due to the limited time available for the final project iteration, the
-application was not fully migrated to route-based navigation. As a temporary
-usability improvement, an in-app "Back" button was implemented that tracks
-previously visited GeoGoHub pages and allows users to return to the previous
-page without leaving the application.
-
-A future version should fully implement React Router routes so that native
-browser Back/Forward navigation and page-specific URLs work as expected.
-
-
-
-
-# GeoGoHub Usability Iteration Status
-
-## Usability Studies Reviewed
-
-Three usability studies were completed with Nona, Eka, and Teo.
-
-## Completed Improvements
-
-### 1. Membership Application – Company Field
-Feedback:
-Nona noted that not every potential member works for a company or organization.
-
-Change:
-- "Company or Organization" is optional.
-- Required membership fields are still validated.
-
-Status: COMPLETED
-
-### 2. Membership Application Status
-Feedback:
-Teo wanted a way to see whether a submitted membership application was
-pending, approved, or rejected.
-
-Change:
-- Membership status is displayed for logged-in users.
-- Pending and approved application states are handled.
-- Dashboard membership status was improved with visual status badges.
-- Approved = green
-- Pending = gold
-- Denied/Declined = red
-
-Status: COMPLETED
-
-### 3. Login – Show Password
-Feedback:
-Eka wanted the ability to see the password while entering it.
-
-Change:
-- Added Show Password functionality to the Login page.
-- Improved accessibility of login feedback.
-
-Status: COMPLETED
-
-### 4. Events – Search
-Feedback:
-Teo suggested adding search/filter functionality because finding specific
-events could be easier.
-
-Change:
-- Added event search.
-- Users can search by title, category, or location.
-
-Status: COMPLETED
-
-### 5. Events – Card Readability
-Feedback:
-Usability testing indicated that event information could be easier to scan.
-
-Change:
-- Improved EventCard layout.
-- Category and event title are displayed more clearly.
-- Long event titles have more space.
-- Event category badges were changed to a subtle gold design.
-
-Status: COMPLETED
-
-### 6. RSVP Status Feedback
-Feedback:
-Eka changed an RSVP from Going to Not Going but did not immediately notice
-that the status had changed.
-
-Change:
-- RSVP status presentation and feedback were improved.
-- Going, Maybe, and Not Going use visually distinct status styles.
-- Success feedback is displayed after RSVP updates.
-
-Status: COMPLETED
-
-### 7. Back Navigation
-Feedback:
-Nona used the browser Back button and expected to return to the previous
-GeoGoHub page.
-
-Change:
-- Added a temporary in-app Back button.
-- The application remembers previously visited GeoGoHub pages.
-- The Back button was made larger and given a gold accent so it is noticeable.
-
-Current limitation:
-GeoGoHub currently uses React state for most page navigation even though
-BrowserRouter is included in the project. Therefore, the browser's native
-Back/Forward navigation does not fully represent navigation inside the app.
-
-Future improvement:
-Convert page navigation to React Router routes so browser Back/Forward
-navigation and page-specific URLs work naturally.
-
-Status: TEMPORARY FIX COMPLETED
-
-
-## Improvements Not Implemented
-
-### 8. Event Images
-Feedback:
-Nona suggested adding images related to each event, such as sports,
-networking, dining, and cultural-event images.
-
-Decision:
-- Event images were explored but were not included in the final iteration.
-- The application is currently deployed using Render's free tier.
-- We decided not to add multiple large image assets because of concerns about
-  additional loading time and performance on the current hosting setup.
-
-Future improvement:
-Use optimized/compressed event images and an appropriate image-hosting
-strategy or additional hosting resources.
-
-Status: FUTURE IMPROVEMENT
-
-
-### 9. Member Profile Photo
-Feedback:
-Eka suggested allowing members to upload a profile photo.
-
-Decision:
-Not implemented during this iteration because it would require additional
-upload/storage functionality and was a larger change than the higher-priority
-usability fixes.
-
-Status: FUTURE IMPROVEMENT
-
-
-### 10. Member Hobbies / Interests / Biography
-Feedback:
-Eka suggested allowing members to add hobbies, interests, or a short
-biography.
-
-Decision:
-Not implemented during this iteration.
-
- FUTURE IMPROVEMENT
-
-
-## Still To Review Next Session
-
-### Home Page / Membership Benefits
-Teo said the benefits of becoming a member should be more visible on the
-Home page.
-
-Eka also suggested improving the visual design and adding more information.
-
-Status: REVIEW NEXT SESSION
-
-
-### Final Accessibility and Responsive Review
-- Test keyboard navigation.
-- Check focus indicators.
-- Check form labels and status/error messages.
-- Check mobile layout after the latest changes.
-
-Status: TODO
-
-
-### Final Code Quality Check
-Run ESLint and Prettier after the remaining changes.
-
-Status: TODO
-
-
-### Final Deployment Test
-After completing the remaining changes:
-- Deploy the updated application.
-- Test Home, Membership, Login, Dashboard, Events, RSVP, Search, and Back.
-- Verify the deployed application still connects correctly to the backend.
-
-Status: TODO
-
-
-### Final Project Video / Presentation
-Document the usability feedback and demonstrate the changes made as a result
-of the three studies.
-
-Important examples to demonstrate:
-- Optional Company/Organization field
-- Membership status
-- Show Password
-- Event search
-- Improved event cards
-- RSVP feedback
-- In-app Back button
-- Future improvements such as event images and React Router navigation
-
-Status: TODO
-
-
----- I created new branch to merge it after implemnetion but I deced to keep as new project and kpet the the firt one intect 
