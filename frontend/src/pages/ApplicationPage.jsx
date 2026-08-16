@@ -8,6 +8,7 @@
   - Manage form input using React state.
   - Submit applications to the backend API.
   - Display loading, error, and success states.
+  - Collect optional member biography and interests information.
 
   Author: Shorena K. Anzhilov
   Course: CS 5610 Web Development
@@ -26,6 +27,8 @@ const initialFormData = {
   email: '',
   profession: '',
   company: '',
+  bio: '',
+  interests: '',
   reason: '',
 };
 
@@ -66,6 +69,7 @@ function ApplicationPage({ currentUser = null }) {
       setIsSubmitting(false);
     }
   }
+
   if (currentUser?.membershipStatus === 'pending') {
     return (
       <main className="application-page">
@@ -207,6 +211,36 @@ function ApplicationPage({ currentUser = null }) {
                 onChange={handleChange}
               />
             </div>
+          </div>
+
+          <div className="application-form__field">
+            <label htmlFor="application-interests">
+              Hobbies and interests <span>(optional)</span>
+            </label>
+
+            <input
+              id="application-interests"
+              name="interests"
+              type="text"
+              value={formData.interests}
+              onChange={handleChange}
+              placeholder="Golf, hiking, technology, art"
+            />
+          </div>
+
+          <div className="application-form__field">
+            <label htmlFor="application-bio">
+              Short biography <span>(optional)</span>
+            </label>
+
+            <textarea
+              id="application-bio"
+              name="bio"
+              rows="4"
+              value={formData.bio}
+              onChange={handleChange}
+              placeholder="Tell us a little about yourself."
+            />
           </div>
 
           <div className="application-form__field">
