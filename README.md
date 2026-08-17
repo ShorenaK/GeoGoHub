@@ -542,3 +542,18 @@ Questions and feedback are welcome.
 ## License
 
 This project is licensed under the MIT License.
+
+---
+
+## Peer Review
+Hi Shorena and Geogo Hub Team, I reviewed your GeoGoHub project and I think it has a very clear purpose and strong full-stack functionality. I like that the app supports membership applications, authentication, event browsing, RSVP management, member dashboard, and administrator dashboard. The README is also very detailed and makes the project easy to understand.
+
+A few suggestions I have are:
+
+1. The folder structure could be simplified. I noticed there is a frontend folder at the root level and also a frontend folder inside the backend directory, which may confuse future reviewers or developers.
+
+2. Since the app uses authentication and role-based dashboards, it would be helpful to use a persistent session store instead of the default in-memory express-session store for production.
+
+3. Admin-only actions should be strongly protected on the backend, not only hidden from the frontend UI.
+
+Overall, this is a strong and polished project. The concept is clear, the functionality is meaningful, and the documentation is very complete.
